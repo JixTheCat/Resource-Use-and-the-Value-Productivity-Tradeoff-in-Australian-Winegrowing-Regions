@@ -1,6 +1,8 @@
+library(ggplot2)
+
 # data_prep.py has to be executed in order for df.csv to exist
 set.seed(100)
-df <- read.csv("df.csv")
+df <- read.csv("dfnh.csv")
 
 model1 <- lm(tonnes_grapes_harvested ~ data_year_id+giregion+area_harvested+water_used+scope1,data=df)
 model2 <- lm(ha_tonnes_grapes_harvested ~ area_harvested*((scope1)+water_used)+data_year_id:giregion, data=df)
@@ -10,9 +12,13 @@ model4 <- lm(ha_value ~ area_harvested*((scope1)+water_used)+data_year_id:giregi
 # We create our first model
 
 # MODEL 1
-anova(lm(tonnes_grapes_harvested ~ data_year_id+giregion+area_harvested+water_used+scope1,data=df))
-summary(lm(tonnes_grapes_harvested ~ data_year_id+giregion+area_harvested+water_used+scope1,data=df))
-#Linear Regression 
+anova(model1)
+summary(model1)
+model1.residuals <- residuals(model1)
+model1.fitted <- fitted(model1)
+ggplot(data.frame(y=model1.residuals), aes(sample=y)) + stat_qq() + stat_qq_line()
+ggplot(data.frame(y=model1.residuals,x=model1.fitted), aes(x=x,y=y)) + geom_point() + geom_hline(yintercept=0)
+#Linear Regression
 #
 #6068 samples
 #   5 predictor
@@ -30,8 +36,8 @@ summary(lm(tonnes_grapes_harvested ~ data_year_id+giregion+area_harvested+water_
 
 # MODEL 2
 # Lets look at ratios
-anova(lm(df$ha_tonnes_grapes_harvested ~ df$area_harvested*((df$scope1)+df$water_used)+df$data_year_id:df$giregion))
-summary(lm(df$ha_tonnes_grapes_harvested ~ df$area_harvested*((df$scope1)+df$water_used)+df$data_year_id:df$giregion))
+anova(model2)
+summary(model2)
 #Linear Regression 
 #
 #6068 samples
@@ -49,8 +55,8 @@ summary(lm(df$ha_tonnes_grapes_harvested ~ df$area_harvested*((df$scope1)+df$wat
 
 # MODEL 3
 # We add Value to the model :P
-anova(lm(value ~ data_year_id+giregion+area_harvested+water_used+scope1,data=df))
-summary(lm(value ~ data_year_id+giregion+area_harvested+water_used+scope1,data=df))
+anova(model3)
+summary(model3)
 # Residual standard error: 0.1688 on 1962 degrees of freedom
 #   (2877 observations deleted due to missingness)
 # Multiple R-squared:  0.9723,	Adjusted R-squared:  0.9715 
@@ -72,8 +78,8 @@ summary(lm(value ~ data_year_id+giregion+area_harvested+water_used+scope1,data=d
 
 
 # MODEL 4
-anova(lm(df$ha_value ~ df$area_harvested*((df$scope1)+df$water_used)+df$data_year_id:df$giregion))
-summary(lm(df$ha_value ~ df$area_harvested*((df$scope1)+df$water_used)+df$data_year_id:df$giregion))
+anova(model4)
+summary(model4)
 # Residual standard error: 0.1949 on 1791 degrees of freedom
 #   (2877 observations deleted due to missingness)
 # Multiple R-squared:  0.9662,	Adjusted R-squared:  0.962 
