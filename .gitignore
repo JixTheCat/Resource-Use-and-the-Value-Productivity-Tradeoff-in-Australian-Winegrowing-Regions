@@ -17,3 +17,12 @@ data/*
 __pycache__/*
 .~*
 .git
+# Below are latex left overs.
+*.aux
+*.bbl
+*.bcf
+*.fdb_latexmk
+*.fls
+#*.log We keep logs so that if something is broken others know why!
+*.xml
+*.gz
