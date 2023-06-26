@@ -2,7 +2,7 @@ library(ggplot2)
 
 # data_prep.py has to be executed in order for df.csv to exist
 set.seed(100)
-df <- read.csv("dfnh.csv")
+df <- read.csv("df.csv")
 
 model1 <- lm(tonnes_grapes_harvested ~ data_year_id+giregion+area_harvested+water_used+scope1,data=df)
 model2 <- lm(ha_tonnes_grapes_harvested ~ area_harvested*((scope1)+water_used)+data_year_id:giregion, data=df)
