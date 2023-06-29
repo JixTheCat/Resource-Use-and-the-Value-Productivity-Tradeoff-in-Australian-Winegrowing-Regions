@@ -26,3 +26,8 @@ __pycache__/*
 #*.log We keep logs so that if something is broken others know why!
 *.xml
 *.gz
+
+# Images will be manually uploaded - this is to prevent the inclusion of place holders such as the duck.
+*.jpg
+*.tiff
+*.jpeg
