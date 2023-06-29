@@ -5,55 +5,53 @@ The style file: elsarticle-harv.bst
 Database file #1: references.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty journal in wineaustraliaNationalVintageReport2019
-Warning--empty journal in wineaustraliaNationalVintageReport2020
 Warning--empty journal in wineaustraliaNationalVintageReport2021
 Warning--empty journal in wineaustraliaNationalVintageReport2022
-Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2012
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2013
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2014
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2015
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2016
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2017
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2018
-You've used 37 entries,
+You've used 36 entries,
             2990 wiz_defined-function locations,
-            870 strings with 14177 characters,
-and the built_in function-call counts, 21700 in all, are:
-= -- 1605
-> -- 858
-< -- 24
-+ -- 333
-- -- 294
-* -- 2225
-:= -- 3275
-add.period$ -- 107
-call.type$ -- 37
-change.case$ -- 282
-chr.to.int$ -- 37
-cite$ -- 48
-duplicate$ -- 1686
-empty$ -- 1603
-format.name$ -- 371
-if$ -- 3976
+            870 strings with 14153 characters,
+and the built_in function-call counts, 21283 in all, are:
+= -- 1578
+> -- 848
+< -- 23
++ -- 329
+- -- 291
+* -- 2190
+:= -- 3210
+add.period$ -- 106
+call.type$ -- 36
+change.case$ -- 275
+chr.to.int$ -- 36
+cite$ -- 45
+duplicate$ -- 1647
+empty$ -- 1565
+format.name$ -- 367
+if$ -- 3900
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 312
-newline$ -- 196
-num.names$ -- 148
-pop$ -- 680
+missing$ -- 306
+newline$ -- 193
+num.names$ -- 144
+pop$ -- 659
 preamble$ -- 1
-purify$ -- 246
+purify$ -- 241
 quote$ -- 0
-skip$ -- 530
+skip$ -- 513
 stack$ -- 0
-substring$ -- 762
-swap$ -- 1071
+substring$ -- 751
+swap$ -- 1058
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 330
-warning$ -- 11
-while$ -- 142
+type$ -- 321
+warning$ -- 9
+while$ -- 139
 width$ -- 0
-write$ -- 507
-(There were 11 warnings)
+write$ -- 499
+(There were 9 warnings)
