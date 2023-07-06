@@ -229,10 +229,11 @@ The site of a vineyard predetermines several physical parameters such as climate
 \newline
 \subsection{Model Validation}
 Models were validated using K-fold cross validation calculated through the R Caret Package \citep{kuhnBuildingPredictiveModels2008}. K-fold cross validation works by removing a subset of data from the sample used to train models and then predicts those variables to determine how sensitive the model is to changes in the sample data. For this analysis each model was validated using 10 folds, repeated 100 times. % A reference for this is absolutely needed.
-
 \section{Results}
 \subsection{Exploratory Analysis}
-Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients range between -1 and 1, and are indicative of . This was undertaken for data on the original scale (see Table 2) and for data as a logarithmic transform (see Table 3). Strong relationships were found to be present, as all P-values were considered significant (< 2.200E-16, see Tables 2 and 3), except for the non-transformed values for water used (see Table 4). The logarithmic transforms showed the strongest correlations, this was likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table 5).
+Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients are a measure of the linear relation between two variables; this measure is scale between -1 and 1, indicating the strength of the relationship. Transforming the data prior to calculating these values changes several things: The logarithmic transform of the data changes the interpretation of the coefficients to percentage changes, such that a coefficient will be indicative of the ratio a variable will change in percentage compared to a one percent increase in the other; being scaled by standard deviation this increase will be relative to the standard deviation, making it a percent of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. 
+%
+This was undertaken for data on the original scale (see Table 2) and for data as a logarithmic transform (see Table 3). Strong relationships were found to be present, as all P-values were considered significant (< 2.200E-16, see Tables 2 and 3), except for the non-transformed values for water used (see Table 4). The logarithmic transforms showed the strongest correlations, this was likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table 5).
 
 \begin{table}[]
   \caption{Summary of models, their predictors, covariates and variable interactions.}
