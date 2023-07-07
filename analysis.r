@@ -4,20 +4,48 @@ library(ggplot2)
 set.seed(100)
 df <- read.csv("df.csv")
 
-model1 <- lm(tonnes_grapes_harvested ~ data_year_id+giregion+area_harvested+water_used+scope1,data=df)
-model2 <- lm(ha_tonnes_grapes_harvested ~ area_harvested*((scope1)+water_used)+data_year_id:giregion, data=df)
-model3 <- lm(value ~ data_year_id+giregion+area_harvested+water_used+scope1,data=df)
-model4 <- lm(ha_value ~ area_harvested*((scope1)+water_used)+data_year_id:giregion,data=df)
+model1 <- lm(
+    tonnes_grapes_harvested ~
+    data_year_id + giregion + area_harvested + water_used + scope1
+    , data = df)
+model2 <- lm(
+    ha_tonnes_grapes_harvested ~
+    area_harvested * ((scope1) + water_used) + data_year_id:giregion
+    , data = df)
+model3 <- lm(
+    value ~
+    data_year_id + giregion + area_harvested + water_used + scope1
+    , data = df)
+model4 <- lm(
+    ha_value ~
+    area_harvested * ((scope1) + water_used) + data_year_id:giregion
+    , data = df)
 
-# We create our first model
+# We review our first model
 
 # MODEL 1
 anova(model1)
 summary(model1)
-model1.residuals <- residuals(model1)
-model1.fitted <- fitted(model1)
-ggplot(data.frame(y=model1.residuals), aes(sample=y)) + stat_qq() + stat_qq_line()
-ggplot(data.frame(y=model1.residuals,x=model1.fitted), aes(x=x,y=y)) + geom_point() + geom_hline(yintercept=0)
+coefs1 <- coefs(model1)
+coefs1_giregion <- coefs1[grep("gi*", row.names(ok)), ]
+coefs1_year <- coefs1[grep("data*", row.names(ok)), ]
+model1_residuals <- residuals(model1)
+model1_fitted <- fitted(model1)
+ggplot(
+    data.frame(
+        y = model1_residuals)
+        , aes(sample = y)
+       ) +
+       stat_qq() +
+       stat_qq_line()
+ggplot(
+    data.frame(
+        y = model1_residuals
+        , x = model1_fitted)
+    , aes(x = x, y = y)
+    ) +
+    geom_point() +
+    geom_hline(yintercept = 0)
 #Linear Regression
 #
 #6068 samples
@@ -38,6 +66,26 @@ ggplot(data.frame(y=model1.residuals,x=model1.fitted), aes(x=x,y=y)) + geom_poin
 # Lets look at ratios
 anova(model2)
 summary(model2)
+coefs2 <- coefs(model2)
+coefs2_giregion <- coefs2[grep("gi*", row.names(ok)), ]
+coefs2_year <- coefs2[grep("data*", row.names(ok)), ]
+model1_residuals <- residuals(model2)
+model1_fitted <- fitted(model2)
+ggplot(
+    data.frame(
+        y = model2_residuals)
+        , aes(sample = y)
+       ) +
+       stat_qq() +
+       stat_qq_line()
+ggplot(
+    data.frame(
+        y = model2_residuals
+        , x = model2_fitted)
+    , aes(x = x, y = y)
+    ) +
+    geom_point()+
+    geom_hline(yintercept = 0)
 #Linear Regression 
 #
 #6068 samples
@@ -57,6 +105,26 @@ summary(model2)
 # We add Value to the model :P
 anova(model3)
 summary(model3)
+coefs3 <- coefs(model3)
+coefs3_giregion <- coefs3[grep("gi*", row.names(ok)), ]
+coefs3_year <- coefs3[grep("data*", row.names(ok)), ]
+model3_residuals <- residuals(model3)
+model3_fitted <- fitted(model3)
+ggplot(
+    data.frame(
+        y = model3_residuals)
+        , aes(sample = y)
+       ) +
+       stat_qq() +
+       stat_qq_line()
+ggplot(
+    data.frame(
+        y = model3_residuals
+        , x = model3_fitted)
+    , aes(x = x, y = y)
+    ) +
+    geom_point() +
+    geom_hline(yintercept = 0)
 # Residual standard error: 0.1688 on 1962 degrees of freedom
 #   (2877 observations deleted due to missingness)
 # Multiple R-squared:  0.9723,	Adjusted R-squared:  0.9715 
@@ -80,6 +148,26 @@ summary(model3)
 # MODEL 4
 anova(model4)
 summary(model4)
+coefs4 <- coefs(model4)
+coefs4_giregion <- coefs4[grep("gi*", row.names(ok)), ]
+coefs4_year <- coefs4[grep("data*", row.names(ok)), ]
+model4_residuals <- residuals(model4)
+model4_fitted <- fitted(model4)
+ggplot(
+    data.frame(
+        y = model4_residuals)
+        , aes(sample = y)
+       ) +
+       stat_qq() +
+       stat_qq_line()
+ggplot(
+    data.frame(
+        y = model4_residuals
+        , x = model4_fitted)
+    , aes(x = x, y = y)
+    ) +
+    geom_point() +
+    geom_hline(yintercept = 0)
 # Residual standard error: 0.1949 on 1791 degrees of freedom
 #   (2877 observations deleted due to missingness)
 # Multiple R-squared:  0.9662,	Adjusted R-squared:  0.962 
@@ -104,11 +192,31 @@ summary(model4)
 summary(lm(df$ha_value ~ df$ha_tonnes_grapes_harvested))
 anova(lm(df$ha_value ~ df$ha_tonnes_grapes_harvested))
 
-# note that scope1 is only good for predicting the amount of grapes not the quality.
+# note that scope1 is only good for predicting the amount of grapes
+# not the quality.
 
 # here are some plots
-ggplot(df, aes(x=tonnes_grapes_harvested, y=tonnes_grapes_harvested*average_per_tonne, col=climate))+geom_point()+xlab("Yield")+ylab("Yield * Average Price")+theme_light()
-ggplot(df, aes(x=ha_tonnes_grapes_harvested, y=ha_tonnes_grapes_harvested*average_per_tonne, col=climate))+geom_point()+xlab("Yield / Area Harvested")+ylab("Yield * Average Price / Area Harvested")+theme_light()
+ggplot(df
+    , aes(
+        x = tonnes_grapes_harvested
+        , y = tonnes_grapes_harvested * average_per_tonne
+        , col = climate)
+    ) +
+    geom_point() +
+    xlab("Yield") +
+    ylab("Yield * Average Price") +
+    theme_light()
+ggplot(
+    df
+    , aes(
+        x = ha_tonnes_grapes_harvested
+        , y = ha_tonnes_grapes_harvested * average_per_tonne
+        , col = climate)
+        ) +
+        geom_point() +
+        xlab("Yield / Area Harvested") +
+        ylab("Yield * Average Price / Area Harvested") +
+        theme_light()
 
 #######################
 # Lets make some maps #
