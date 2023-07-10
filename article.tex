@@ -77,7 +77,7 @@
 %%            country={}}
 %% \fntext[label3]{}
 
-    \title{Resource-use and the Value-Productivity Tradeoff in Australian Winegrowing Regions}
+    \title{An exploratory analysis of the influence of resource use on the yield verse quality trade-off in Australian vineyards}
 
 
 %% use optional labels to link authors explicitly to addresses:
@@ -160,7 +160,9 @@ In this analysis we observe relationships between yield and quality through the 
 \newline
 We aim to use this broad dataset to confirm the existence of a yield verse quality trade off within Australian winegrowing; one not prior confirmed explicitly across such extensive diversities.
 % you require a reference here
-In achieving this, the context of how resource-use relates to yield and quality will also be described. We link these relations to the potential for improvement through decision-making processes, whilst highlighting that the way moving forward will require the optimisation of these processes. The practical addition of these aims is a baseline for comparison - given a vineyard within Australia, one could extrapolate their comparative efficiency with regard to the tradeoff between invested resources, yield and quality.
+In achieving this, the context of how resource-use relates to yield and quality will also be described.
+% Describing baselines is more important - it needs to be emphasised more so than something that is known but not shown. This is the heart of what your are doing sell it more.
+We link these relations to the potential for improvement through decision-making processes, whilst highlighting that the way moving forward will require the optimisation of these processes. The practical addition of these aims is a baseline for comparison - given a vineyard within Australia, one could extrapolate their comparative efficiency with regard to the tradeoff between invested resources, yield and quality.
 \section{Methods}
 We created four linear models to explore relationships between resource-use and vineyard outputs (see Table 1). The data was sourced from Sustainable Winegrowing Australia and Wine Australia. Variables used included: yield, average sale price, region, water use, emissions, area harvested and year. After fitting to the data, each model was validated using k-fold cross validation.
 
@@ -183,12 +185,14 @@ Before models were fit to the data, Pearson Correlation Coefficients were used t
 %reference?
 General Linear Models also allow the exploration of interactions between predictors and easily comparable differences in the influence and magnitude of relationships.
 % reference?
- A variety of alternate methods to General Linear Models was also explored, including: Splines, hierarchical regression, Additive and Generalised Linear Models. These alternative approaches were not used as final models due to offering no further improvements or to producing inaccurate models. 
+ A variety of alternate methods were also explored, including: Splines, hierarchical regression, General Additive Models, and Generalised Linear Models. These alternative approaches were not used as final models due to offering no further insights or improvements in accuracy.
 \newline
-The response variables of the models were yield and quality. The definition of quality was an important consideration, as quality can be defined in a variety of ways, for example analysing grapes': aroma, chemical composition and color. For the purpose of this study, quality was defined by the financial value of winegrape crops' average sale price per tonne. This definition was used due to the market value of winegrapes being reliant on grape quality and because Wine Australia explicitly defines grape quality through the use of discrete price brackets in their annual reports
+The response variables of the models were yield and quality. Yield was defined as the total tonnes of grapes harvested. For the purpose of this study, quality was defined by the financial value of winegrape crops' average sale price per tonne. The definition of quality was an important consideration, as quality can be defined in a variety of ways, for example analysing grapes': aroma, chemical composition and color.
+% References to were this was done.
+Using sale price as a defining trait of quality was due to the market value of winegrapes being reliant on grape quality and because Wine Australia explicitly defines grape quality through the use of discrete price brackets in their annual reports
 % We need a reference to where they did this
 % Did they do this more prolifically at some point as well?
-; the generalisation made to reflect quality through using average price assumed a due diligence of those who purchased the grapes \citep{yeggeInfluenceSensoryNonsensory2001}. Yield was defined as the total tonnes of grapes harvested. Both response variables were examined as totals and as scales of area harvested. Values were compared in this manner to observe how economies of scale affect the use of resources.
+; the generalisation made to reflect quality through using average price assumed a due diligence of those who purchased the grapes \citep{yeggeInfluenceSensoryNonsensory2001}.  Both response variables were examined as totals and as scales of area harvested. Values were compared in this manner to observe how economies of scale affect the use of resources.
 \subsection{Data}
 Data used in this analysis was sampled by Sustainable Winegrowing Australia and Wine Australia. Sustainable Winegrowing Australia is Australia's national wine industry sustainability program, which aims to facilitate grape-growers and winemakers in demonstrating and improving their sustainability \citep{swaSustainableWingrowingAustralia2022}. Wine Australia is an Australian Government statutory authority governed by the Wine Australia Act 2013 \citep{WineAustraliaAct2019}.
 \newline
@@ -203,7 +207,7 @@ The first subset of data was used for Model 1 and Model 2 (see Table 1). This su
 \newline
 The second subset of data, was limited to vineyards that recorded a value for their average sale price of grapes per tonne. This subset was used for Model 3 and Model 4 (see Table 1); and contained 2878 samples spanning the period from 2015 to 2022, covering 51 GI Regions and 944 separate vineyards. 1842 of the values for average price of sale per tonne were extracted from Wine Australia surveys with the remaining 1036 being from Sustainable Winegrowing Australia's dataset.
 \newline
-Additional variables were considered for analysis but were excluded due to being either underreported or had insignificant contributions to model accuracies. Variables explored but not used due to low reporting values included: fertiliser, tractor and contractor use, and scope 2 emissions. Variables considered but ultimately removed due to a lack of significant contributions to models, included: the use of renewable energy, contractors, and pressures such as frost, fire and disease.
+Additional variables were considered for analysis but were excluded due to being either underreported or had insignificant contributions to model accuracies. Variables explored but not used due to low reporting values included: fertiliser, and scope 2 emissions. Variables considered but ultimately removed due to a lack of significant contributions to models, included: the use of renewable energy, contractor use, and pressures such as frost, fire and disease.
 \newline
 Data preprocessing was conducted prior to analysis using the Python programming language \citep{g.vanrossumPythonTutorialTechnical1995}. Preprocessing included logarithmic transformations, centring and scaling by standard deviation. Variables such as scope 1, which required prior calculations were also computed using Python.
 % Two values for average sale price were removed from the dataset, due to a recording of \$1. 
@@ -225,15 +229,14 @@ was used to convert the quantity of fuel in litres, $Q$, using a prescribed Ener
 \subsection{Region}
 Differences in vineyard locations were captured through the use of Geographical Indicator Regions (GI Regions). Each GI Region has its own unique mixture of climatic and geophysical properties that describes a unique winegrowing region within Australia; these regions were predefined by Wine Australia \citep{hallidayAustralianWineEncyclopedia2009,oliverReviewSoilPhysical2013,soarClimateDriversRed2008}. Both Wine Australia and Sustainable Winegrowing Australia used the same GI Region format to describe location.
 \newline
-The site of a vineyard predetermines several physical parameters such as climate, geology and soil; making location a widely considered key determinant of grape yield and quality \citep{abbalDecisionSupportSystem2016,agostaRegionalClimateVariability2012,fragaMultivariateClusteringViticultural2017}. The climatic properties of each GI Region were summarised by using predefined classifications as per the \citet{swaSustainableWinegrowingAustralia2021} user manual. The user manual describes climates by rainfall and temperature, creating supersets of Regions of similar climatic properties. The climatic groups were used to illustrate similarities and differences occurring in areas larger than GI Regions.
-\newline
+The site of a vineyard predetermines several physical parameters such as climate, geology and soil; making location a widely considered key determinant of grape yield and quality \citep{abbalDecisionSupportSystem2016,agostaRegionalClimateVariability2012,fragaMultivariateClusteringViticultural2017}. The climatic properties of each GI Region were summarised by using predefined classifications as per the \citet{sustainablewinegrowingaustraliaSustainableWinegrowingAustralia2021} user manual. The user manual describes climates by rainfall and temperature, creating supersets of Regions of similar climatic properties. The climatic groups were used to illustrate similarities and differences occurring in areas larger than GI Regions.
 \subsection{Model Validation}
 Models were validated using K-fold cross validation calculated through the R Caret Package \citep{kuhnBuildingPredictiveModels2008}. K-fold cross validation works by removing a subset of data from the sample used to train models and then predicts those variables to determine how sensitive the model is to changes in the sample data. For this analysis each model was validated using 10 folds, repeated 100 times. % A reference for this is absolutely needed.
 \section{Results}
 \subsection{Exploratory Analysis}
-Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale (see Table 2) and for data as a logarithmic transform (see Table 3). The logarithmic transforms showed the strongest correlations, this was likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table 5). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change \- a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. A correlation of 1 would indicate that given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its standard deviation; the importance of this is the unitless nature of these relationships and that it can be translated directly to any case that has a well known distribution.
+Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale (see Table 2) and for data as a logarithmic transform (see Table 3). The logarithmic transforms showed the strongest correlations, likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table 5). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. With all this in mind, when considering the logarithmically transformed variables, a coefficient of 1 would indicate that: given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its own standard deviation. The importance of this is the unitless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
 \newline
-To determine if a coefficient was indicative of a strong relationship, P-values were used. P-values reflect the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present, as all P-values were considered significant (< 2.200E-16, see Tables 2 and 3), except for the non-transformed values for water used (see Table 4). 
+To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present, as all P-values were considered significant (< 2.200E-16, see Tables 2 and 3), except for the non-transformed values for water used (see Table 4). 
 
 \begin{table}[]
   \caption{Summary of models, their predictors, covariates and variable interactions.}
@@ -302,6 +305,12 @@ To determine if a coefficient was indicative of a strong relationship, P-values 
       \end{table}
 
 \subsection{General Linear Models}
+% The tables need to be in the appropriate sections!!
+%
+%Where are the coefficients???? You cant use the models without them!!
+% You need to actually be able to use this research and look at what these
+% models are showing.
+%
 % What are these tables?
 % what are these models?
 % What are F values?
@@ -311,39 +320,57 @@ To determine if a coefficient was indicative of a strong relationship, P-values 
 % What are sum sq values?
 % What are the ramifications of any of this???
 % Break this down into each model separately!! DO NOT GENERALISE
-Models 1 and 2 showed significant relationships between each of the predictors and their response variables (see Tables 6 and 7).
-% Why are they significant?
-Variables in models 3 and 4 reported similar significance; except for scope 1 emissions (see Tables 8 and 9). Scope one emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients, scope one emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yeild and average price per tonne as a ratio to area harvested, respectively).
-
-The comparison of models performance shows that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing model 2 to model 4 (see Table 10). This relationship between yield and average price was also illustrated in the correlation values between them (see Table 2).
-
+% You can draw similarities between the model, as this is not a generalisation.
+%
+%
+%
+% What is a general linear model
+% what does this mean
+To describe the response variables relative to the predictors' values, General Linear Models were used. Log transformed variables were used as inputs to these models as they resulted in higher $R^2$ values and described the relationships proportionally; reflecting coefficient values as percentages of a variable's standard deviation. 
+\newline
+% F-tests
+To determine if individually each model's predictors were significantly linearly related to the response variables, F-tests were conducted. Models 1 and 2 showed significant linear relationships between each of the predictors and their response variables (see Tables 6 and 7). Predictors in models 3 and 4 reported similar significance; except for scope 1 emissions (see Tables 8 and 9). Scope one emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients, scope one emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yield and average price per tonne as a ratio to area harvested, respectively).
+\newline
+% t-tests
+Predictors were also reviewed using t-tests to determine if a predictor significantly contributed to the model when accounting for other variables. We can consider this the marginal significance of each variable. Using t-tests allowed a more granular examination of each factor (or categorical variable) and interaction, showing that some years and areas contributed marginally significantly and some did not (see appendix). With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were marginally significant. For Model 3 all continuous variables except scope 1 emissions were significant.Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not as individual variables (see Table ?).
+% should these tables all go into the appendix solely or should they be summarised as well?
+%\begin{table}[]
+%  \begin{tabular}{lllll}
+%                    & Coef      & Std. Error & t-value   & Pr(\textgreater{}|t|) \\
+%  Area Harvested    & 7.418E-01 & 1.003E-02  & 7.390E+01 & 2.000E-16             \\
+%  Water Used        & 8.660E-02 & 8.885E-03  & 9.747E+00 & 2.000E-16             \\
+%  Scope 1 Emissions & 6.731E-02 & 8.013E-03  & 8.400E+00 & 2.000E-16            
+%  \end{tabular}
+%  \end{table}
+%
 \begin{table}[]
   \label{tab:tab6}
   \caption{Model 1 ANOVA summarising variable significance at the .5 level.}
   \begin{tabular}{llllll}
-  Variable            & Df & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F)    \\
-  Year                & 9  & 7.060E+01 & 7.800E+00 & 8.353E+01 & \textless 2.20E-16 *** \\
-  GI Region           & 54 & 1.507E+03 & 2.790E+01 & 2.972E+02 & \textless 2.20E-16 *** \\
-  Area Harvested      & 1  & 3.211E+03 & 3.211E+03 & 3.419E+04 & \textless 2.20E-16 *** \\
-  Water Used          & 1  & 1.040E+01 & 1.040E+01 & 1.103E+02 & \textless 2.20E-16 *** \\
-  Scope One Emissions & 1  & 6.600E+00 & 6.600E+00 & 7.056E+01 & \textless 2.20E-16 ***
+  Variable       & Df & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F) \\
+  Year                & 9  & 7.060E+01 & 7.800E+00 & 8.353E+01 & \textless 2.20E-16 \\
+  GI Region           & 54 & 1.507E+03 & 2.790E+01 & 2.972E+02 & \textless 2.20E-16 \\
+  Area Harvested      & 1  & 3.211E+03 & 3.211E+03 & 3.419E+04 & \textless 2.20E-16 \\
+  Water Used          & 1  & 1.040E+01 & 1.040E+01 & 1.103E+02 & \textless 2.20E-16 \\
+  Scope One Emissions & 1  & 6.600E+00 & 6.600E+00 & 7.056E+01 & \textless 2.20E-16
   \end{tabular}
 \end{table}
-
 \begin{table}[]
-    \label{tab:tab7}
-    \caption{Model 2 ANOVA summarising variable significance at the .5 level.}
-    \begin{tabular}{llllll}
-    Variable                    & Df  & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F)    \\
-    Area Harvested              & 1   & 2.407E+03 & 2.407E+03 & 1.080E+04 & \textless 2.20E-16 *** \\
-    Scope One Emissions         & 1   & 3.989E+01 & 3.989E+01 & 1.789E+02 & \textless 2.20E-16 *** \\
-    Water Used                  & 1   & 5.500E+02 & 5.500E+02 & 2.467E+03 & \textless 2.20E-16 *** \\
-    Area Harvested*Scope One Emissions & 1 & 6.921E+01 & 6.921E+01 & 3.104E+02 & \textless 2.20E-16 *** \\
-    Area Harvested * Water Used & 1   & 1.040E+00 & 1.040E+00 & 4.686E+00 & 3.045E-02 **           \\
-    Year * GI Region            & 424 & 1.144E+03 & 2.700E+00 & 1.210E+01 & \textless 2.20E-16 ***
-    \end{tabular}
+  \label{tab:tab7}
+  \caption{Model 2 ANOVA summarising variable significance at the .5 level.}
+  \begin{tabular}{llllll}
+  Variable                    & Df  & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F)    \\
+  Area Harvested              & 1   & 2.407E+03 & 2.407E+03 & 1.080E+04 & \textless 2.20E-16 *** \\
+  Scope One Emissions         & 1   & 3.989E+01 & 3.989E+01 & 1.789E+02 & \textless 2.20E-16 *** \\
+  Water Used                  & 1   & 5.500E+02 & 5.500E+02 & 2.467E+03 & \textless 2.20E-16 *** \\
+  Area Harvested*Scope One Emissions & 1 & 6.921E+01 & 6.921E+01 & 3.104E+02 & \textless 2.20E-16 *** \\
+  Area Harvested * Water Used & 1   & 1.040E+00 & 1.040E+00 & 4.686E+00 & 3.045E-02 **           \\
+  Year * GI Region            & 424 & 1.144E+03 & 2.700E+00 & 1.210E+01 & \textless 2.20E-16 ***
+  \end{tabular}
 \end{table}
-
+%
+The comparison of models performance shows that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing model 2 to model 4 (see Table 10). This relationship between yield and average price was also illustrated in the correlation values between them (see Table 2).
+%
 \begin{table}[]
     \caption{Model 3 ANOVA summarising variable significance at the .5 level.}
     \label{tab:tab8}
