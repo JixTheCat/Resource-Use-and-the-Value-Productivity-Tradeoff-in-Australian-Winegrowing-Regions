@@ -45,7 +45,17 @@
 %% for the whole article with \linenumbers.
 \usepackage{lineno}
 
+% for adjusting table width automatically
+\usepackage{adjustbox}
+\usepackage{tabulary, ragged2e}
+\usepackage{booktabs}
+
 \journal{Geography and Sustainability}
+%1.Full Length Article A full-length article should be a substantial and in-depth research study regarding a particular state of issue through several techniques or approaches. 
+% The main text should be approximately 6,000 words in length, but it should not exceed 8,000 words (excluding abstract, references, tables, figures, and appendices).
+%A maximum of 250 words abstract and up to 10 displayed items (figures and tables) is allowed. A full-length article should include an Introduction,
+%Materials and methods, Results, Discussion, Conclusions, and References, which can be accompanied by Supplementary material.
+
 
 \begin{document}
 \begin{linenumbers}
@@ -165,21 +175,25 @@ In achieving this, the context of how resource-use relates to yield and quality 
 We link these relations to the potential for improvement through decision-making processes, whilst highlighting that the way moving forward will require the optimisation of these processes. The practical addition of these aims is a baseline for comparison - given a vineyard within Australia, one could extrapolate their comparative efficiency with regard to the tradeoff between invested resources, yield and quality.
 \section{Methods}
 We created four linear models to explore relationships between resource-use and vineyard outputs (see Table 1). The data was sourced from Sustainable Winegrowing Australia and Wine Australia. Variables used included: yield, average sale price, region, water use, emissions, area harvested and year. After fitting to the data, each model was validated using k-fold cross validation.
-
 \begin{table}[]
-    \begin{center}
+  %\centering
+    %\begin{center}
       \caption{Summary of models; their predictors, covariates and variable interactions.}
       \label{tab:tab1}
-      \begin{tabular}{ccccc}
-        & Response & Predictors & Covariates & Interactions \\
-        Model 1 & Yield & Water Used, Scope 1 Emissions & Area Harvested, Year, GI Region & N\textbackslash A \\
-        Model 2 & ${ \textrm{Yield}}\over{ \textrm{Area Harvested}}$ & Water Used, Scope 1 Emissions & Area Harvested, Year, GI Region & Area Harvested * Scope 1 Emissions, Area Harvested * Water Use, Year * Region \\
-        Model 3 & \small{$\textrm{Yield} {\times} \textrm{Average Sale Price}$} &  Water Used, Scope 1 Emissions& Area Harvested, Year, GI Region & Area Harvested * Scope 1 Emissions, Area Harvested * Water Use, Year * Region  \\
-        Model 4 & ${\textrm{Yield} \times \textrm{Average Sale Price}}\over{\textrm{Area Harvested}}$ & Water Used, Scope 1 Emissions & Area Harvested, Year, GI Region  & N\textbackslash A
-      \end{tabular}
-    \end{center}
+        \resizebox{\textwidth}{!}{\begin{tabular}{@{}ccccc@{}}
+          \toprule
+           & Response & Predictors & Covariates & Interactions \\ \midrule
+          Model 1 & Yield & \begin{tabular}[c]{@{}c@{}}Water Used\\ Scope 1 Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested\\ Year\\ GI Region\end{tabular} & N/A \\
+          \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
+          Model 2 & ${ \textrm{Yield}}\over{ \textrm{Area Harvested}}$ & \begin{tabular}[c]{@{}c@{}}Water Used\\ Scope 1 Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested\\ Year\\ GI Region\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested * Scope 1 Emissions\\ Area Harvested * Water Use\\ Year * Region\end{tabular} \\
+          \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
+          Model 3 & {$\textrm{Yield} {\times} \textrm{Average Sale Price}$} & \begin{tabular}[c]{@{}c@{}}Water Used\\ Scope 1 Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested\\ Year\\ GI Region\end{tabular} & N/A \\
+          \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
+          Model 4 & ${\textrm{Yield} \times \textrm{Average Sale Price}}\over{\textrm{Area Harvested}}$ & \begin{tabular}[c]{@{}c@{}}Water Used\\ Scope 1 Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested\\ Year\\ GI Region\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested * Scope 1 Emissions\\ Area Harvested * Water Use\\ Year * Region\end{tabular}
+          \end{tabular}}
+    %\end{adjustbox}
+    %\end{center}
 \end{table}
-
 \subsection{Analysis}
 Before models were fit to the data, Pearson Correlation Coefficients were used to look at the existence of linear relationships between predictor variables. These relationships were summarised in correlation matrices to compare levels of interaction present between predictor variables. The relationships between the predictors and response variables were then modelled using General Linear Models. Both the Pearson Correlation Coefficients and General Linear Models were created using the R statistical programming language \citep{rcoreteamLanguageEnvironmentStatistical2021}. General Linear Models were chosen as they offer the ability to produce statistical models that are explicit in the relationships between predictors and response variables.
 %reference?
@@ -212,8 +226,6 @@ Additional variables were considered for analysis but were excluded due to being
 Data preprocessing was conducted prior to analysis using the Python programming language \citep{g.vanrossumPythonTutorialTechnical1995}. Preprocessing included logarithmic transformations, centring and scaling by standard deviation. Variables such as scope 1, which required prior calculations were also computed using Python.
 % Two values for average sale price were removed from the dataset, due to a recording of \$1. 
 % \citep{wineaustraliaNationalVintageReport2019,wineaustraliaNationalVintageReport2020,wineaustraliaNationalVintageReport2021,wineaustraliaNationalVintageReport2022,winemakersfederationofaustraliaNationalVintageReport2012,winemakersfederationofaustraliaNationalVintageReport2013,winemakersfederationofaustraliaNationalVintageReport2014,winemakersfederationofaustraliaNationalVintageReport2015,winemakersfederationofaustraliaNationalVintageReport2016,winemakersfederationofaustraliaNationalVintageReport2017,winemakersfederationofaustraliaNationalVintageReport2018}.
-
-
 \subsection{Total Emissions}
 The equation given from the Australian National Greenhouse Accounts Factors, shown as
 \newline
@@ -237,192 +249,30 @@ Models were validated using K-fold cross validation calculated through the R Car
 Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale (see Table 2) and for data as a logarithmic transform (see Table 3). The logarithmic transforms showed the strongest correlations, likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table 5). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. With all this in mind, when considering the logarithmically transformed variables, a coefficient of 1 would indicate that: given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its own standard deviation. The importance of this is the unitless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
 \newline
 To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present, as all P-values were considered significant (< 2.200E-16, see Tables 2 and 3), except for the non-transformed values for water used (see Table 4). 
-
-\begin{table}[]
-  \caption{Summary of models, their predictors, covariates and variable interactions.}
-  \label{tab:tab2}
-  \begin{tabular}{cccccccc}
-  Variable                             & Yield      & Area       & Water Used & Scope One Emissions & $\textrm{Yield}\over\textrm{Area}$ & Average Price Per Tonne & ${\textrm{Average Price per tonne}\over\textrm{Area}}$ \\
-  Yield                                & 1.000E+00  & 7.440E-01  & -4.309E-03 & 7.290E-01           & 3.500E-01            & -2.262E-01              & -1.644E-01                           \\
-  Area                                 & 7.440E-01  & 1.000E+00  & -5.331E-03 & 8.921E-01           & 7.854E-02            & -1.178E-01              & -2.042E-01                           \\
-  Water Used                           & -4.309E-03 & -5.331E-03 & 1.000E+00  & -1.929E-03          & -5.600E-03           & -3.562E-02              & -2.669E-02                           \\
-  Scope One Emissions                  & 7.290E-01  & 8.921E-01  & -1.929E-03 & 1.000E+00           & 9.357E-02            & -9.422E-02              & -1.933E-01                           \\
-  $\textrm{Yield}\over\textrm{Area}$                 & 3.500E-01  & 7.854E-02  & -5.600E-03 & 9.357E-02           & 1.000E+00            & -4.849E-01              & -1.698E-01                           \\
-  Average Price Per Tonne              & -2.262E-01 & -1.178E-01 & -3.562E-02 & -9.422E-02          & -4.849E-01           & 1.000E+00               & 4.732E-01                            \\
-  ${\textrm{Average Price per tonne}\over\textrm{Area}}$ & -1.644E-01 & -2.042E-01 & -2.669E-02 & -1.933E-01          & -1.698E-01           & 4.732E-01               & 1.000E+00                           
-  \end{tabular}
-  \end{table}
-
-  \begin{table}[]
-    \caption{Pearson correlation coefficients for each logarithmically transformed variable.}
-    \label{tab:tab3}
-    \begin{tabular}{clllllll}
-    Variable                                           & \multicolumn{1}{c}{Yield} & \multicolumn{1}{c}{Area} & \multicolumn{1}{c}{Water Used} & \multicolumn{1}{c}{Scope One Emissions} & \multicolumn{1}{c}{$\textrm{Yield}\over\textrm{Area}$} & \multicolumn{1}{c}{Average Price Per Tonne} & \multicolumn{1}{c}{${\textrm{Average Price per tonne}\over\textrm{Area}}$} \\
-    Yield                                              & 1.000E+00                 & 8.822E-01                & 8.245E-01                      & 7.617E-01                               & 9.353E-01                                          & -4.591E-01                                  & -8.918E-01                                                             \\
-    Area                                               & 8.822E-01                 & 1.000E+00                & 7.750E-01                      & 8.311E-01                               & 6.742E-01                                          & -1.911E-01                                  & -8.474E-01                                                             \\
-    Water Used                                         & 8.245E-01                 & 7.750E-01                & 1.000E+00                      & 6.668E-01                               & 7.292E-01                                          & -4.881E-01                                  & -8.300E-01                                                             \\
-    Scope One Emissions                                & 7.617E-01                 & 8.311E-01                & 6.668E-01                      & 1.000E+00                               & 6.086E-01                                          & -1.559E-01                                  & -7.063E-01                                                             \\
-    $\textrm{Yield}\over\textrm{Area}$                     & 9.353E-01                 & 6.742E-01                & 7.292E-01                      & 6.086E-01                               & 1.000E+00                                          & -5.625E-01                                  & -8.076E-01                                                             \\
-    Average Price Per Tonne                            & -4.591E-01                & -1.911E-01               & -4.881E-01                     & -1.559E-01                              & -5.625E-01                                         & 1.000E+00                                   & 6.592E-01                                                              \\
-    ${\textrm{Average Price per tonne}\over\textrm{Area}}$ & -8.918E-01                & -8.474E-01               & -8.300E-01                     & -7.063E-01                              & -8.076E-01                                         & 6.592E-01                                   & 1.000E+00                                                             
-    \end{tabular}
-    \end{table}
-
-    \begin{table}[]
-      \caption{P-values for the non-transformed water used variable's Pearson correlation coefficients.}
-    \label{tab:tab4}
-      \begin{tabular}{cl}
-      Variable                                           & Water Used \\
-      Yield                                              & 7.538E-01  \\
-      Area                                               & 6.981E-01  \\
-      Scope One Emissions                                & 8.883E-01  \\
-      $\textrm{Yield}\over\textrm{Area}$                     & 6.836E-01  \\
-      Average Price Per Tonne                            & 5.600E-02  \\
-      ${\textrm{Average Price per tonne}\over\textrm{Area}}$ & 1.522E-01 
-      \end{tabular}
-      \end{table}
-
-    \begin{table}[]
-      \caption{Summary statistics for each variable on the original scale..}
-      \label{tab:tab5}
-      \begin{tabular}{clllllll}
-      Variable &
-        \multicolumn{1}{c}{Yield} &
-        \multicolumn{1}{c}{Area} &
-        \multicolumn{1}{c}{Water Used} &
-        \multicolumn{1}{c}{Scope One Emissions} &
-        \multicolumn{1}{c}{$\textrm{Yield}\over\textrm{Area}$} &
-        \multicolumn{1}{c}{Average Price Per Tonne} &
-        \multicolumn{1}{c}{${\textrm{Average Price per tonne}\over\textrm{Area}}$} \\
-      Yield                                              & 1.000E+00  & 8.822E-01  & 8.245E-01  & 7.617E-01  & 9.353E-01  & -4.591E-01 & -8.918E-01 \\
-      Area                                               & 8.822E-01  & 1.000E+00  & 7.750E-01  & 8.311E-01  & 6.742E-01  & -1.911E-01 & -8.474E-01 \\
-      Water Used                                         & 8.245E-01  & 7.750E-01  & 1.000E+00  & 6.668E-01  & 7.292E-01  & -4.881E-01 & -8.300E-01 \\
-      Scope One Emissions                                & 7.617E-01  & 8.311E-01  & 6.668E-01  & 1.000E+00  & 6.086E-01  & -1.559E-01 & -7.063E-01 \\
-      $\textrm{Yield}\over\textrm{Area}$                     & 9.353E-01  & 6.742E-01  & 7.292E-01  & 6.086E-01  & 1.000E+00  & -5.625E-01 & -8.076E-01 \\
-      Average Price Per Tonne                            & -4.591E-01 & -1.911E-01 & -4.881E-01 & -1.559E-01 & -5.625E-01 & 1.000E+00  & 6.592E-01  \\
-      ${\textrm{Average Price per tonne}\over\textrm{Area}}$ & -8.918E-01 & -8.474E-01 & -8.300E-01 & -7.063E-01 & -8.076E-01 & 6.592E-01  & 1.000E+00 
-      \end{tabular}
-      \end{table}
-
 \subsection{General Linear Models}
-% The tables need to be in the appropriate sections!!
-%
-%Where are the coefficients???? You cant use the models without them!!
-% You need to actually be able to use this research and look at what these
-% models are showing.
-%
-% What are these tables?
-% what are these models?
-% What are F values?
-% Why are some significant?
-% What are degrees of freedom
-% what are mean sq values?
-% What are sum sq values?
-% What are the ramifications of any of this???
-% Break this down into each model separately!! DO NOT GENERALISE
-% You can draw similarities between the model, as this is not a generalisation.
-%
-%
-%
-% What is a general linear model
-% what does this mean
-To describe the response variables relative to the predictors' values, General Linear Models were used. Log transformed variables were used as inputs to these models as they resulted in higher $R^2$ values and described the relationships proportionally; reflecting coefficient values as percentages of a variable's standard deviation. 
+To describe the response variables relative to the predictors' values, General Linear Models were used. Log transformed variables were used as inputs to these models as they resulted in higher $R^2$ values and described the relationships proportionally; reflecting coefficient values as percentages of a variable's standard deviation.
 \newline
-% F-tests
-To determine if individually each model's predictors were significantly linearly related to the response variables, F-tests were conducted. Models 1 and 2 showed significant linear relationships between each of the predictors and their response variables (see Tables 6 and 7). Predictors in models 3 and 4 reported similar significance; except for scope 1 emissions (see Tables 8 and 9). Scope one emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients, scope one emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yield and average price per tonne as a ratio to area harvested, respectively).
-\newline
-% t-tests
-Predictors were also reviewed using t-tests to determine if a predictor significantly contributed to the model when accounting for other variables. We can consider this the marginal significance of each variable. Using t-tests allowed a more granular examination of each factor (or categorical variable) and interaction, showing that some years and areas contributed marginally significantly and some did not (see appendix). With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were marginally significant. For Model 3 all continuous variables except scope 1 emissions were significant.Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not as individual variables (see Table ?).
-% should these tables all go into the appendix solely or should they be summarised as well?
-%\begin{table}[]
-%  \begin{tabular}{lllll}
-%                    & Coef      & Std. Error & t-value   & Pr(\textgreater{}|t|) \\
-%  Area Harvested    & 7.418E-01 & 1.003E-02  & 7.390E+01 & 2.000E-16             \\
-%  Water Used        & 8.660E-02 & 8.885E-03  & 9.747E+00 & 2.000E-16             \\
-%  Scope 1 Emissions & 6.731E-02 & 8.013E-03  & 8.400E+00 & 2.000E-16            
-%  \end{tabular}
-%  \end{table}
-%
+Each model showed a strong relationship between the predictors and the response (see Table \ref{tab:modelsummary}). The strength of the models was measured in $R^2$, as this allowed an easy comparison between their performances and their validation. 
 \begin{table}[]
-  \label{tab:tab6}
-  \caption{Model 1 ANOVA summarising variable significance at the .5 level.}
-  \begin{tabular}{llllll}
-  Variable       & Df & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F) \\
-  Year                & 9  & 7.060E+01 & 7.800E+00 & 8.353E+01 & \textless 2.20E-16 \\
-  GI Region           & 54 & 1.507E+03 & 2.790E+01 & 2.972E+02 & \textless 2.20E-16 \\
-  Area Harvested      & 1  & 3.211E+03 & 3.211E+03 & 3.419E+04 & \textless 2.20E-16 \\
-  Water Used          & 1  & 1.040E+01 & 1.040E+01 & 1.103E+02 & \textless 2.20E-16 \\
-  Scope One Emissions & 1  & 6.600E+00 & 6.600E+00 & 7.056E+01 & \textless 2.20E-16
-  \end{tabular}
-\end{table}
-\begin{table}[]
-  \label{tab:tab7}
-  \caption{Model 2 ANOVA summarising variable significance at the .5 level.}
-  \begin{tabular}{llllll}
-  Variable                    & Df  & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F)    \\
-  Area Harvested              & 1   & 2.407E+03 & 2.407E+03 & 1.080E+04 & \textless 2.20E-16 *** \\
-  Scope One Emissions         & 1   & 3.989E+01 & 3.989E+01 & 1.789E+02 & \textless 2.20E-16 *** \\
-  Water Used                  & 1   & 5.500E+02 & 5.500E+02 & 2.467E+03 & \textless 2.20E-16 *** \\
-  Area Harvested*Scope One Emissions & 1 & 6.921E+01 & 6.921E+01 & 3.104E+02 & \textless 2.20E-16 *** \\
-  Area Harvested * Water Used & 1   & 1.040E+00 & 1.040E+00 & 4.686E+00 & 3.045E-02 **           \\
-  Year * GI Region            & 424 & 1.144E+03 & 2.700E+00 & 1.210E+01 & \textless 2.20E-16 ***
-  \end{tabular}
-\end{table}
-%
-The comparison of models performance shows that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing model 2 to model 4 (see Table 10). This relationship between yield and average price was also illustrated in the correlation values between them (see Table 2).
-%
-\begin{table}[]
-    \caption{Model 3 ANOVA summarising variable significance at the .5 level.}
-    \label{tab:tab8}
-    \begin{tabular}{llllll}
-    Variable            & Df & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F)    \\
-    Year                & 6  & 1.324E+01 & 2.210E+00 & 8.748E+01 & \textless 2.20E-16 *** \\
-    GI Region           & 50 & 6.498E+02 & 1.300E+01 & 5.151E+02 & \textless 2.20E-16 *** \\
-    Area Harvested      & 1  & 2.142E+03 & 2.142E+03 & 8.491E+04 & \textless 2.20E-16 *** \\
-    Water Used          & 1  & 3.200E-01 & 3.200E-01 & 1.259E+01 & 3.947E-04 **           \\
-    Scope One Emissions & 1  & 4.000E-02 & 4.000E-02 & 1.492E+00 & 2.221E-01             
-    \end{tabular}
-\end{table}
+  \caption{Summary of models; their performance, F-statistics and Residual error.}
+      \label{tab:modelsummary}
+      \resizebox{\textwidth}{!}{\begin{tabular}{@{}cccccccc@{}}
+        \toprule
+         & $R^2$ & Adjusted $R^2$ & F-statistic & P-Value & \begin{tabular}[c]{@{}c@{}}Residual\\ Standard Error\end{tabular} & \begin{tabular}[c]{@{}c@{}}Residual Sum\\ of Squares\end{tabular} & \begin{tabular}[c]{@{}c@{}}Residual Mean\\ of Squares\end{tabular} \\ \midrule
+        Model 1 & 9.072E-01 & 9.061E-01 & 7.753E+02 & 2.200e-16 & 3.065E-01 & 4.913E+02 & 1.000E-01 \\
+        Model 2 & 7.951E-01 & 7.770E-01 & 4.403E+01 & 2.200e-16 & 4.722E-01 & 1.085E+03 & 2.200E-01 \\
+        Model 3 & 9.753E-01 & 9.748E-01 & 1.885E+03 & 2.200e-16 & 1.589E-01 & 7.111E+01 & 3.000E-02 \\
+        Model 4 & 9.669E-01 & 9.638E-01 & 3.095E+02 & 2.200e-16 & 1.904E-01 & 9.528E+01 & 4.000E-02 \\ \bottomrule
+        \end{tabular}}
+  \end{table}
+\subsubsection{F-tests}
+To determine if predictors significantly related to a Model's response variable, F-tests were conducted. Models 1 and 2 showed significant linear relationships present between all predictors and their response variables (see Tables 6 and 7). Predictors in Models 3 and 4 reported the same significance for each variable except for scope 1 emissions (see Tables 8 and 9). Scope 1 emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients, scope one emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yield and average price per tonne as a ratio to area harvested, respectively).
+\subsubsection{t-tests}
+Predictors were also reviewed using t-tests to determine if a predictor significantly contributed to the model when accounting for other variables. Using t-tests allowed a more granular examination of each factor (or categorical variable) and interaction, showing which specific years and areas contributed significantly and which did not (see appendix). With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were significant when accounting for other variables. T-tests for Model 3 showed all continuous variables except scope 1 emissions were significant. Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not when considered on their own (see Table ?).
+%\subsubsection{Model Comparison}
+% wHY ARE WE COMPARING MODELS?
+%Models were compared using $R^2$ values. The comparison of models performance showed that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing model 2 to model 4 (see Table 10). This relationship between yield and average price was also illustrated in the correlation values between them (see Table 2).
 
-\begin{table}[]
-  \label{tab:tab9}
-  \caption{Model 4 ANOVA summarising variable significance at the .5 level.}
-  \begin{tabular}{llllll}
-  Variable            & Df  & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F)    \\
-  Area Harvested      & 1   & 2.066E+03 & 2.066E+03 & 5.700E+04 & \textless 2.20E-16 *** \\
-  Scope One Emissions & 1   & 6.000E-02 & 6.000E-02 & 1.569E+00 & 2.105E-01              \\
-  Water Used          & 1   & 2.014E+02 & 2.014E+02 & 5.557E+03 & \textless 2.20E-16 *** \\
-  Area Harvested*Scope One Emissions & 1 & 5.246E+01 & 5.246E+01 & 1.448E+03 & \textless 2.20E-16 *** \\
-  Area Harvested * Water Used        & 1 & 7.270E+00 & 7.270E+00 & 2.005E+02 & \textless 2.20E-16 *** \\
-  Year * GI Region    & 243 & 4.546E+02 & 1.870E+00 & 5.162E+01 & \textless 2.20E-16 ***
-  \end{tabular}
-\end{table}
-
-\begin{table}[]
-  \label{tab:tab 10}
-  \caption{Comparison of Model Residuals}
-  \begin{tabular}{llll}
-        & Df   & Sum Sq    & Mean Sq   \\
-  Model 1 & 5231 & 4.913E+02 & 1.000E-01 \\
-  Model 2 & 4868 & 1.085E+03 & 2.200E-01 \\
-  Model 3 & 2818 & 7.111E+01 & 3.000E-02 \\
-  Model 4 & 2629 & 9.528E+01 & 4.000E-02
-  \end{tabular}
-\end{table}
-
-\begin{table}[]
-  \caption{Comparison of Model performance.}
-  \label{tab:tab 11}
-  \begin{tabular}{llllll}
-          & RSE       & R2        & Adjusted 			R2 & F-statistic & P-Value           \\
-  Model 1 & 3.065E-01 & 9.072E-01 & 9.061E-01      & 7.753E+02   & \textless 2.2e-16 \\
-  Model 2 & 4.722E-01 & 7.951E-01 & 7.770E-01      & 4.403E+01   & \textless 2.2e-16 \\
-  Model 3 & 1.589E-01 & 9.753E-01 & 9.748E-01      & 1.885E+03   & \textless 2.2e-16 \\
-  Model 4 & 1.904E-01 & 9.669E-01 & 9.638E-01      & 3.095E+02   & \textless 2.2e-16
-  \end{tabular}
-\end{table}
-
-Limitations included overestimating yield for models 1 and 2, (see Figures 1 and 2) and underestimating crop value in models 3 and 4 (see Figures 3 and 4).
 % This section needs to be heavily revised. Why are there tails on the distributions? What does a heavy tail indicate?
 % What does it look like with respect to disaster events?
 % split the discussion sections out of the results!! Even the questions I am asking are answered in the discussion, however they need to be highlighted as aspects of the models here beforehand.
@@ -484,7 +334,7 @@ To validate the performance of these models k-fold cross validation was used. Th
 \begin{table}[]
   \label{tab:tab12}
   \caption{Model validation using k-fold cross validation, for 10 folds repeated 100 times.}
-  \begin{tabular}{llll}
+  \begin{tabular}{cccc}
           & RMSE      & R2        & MAE       \\
   Model 1 & 3.087E-01 & 9.045E-01 & 2.165E-01 \\
   Model 2 & 5.104E-01 & 7.409E-01 & 3.493E-01 \\
@@ -494,6 +344,8 @@ To validate the performance of these models k-fold cross validation was used. Th
   \end{table}
 
 \section{Discussion}
+\subsection{Limitations}
+Limitations included overestimating yield for models 1 and 2, (see Figures 1 and 2) and underestimating crop value in models 3 and 4 (see Figures 3 and 4).
 % this needs serious revision.
 This study investigated the general relationships between input resources of a vineyard, including fuel and water, and the outputs including yield and value. Some regions appeared to produce many low quality grapes at scale compared to attempting to produce fewer higher quality grapes. This behaviour can be observed when reviewing Wine Australia’s annual reports, where it is apparent that warm inland regions such as the Riverland are known to only produce large amounts of lower graded grapes \cite{wineaustraliaNationalVintageReport2022,winemakersfederationofaustraliaNationalVintageReport2017}. Comparatively, regions such as Tasmania only produce A grade grapes but in much smaller quantities than the Riverland. Knowing that the difference in pricing per tonne can exceed a magnitude of 10 between grades E and A, the operations in regions that target different grades would have varied priorities. However, some regions such as the Yarra Valley produce a Variety of different grades of grapes, from C to A, highlighting that vineyard priorities, although may be somewhat present within regional classifications, are not necessarily aligned within a given region. 
 
@@ -521,8 +373,163 @@ scope one emissions' lack of significance and contribution given its F-statistic
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
-%% \appendix
+ \appendix
 
+
+ \begin{table}[]
+  \centering
+  \caption{Summary of models, their predictors, covariates and variable interactions.}
+  \label{tab:tab2}
+  \begin{tabulary}{\textwidth}{CCCCCCCC}
+  Variable                             & Yield      & Area       & Water Used & Scope One Emissions & $\textrm{Yield}\over\textrm{Area}$ & Average Price Per Tonne & ${\textrm{Average Price per tonne}\over\textrm{Area}}$ \\
+  Yield                                & 1.000E+00  & 7.440E-01  & -4.309E-03 & 7.290E-01           & 3.500E-01            & -2.262E-01              & -1.644E-01                           \\
+  Area                                 & 7.440E-01  & 1.000E+00  & -5.331E-03 & 8.921E-01           & 7.854E-02            & -1.178E-01              & -2.042E-01                           \\
+  Water Used                           & -4.309E-03 & -5.331E-03 & 1.000E+00  & -1.929E-03          & -5.600E-03           & -3.562E-02              & -2.669E-02                           \\
+  Scope One Emissions                  & 7.290E-01  & 8.921E-01  & -1.929E-03 & 1.000E+00           & 9.357E-02            & -9.422E-02              & -1.933E-01                           \\
+  $\textrm{Yield}\over\textrm{Area}$                 & 3.500E-01  & 7.854E-02  & -5.600E-03 & 9.357E-02           & 1.000E+00            & -4.849E-01              & -1.698E-01                           \\
+  Average Price Per Tonne              & -2.262E-01 & -1.178E-01 & -3.562E-02 & -9.422E-02          & -4.849E-01           & 1.000E+00               & 4.732E-01                            \\
+  ${\textrm{Average Price per tonne}\over\textrm{Area}}$ & -1.644E-01 & -2.042E-01 & -2.669E-02 & -1.933E-01          & -1.698E-01           & 4.732E-01               & 1.000E+00                           
+  \end{tabulary}
+  \end{table}
+
+  \begin{table}[]
+    \caption{Pearson correlation coefficients for each logarithmically transformed variable.}
+    \label{tab:tab3}
+    \begin{tabular}{clllllll}
+    Variable                                           & \multicolumn{1}{c}{Yield} & \multicolumn{1}{c}{Area} & \multicolumn{1}{c}{Water Used} & \multicolumn{1}{c}{Scope One Emissions} & \multicolumn{1}{c}{$\textrm{Yield}\over\textrm{Area}$} & \multicolumn{1}{c}{Average Price Per Tonne} & \multicolumn{1}{c}{${\textrm{Average Price per tonne}\over\textrm{Area}}$} \\
+    Yield                                              & 1.000E+00                 & 8.822E-01                & 8.245E-01                      & 7.617E-01                               & 9.353E-01                                          & -4.591E-01                                  & -8.918E-01                                                             \\
+    Area                                               & 8.822E-01                 & 1.000E+00                & 7.750E-01                      & 8.311E-01                               & 6.742E-01                                          & -1.911E-01                                  & -8.474E-01                                                             \\
+    Water Used                                         & 8.245E-01                 & 7.750E-01                & 1.000E+00                      & 6.668E-01                               & 7.292E-01                                          & -4.881E-01                                  & -8.300E-01                                                             \\
+    Scope One Emissions                                & 7.617E-01                 & 8.311E-01                & 6.668E-01                      & 1.000E+00                               & 6.086E-01                                          & -1.559E-01                                  & -7.063E-01                                                             \\
+    $\textrm{Yield}\over\textrm{Area}$                     & 9.353E-01                 & 6.742E-01                & 7.292E-01                      & 6.086E-01                               & 1.000E+00                                          & -5.625E-01                                  & -8.076E-01                                                             \\
+    Average Price Per Tonne                            & -4.591E-01                & -1.911E-01               & -4.881E-01                     & -1.559E-01                              & -5.625E-01                                         & 1.000E+00                                   & 6.592E-01                                                              \\
+    ${\textrm{Average Price per tonne}\over\textrm{Area}}$ & -8.918E-01                & -8.474E-01               & -8.300E-01                     & -7.063E-01                              & -8.076E-01                                         & 6.592E-01                                   & 1.000E+00                                                             
+    \end{tabular}
+    \end{table}
+
+    \begin{table}[]
+      \caption{P-values for the non-transformed water used variable's Pearson correlation coefficients.}
+    \label{tab:tab4}
+      \begin{tabular}{cl}
+      Variable                                           & Water Used \\
+      Yield                                              & 7.538E-01  \\
+      Area                                               & 6.981E-01  \\
+      Scope One Emissions                                & 8.883E-01  \\
+      $\textrm{Yield}\over\textrm{Area}$                     & 6.836E-01  \\
+      Average Price Per Tonne                            & 5.600E-02  \\
+      ${\textrm{Average Price per tonne}\over\textrm{Area}}$ & 1.522E-01 
+      \end{tabular}
+      \end{table}
+
+    \begin{table}[]
+      \caption{Summary statistics for each variable on the original scale..}
+      \label{tab:tab5}
+      \begin{tabular}{clllllll}
+      Variable &
+        \multicolumn{1}{c}{Yield} &
+        \multicolumn{1}{c}{Area} &
+        \multicolumn{1}{c}{Water Used} &
+        \multicolumn{1}{c}{Scope One Emissions} &
+        \multicolumn{1}{c}{$\textrm{Yield}\over\textrm{Area}$} &
+        \multicolumn{1}{c}{Average Price Per Tonne} &
+        \multicolumn{1}{c}{${\textrm{Average Price per tonne}\over\textrm{Area}}$} \\
+      Yield                                              & 1.000E+00  & 8.822E-01  & 8.245E-01  & 7.617E-01  & 9.353E-01  & -4.591E-01 & -8.918E-01 \\
+      Area                                               & 8.822E-01  & 1.000E+00  & 7.750E-01  & 8.311E-01  & 6.742E-01  & -1.911E-01 & -8.474E-01 \\
+      Water Used                                         & 8.245E-01  & 7.750E-01  & 1.000E+00  & 6.668E-01  & 7.292E-01  & -4.881E-01 & -8.300E-01 \\
+      Scope One Emissions                                & 7.617E-01  & 8.311E-01  & 6.668E-01  & 1.000E+00  & 6.086E-01  & -1.559E-01 & -7.063E-01 \\
+      $\textrm{Yield}\over\textrm{Area}$                     & 9.353E-01  & 6.742E-01  & 7.292E-01  & 6.086E-01  & 1.000E+00  & -5.625E-01 & -8.076E-01 \\
+      Average Price Per Tonne                            & -4.591E-01 & -1.911E-01 & -4.881E-01 & -1.559E-01 & -5.625E-01 & 1.000E+00  & 6.592E-01  \\
+      ${\textrm{Average Price per tonne}\over\textrm{Area}}$ & -8.918E-01 & -8.474E-01 & -8.300E-01 & -7.063E-01 & -8.076E-01 & 6.592E-01  & 1.000E+00 
+      \end{tabular}
+      \end{table}
+% should these tables all go into the appendix solely or should they be summarised as well?
+%\begin{table}[]
+%  \begin{tabular}{lllll}
+%                    & Coef      & Std. Error & t-value   & Pr(\textgreater{}|t|) \\
+%  Area Harvested    & 7.418E-01 & 1.003E-02  & 7.390E+01 & 2.000E-16             \\
+%  Water Used        & 8.660E-02 & 8.885E-03  & 9.747E+00 & 2.000E-16             \\
+%  Scope 1 Emissions & 6.731E-02 & 8.013E-03  & 8.400E+00 & 2.000E-16            
+%  \end{tabular}
+%  \end{table}
+%
+\begin{table}[]
+  \label{tab:tab6}
+  \caption{Model 1 ANOVA summarising variable significance at the .5 level.}
+  \begin{tabular}{llllll}
+  Variable       & Df & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F) \\
+  Year                & 9  & 7.060E+01 & 7.800E+00 & 8.353E+01 & \textless 2.20E-16 \\
+  GI Region           & 54 & 1.507E+03 & 2.790E+01 & 2.972E+02 & \textless 2.20E-16 \\
+  Area Harvested      & 1  & 3.211E+03 & 3.211E+03 & 3.419E+04 & \textless 2.20E-16 \\
+  Water Used          & 1  & 1.040E+01 & 1.040E+01 & 1.103E+02 & \textless 2.20E-16 \\
+  Scope One Emissions & 1  & 6.600E+00 & 6.600E+00 & 7.056E+01 & \textless 2.20E-16
+  \end{tabular}
+\end{table}
+\begin{table}[]
+  \label{tab:tab7}
+  \caption{Model 2 ANOVA summarising variable significance at the .5 level.}
+  \begin{tabular}{llllll}
+  Variable                    & Df  & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F)    \\
+  Area Harvested              & 1   & 2.407E+03 & 2.407E+03 & 1.080E+04 & \textless 2.20E-16 *** \\
+  Scope One Emissions         & 1   & 3.989E+01 & 3.989E+01 & 1.789E+02 & \textless 2.20E-16 *** \\
+  Water Used                  & 1   & 5.500E+02 & 5.500E+02 & 2.467E+03 & \textless 2.20E-16 *** \\
+  Area Harvested*Scope One Emissions & 1 & 6.921E+01 & 6.921E+01 & 3.104E+02 & \textless 2.20E-16 *** \\
+  Area Harvested * Water Used & 1   & 1.040E+00 & 1.040E+00 & 4.686E+00 & 3.045E-02 **           \\
+  Year * GI Region            & 424 & 1.144E+03 & 2.700E+00 & 1.210E+01 & \textless 2.20E-16 ***
+  \end{tabular}
+\end{table}
+%
+\begin{table}[]
+  \caption{Model 3 ANOVA summarising variable significance at the .5 level.}
+  \label{tab:tab8}
+  \begin{tabular}{llllll}
+  Variable            & Df & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F)    \\
+  Year                & 6  & 1.324E+01 & 2.210E+00 & 8.748E+01 & \textless 2.20E-16 *** \\
+  GI Region           & 50 & 6.498E+02 & 1.300E+01 & 5.151E+02 & \textless 2.20E-16 *** \\
+  Area Harvested      & 1  & 2.142E+03 & 2.142E+03 & 8.491E+04 & \textless 2.20E-16 *** \\
+  Water Used          & 1  & 3.200E-01 & 3.200E-01 & 1.259E+01 & 3.947E-04 **           \\
+  Scope One Emissions & 1  & 4.000E-02 & 4.000E-02 & 1.492E+00 & 2.221E-01             
+  \end{tabular}
+\end{table}
+
+\begin{table}[]
+\label{tab:tab9}
+\caption{Model 4 ANOVA summarising variable significance at the .5 level.}
+\begin{tabular}{llllll}
+Variable            & Df  & Sum Sq    & Mean Sq   & F Value   & Pr(\textgreater{}F)    \\
+Area Harvested      & 1   & 2.066E+03 & 2.066E+03 & 5.700E+04 & \textless 2.20E-16 *** \\
+Scope One Emissions & 1   & 6.000E-02 & 6.000E-02 & 1.569E+00 & 2.105E-01              \\
+Water Used          & 1   & 2.014E+02 & 2.014E+02 & 5.557E+03 & \textless 2.20E-16 *** \\
+Area Harvested*Scope One Emissions & 1 & 5.246E+01 & 5.246E+01 & 1.448E+03 & \textless 2.20E-16 *** \\
+Area Harvested * Water Used        & 1 & 7.270E+00 & 7.270E+00 & 2.005E+02 & \textless 2.20E-16 *** \\
+Year * GI Region    & 243 & 4.546E+02 & 1.870E+00 & 5.162E+01 & \textless 2.20E-16 ***
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\label{tab:tab 10}
+\caption{Comparison of Model Residuals}
+\begin{tabular}{llll}
+      & Df   & Sum Sq    & Mean Sq   \\
+Model 1 & 5231 & 4.913E+02 & 1.000E-01 \\
+Model 2 & 4868 & 1.085E+03 & 2.200E-01 \\
+Model 3 & 2818 & 7.111E+01 & 3.000E-02 \\
+Model 4 & 2629 & 9.528E+01 & 4.000E-02
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\caption{Comparison of Model performance.}
+\label{tab:tab 11}
+\begin{tabular}{llllll}
+        & RSE       & R2        & Adjusted 			R2 & F-statistic & P-Value           \\
+Model 1 & 3.065E-01 & 9.072E-01 & 9.061E-01      & 7.753E+02   & \textless 2.2e-16 \\
+Model 2 & 4.722E-01 & 7.951E-01 & 7.770E-01      & 4.403E+01   & \textless 2.2e-16 \\
+Model 3 & 1.589E-01 & 9.753E-01 & 9.748E-01      & 1.885E+03   & \textless 2.2e-16 \\
+Model 4 & 1.904E-01 & 9.669E-01 & 9.638E-01      & 3.095E+02   & \textless 2.2e-16
+\end{tabular}
+\end{table}
+
+%
 %% \section{}
 %% \label{}
 

@@ -245,23 +245,4 @@ sbar(1000, lonlat=TRUE, label="1000km")
 north(xy="bottomleft", type=2)
 
 # below is just a way to grab the coefs from a linear model.
-summary(model2)$coefficients
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#summary(model2)$coefficients
