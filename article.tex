@@ -210,7 +210,8 @@ Using sale price as a defining trait of quality was due to the market value of w
 \subsection{Data}
 Data used in this analysis was sampled by Sustainable Winegrowing Australia and Wine Australia. Sustainable Winegrowing Australia is Australia's national wine industry sustainability program, which aims to facilitate grape-growers and winemakers in demonstrating and improving their sustainability \citep{swaSustainableWingrowingAustralia2022}. Wine Australia is an Australian Government statutory authority governed by the Wine Australia Act 2013 \citep{WineAustraliaAct2019}.
 \newline
-Data sampled by Wine Australia was collected via phone surveys and included: summary statistics such as yield and average price of sale per tonne; these values were summarised by region and grape varietal. Data recorded by Sustainable Winegrowing Australia was entered manually by winegrowers using a web based interface with some fields being optional, variables included: region, harvest year, yield, area harvested, water used and fuel used (diesel, petrol, biodiesel and LPG). To enable direct comparisons between fuels, they were converted to tonnes of Carbon Dioxide equivalent. 
+Data sampled by Wine Australia was collected via phone surveys and included: summary statistics such as yield and average price of sale per tonne; these values were summarised by region and grape varietal. Data recorded by Sustainable Winegrowing Australia was entered manually by winegrowers using a web based interface with some fields being optional, variables included: region, harvest year, yield, area harvested, water used and fuel used (diesel, petrol, biodiesel and LPG). To enable direct comparisons between fuels, they were converted to tonnes of Carbon Dioxide equivalent.
+% They were converted to emissions that was expressed in TCO2E - not into the units!
 \newline
 The inclusion of Wine Australia data was due to average sale price being an optional field in Sustainable Winegrowing Australia's dataset. 
 Regional average prices from Wine Australia were filled into values that were missing from the Sustainable Winegrowing Australia data; the common practice of purchasing grapes at regional prices was an important consideration in this decision.
@@ -246,93 +247,73 @@ The site of a vineyard predetermines several physical parameters such as climate
 Models were validated using K-fold cross validation calculated through the R Caret Package \citep{kuhnBuildingPredictiveModels2008}. K-fold cross validation works by removing a subset of data from the sample used to train models and then predicts those variables to determine how sensitive the model is to changes in the sample data. For this analysis each model was validated using 10 folds, repeated 100 times. % A reference for this is absolutely needed.
 \section{Results}
 \subsection{Exploratory Analysis}
-Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale (see Table 2) and for data as a logarithmic transform (see Table 3). The logarithmic transforms showed the strongest correlations, likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table 5). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. With all this in mind, when considering the logarithmically transformed variables, a coefficient of 1 would indicate that: given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its own standard deviation. The importance of this is the unitless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
+Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale (see Table 2) and for data as a logarithmic transform (see Table 3). The logarithmic transformed data showed the strongest correlations, likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table 5). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. With all this in mind, when considering the logarithmically transformed variables, a coefficient of 1 would indicate that: given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its own standard deviation. The importance of this is the dimensionless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
 \newline
-To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present, as all P-values were considered significant (< 2.200E-16, see Tables 2 and 3), except for the non-transformed values for water used (see Table 4). 
+To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present, as all P-values were considered significant 
+% missing tables do we need these in tables?
+($< 2.200E-16$, see Tables ?? and ??)
+% This reference is messed up and next some TLC
+, except for the non-transformed values for water used (see Table 4). 
 \subsection{General Linear Models}
-To describe the response variables relative to the predictors' values, General Linear Models were used. Log transformed variables were used as inputs to these models as they resulted in higher $R^2$ values and described the relationships proportionally; reflecting coefficient values as percentages of a variable's standard deviation.
-\newline
-Each model showed a strong relationship between the predictors and the response (see Table \ref{tab:modelsummary}). The strength of the models was measured in $R^2$, as this allowed an easy comparison between their performances and their validation. 
+General Linear Models were used to describe how response variables related to predictors' values. Log transformed variables were used as inputs to these models as they resulted in higher $R^2$ values and described the relationships proportionally; reflecting coefficient values as percentages of a variable's standard deviation.
 \begin{table}[]
   \caption{Summary of models; their performance, F-statistics and Residual error.}
       \label{tab:modelsummary}
       \resizebox{\textwidth}{!}{\begin{tabular}{@{}cccccccc@{}}
         \toprule
-         & $R^2$ & Adjusted $R^2$ & F-statistic & P-Value & \begin{tabular}[c]{@{}c@{}}Residual\\ Standard Error\end{tabular} & \begin{tabular}[c]{@{}c@{}}Residual Sum\\ of Squares\end{tabular} & \begin{tabular}[c]{@{}c@{}}Residual Mean\\ of Squares\end{tabular} \\ \midrule
-        Model 1 & 9.072E-01 & 9.061E-01 & 7.753E+02 & 2.200e-16 & 3.065E-01 & 4.913E+02 & 1.000E-01 \\
-        Model 2 & 7.951E-01 & 7.770E-01 & 4.403E+01 & 2.200e-16 & 4.722E-01 & 1.085E+03 & 2.200E-01 \\
-        Model 3 & 9.753E-01 & 9.748E-01 & 1.885E+03 & 2.200e-16 & 1.589E-01 & 7.111E+01 & 3.000E-02 \\
-        Model 4 & 9.669E-01 & 9.638E-01 & 3.095E+02 & 2.200e-16 & 1.904E-01 & 9.528E+01 & 4.000E-02 \\ \bottomrule
+          & \textbf{$R^2$}       & \textbf{$Adjusted R^2$} & \textbf{F-statistic} & \textbf{P-Value}     & \textbf{\begin{tabular}[c]{@{}c@{}}Residual\\ Standard Error\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Residual Sum\\ of Squares\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Residual Mean\\ of Squares\end{tabular}} \\ \midrule
+        \textbf{\begin{tabular}[c]{@{}c@{}}Model 1\\ Yield\end{tabular}}      & 9.072E-01            & 9.061E-01               & 7.753E+02            & 2.200e-16            & 3.065E-01                                                                  & 4.913E+02                                                                  & 1.000E-01                                                                   \\
+        \multicolumn{1}{l}{}                                                  & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}    & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                                       & \multicolumn{1}{l}{}                                                       & \multicolumn{1}{l}{}                                                        \\
+        \textbf{\begin{tabular}[c]{@{}c@{}}Model 2\\ Yield/Area\end{tabular}} & 7.951E-01            & 7.770E-01               & 4.403E+01            & 2.200e-16            & 4.722E-01                                                                  & 1.085E+03                                                                  & 2.200E-01                                                                   \\
+        \multicolumn{1}{l}{}                                                  & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}    & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                                       & \multicolumn{1}{l}{}                                                       & \multicolumn{1}{l}{}                                                        \\
+        \textbf{\begin{tabular}[c]{@{}c@{}}Model 3\\ Value\end{tabular}}      & 9.753E-01            & 9.748E-01               & 1.885E+03            & 2.200e-16            & 1.589E-01                                                                  & 7.111E+01                                                                  & 3.000E-02                                                                   \\
+        \multicolumn{1}{l}{}                                                  & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}    & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}                                                       & \multicolumn{1}{l}{}                                                       & \multicolumn{1}{l}{}                                                        \\
+        \textbf{\begin{tabular}[c]{@{}c@{}}Model 4\\ Value/Area\end{tabular}} & 9.669E-01            & 9.638E-01               & 3.095E+02            & 2.200e-16            & 1.904E-01                                                                  & 9.528E+01                                                                  & 4.000E-02                                                                   \\ \bottomrule
         \end{tabular}}
-  \end{table}
+      \end{table}
+Each model showed a strong relationship between the predictors and the response (see Table \ref{tab:modelsummary}). The strength of the models was measured in $R^2$, as this allowed an easy comparison between their performances and their validation. 
 \subsubsection{F-tests}
-To determine if predictors significantly related to a Model's response variable, F-tests were conducted. Models 1 and 2 showed significant linear relationships present between all predictors and their response variables (see Tables 6 and 7). Predictors in Models 3 and 4 reported the same significance for each variable except for scope 1 emissions (see Tables 8 and 9). Scope 1 emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients, scope one emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yield and average price per tonne as a ratio to area harvested, respectively).
+% \ref{tab:ftests}
+% We need a table with all F-tests.
+%         | Yield   | ...
+% Model 1 | -2e^-16 | ...
+%
+To determine if predictors significantly related to a Model's response variable, F-tests were conducted. Models 1 and 2 showed significant linear relationships present between all predictors and their response variables (see Table \ref{tab:ftests}). Predictors in Models 3 and 4 reported the same significance for each variable except for scope 1 emissions. Scope 1 emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients scope one emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yield and average price per tonne as a ratio to area harvested, respectively).
 \subsubsection{t-tests}
-Predictors were also reviewed using t-tests to determine if a predictor significantly contributed to the model when accounting for other variables. Using t-tests allowed a more granular examination of each factor (or categorical variable) and interaction, showing which specific years and areas contributed significantly and which did not (see appendix). With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were significant when accounting for other variables. T-tests for Model 3 showed all continuous variables except scope 1 emissions were significant. Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not when considered on their own (see Table ?).
-%\subsubsection{Model Comparison}
+%We want two tables
+% \ref{tab:ttests}
+% \ref{fig:sigregions}
+% a table for t-tests as per the f-tests table (only continuous variables)
+% A map of significant areas contributing to each model.
+T-tests were used to determine if predictors significantly contributed to their models when accounting for other variables; this allowed a more granular examination of interactions and factors within categorical variables, showing which specific years and areas contributed significantly and which did not (see appendix). With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were significant when accounting for other variables. T-tests for Model 3 showed all continuous variables except scope 1 emissions were significant. Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not when considered on their own.
+\subsubsection{Model Comparison}
 % wHY ARE WE COMPARING MODELS?
-%Models were compared using $R^2$ values. The comparison of models performance showed that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing model 2 to model 4 (see Table 10). This relationship between yield and average price was also illustrated in the correlation values between them (see Table 2).
-
+% We compare models to see which predictors contributed relatively to each of the models.
+%
+% There were two subsets - when comparing these models what is the difference between them?
+%
+Models were compared using $R^2$ values. The comparison of models performance showed that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing Model 2 to Model 4 (see Table \ref*{tab:modelperformance}). 
+% This is important but you do not illustrate why
+%
 % This section needs to be heavily revised. Why are there tails on the distributions? What does a heavy tail indicate?
 % What does it look like with respect to disaster events?
 % split the discussion sections out of the results!! Even the questions I am asking are answered in the discussion, however they need to be highlighted as aspects of the models here beforehand.
  Reviewing the data to uncover reasons for this included the use of binary variables such as the utilisation of renewable energy, contractors, and the occurrence of disease, fire and frost; however none of these variables were able to explain why some vineyards produced less, or why other vineyards sold at higher prices than predicted. A wide variety of these influences were likely already explained within the use of year and GI Region, or the interaction of both variables. The change between some regions was dramatic, with particularly warmer and drier regions producing much higher volumes of grapes at lower prices (See Figures 5 and 6). The use of other variables and methods, specifically splines, were able to create a more normally distributed set of residuals but at a drastically reduced accuracy when comparing R2 and RSE. The introduction of known average prices per tonne also helped increase R2 values a small amount; it is important to not that it is common practice for wineries to purchase grapes at a regional average rate, likely resulting in much less variance within a region.
 
-%\begin{figure}
-%  \includegraphics[width=\linewidth]{figure1.jpg}
-%  \caption{Model 1 residuals vs fitted (left) and QQ plot (right).}
-%  \label{fig:fig1}
-%\end{figure}
+ \subsubsection{Model Coefficients}
+% A map and a table just like the t-test section.
+% ^ This does not work
 
-%\begin{figure}
-%  \includegraphics[width=\linewidth]{figure2.jpg}
-%  \caption{Model 2 residuals vs fitted (left) and QQ plot (right).}
-%  \label{fig:fig2}
-%\end{figure}
+The correlation between average sales price and yield was a negative trend (see table 2); the contributing factors to yield and average sales price was ???. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4).
+In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. % ALSO THAT CATASTROPHES HAPPEN EVEN ON SMALL SCALES THis needs to be tied up better.
 
-%\begin{figure}
-%  \includegraphics[width=\linewidth]{figure3.jpg}
-%  \caption{Model 3 residuals vs fitted (left) and QQ plot (right).}
-%  \label{fig:fig3}
-%\end{figure}
-
-%\begin{figure}
-%  \includegraphics[width=\linewidth]{figure4.jpg}
-%  \caption{Model 4 residuals vs fitted (left) and QQ plot (right).}
-%  \label{fig:fig4}
-%\end{figure}
-
-%\begin{figure}
-%  \includegraphics[width=\linewidth]{figure5.jpg}
-%  \caption{Average Yield per hectare for each GI Region.}
-%  \label{fig:fig5}
-%\end{figure}
-
-%\begin{figure}
-%  \includegraphics[width=\linewidth]{figure6.jpg}
-%  \caption{Average Price Per Tonne for each GI Region.}
-%  \label{fig:fig6}
-%\end{figure}
-
-% It is odd to have a paragraph on its own without a label, it does look a bit lost in the article.
-The correlation between average sales price and yield was a negative trend (see table 2); the contributing factors to yield and average sales price was ???. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4). In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. % ALSO THAT CATASTROPHES HAPPEN EVEN ON SMALL SCALES THis needs to be tied up better.
- This is most notable when grouping regions by climate, especially when considering GI Regions in the 'Hot Very Dry' climate (see Figure 7). The effect of climate in the models was not more significant than the more granular use of GI regions. The interaction between year and GI Region likely accounted for localised events such as bushfires, which would be impactful, but only at a local level in both time and space.
-
-
-
-%\begin{figure}
-%  \includegraphics[width=\linewidth]{figure7.jpg}
-%  \caption{A depiction of the relationship between Value of tonnes harvested per hectare and yield per hectare.Both variables have been transformed to be scaled by standard deviation with mean 0.}
-%  \label{fig:fig7}
-%\end{figure}
-
+\subsection{Productivity verse Value}
+% Graph of productivity verse value.
+different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. This is most notable when grouping regions by climate, especially when considering GI Regions in the 'Hot Very Dry' climate (see Figure 7). The effect of climate in the models was not more significant than the more granular use of GI regions. The interaction between year and GI Region likely accounted for localised events such as bushfires, which would be impactful, but only at a local level in both time and space.
 \subsection{Model Validation}
-To validate the performance of these models k-fold cross validation was used. This was done using 10 folds, k=10, repeated 100 times. The models performed similarly to their original counter parts (see Table 11).
-
-% really this is it?
-
+To validate the performance of these models k-fold cross validation was used. This was done using 10 folds, $k=10$, repeated 100 times. The models performed similarly to their original counter parts (see Table \ref*{tab:kfold}).
 \begin{table}[]
-  \label{tab:tab12}
+  \label{tab:kfold}
   \caption{Model validation using k-fold cross validation, for 10 folds repeated 100 times.}
   \begin{tabular}{cccc}
           & RMSE      & R2        & MAE       \\
@@ -342,7 +323,6 @@ To validate the performance of these models k-fold cross validation was used. Th
   Model 4 & 2.235E-01 & 9.500E-01 & 1.279E-01
   \end{tabular}
   \end{table}
-
 \section{Discussion}
 \subsection{Limitations}
 Limitations included overestimating yield for models 1 and 2, (see Figures 1 and 2) and underestimating crop value in models 3 and 4 (see Figures 3 and 4).
