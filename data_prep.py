@@ -84,7 +84,7 @@ df.loc[df["climate"]=="Unknown Climate Unknown Climate", "climate"] = np.nan
 # We change units
 #
 # changing ha to m2 for area to remove 1s and fractions for the log transform
-df["area_harvested"] = df["area_harvested"]*1000
+df["area_harvested"] = df["area_harvested"]*10000
 
 #create a flag for disease/fire/frost
 df["not_harvested"] = 0
