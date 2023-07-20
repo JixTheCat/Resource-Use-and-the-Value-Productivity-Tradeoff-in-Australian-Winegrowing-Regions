@@ -20,7 +20,7 @@ model4 <- lm(
     ha_value ~
     area_harvested * ((scope1) + water_used) + data_year_id:giregion
     , data = df)
-``
+
 # We review our first model
 
 # MODEL 1
@@ -35,10 +35,10 @@ ggplot(
     data.frame(
         y = model1_residuals)
         , aes(sample = y)
-       ) +names4 <- rownames(df4)
-
+       ) +
        stat_qq() +
        stat_qq_line()
+
 ggplot(
     data.frame(
         y = model1_residuals
@@ -56,8 +56,6 @@ ggplot(
 #Resampling: Cross-Validated (10 fold, repeated 100 times) 
 #Summary of sample sizes: 4768, 4767, 4768, 4769, 4768, 4769, ... 
 #Resampling results:
-#names4 <- rownames(df4)
-.2164945
 #
 #Tuning parameter 'intercept' was held constant at a value of TRUE
 
@@ -69,8 +67,8 @@ summary(model2)
 coefs2 <- coefs(model2)
 coefs2_giregion <- coefs2[grep("gi*", row.names(ok)), ]
 coefs2_year <- coefs2[grep("data*", row.names(ok)), ]
-model1_residuals <- residuals(model2)
-model1_fitted <- fitted(model2)
+model2_residuals <- residuals(model2)
+model2_fitted <- fitted(model2)
 ggplot(
     data.frame(
         y = model2_residuals)
@@ -84,7 +82,7 @@ ggplot(
         , x = model2_fitted)
     , aes(x = x, y = y)
     ) +
-    geom_point()+
+    geom_point() +
     geom_hline(yintercept = 0)
 #Linear Regression 
 #
@@ -105,7 +103,7 @@ ggplot(
 # We add Value to the model :P
 anova(model3)
 summary(model3)
-coefs3 <- coefs(model3)names4 <- rownames(df4)
+coefs3 <- coefs(model3)
 
 coefs3_giregion <- coefs3[grep("gi*", row.names(ok)), ]
 coefs3_year <- coefs3[grep("data*", row.names(ok)), ]
@@ -121,27 +119,13 @@ ggplot(
 ggplot(
     data.frame(
         y = model3_residuals
-        , x = model3_fitted)df3 <- data.frame(summary(model3)$coefficients)
-names3 <- rownames(df3) 
-df3[names3[grepl("^da", names3)], "class"] <- "Year"
-df3[names3[grepl("^gi", names3)], "class"] <- "GI Region"
-df3 <- df3[complete.cases(df3),]
-ggplot(df3, aes(class, Estimate)) + geom_violin()
-
-df3 <- data.frame(summary(model3)$coefficients)
-names3 <- rownames(df
-df4 <- data.frame(summary(model4)$coefficients)
-names4 <- rownames(df4)
-df4[names4[grepl("^da", names4)], "class"] <- "Year * GI Region"
-df4 <- df4[complete.cases(df4),]
-
-df2 <- data.frame(summary(model2)$coefficients)
-names2 <- rownames(df2)
-df2[names2[grepl("^da", names2)], "class"] <- "Year * GI Region"
-df2 <- df2[complete.cases(df2),]
+        , x = model3_fitted)
+        , aes(x = x, y = y)) +
+    geom_point() +
+    geom_hline(yintercept = 0)
 
 ggplot(df4, aes(class, Estimate)) + ggplot(df2, aes(class, Estimate)) + geom_violin() + geom_boxplot(width=0.1, fill="white") + theme_classic()
-3) 
+
 df3[names3[grepl("^da", names3)], "class"] <- "Year"
 df3[names3[grepl("^gi", names3)], "class"] <- "GI Region"
 df3 <- df3[complete.cases(df3),]
@@ -160,11 +144,8 @@ ggplot(df3, aes(class, Estimate)) + geom_violin() + scale_fill_brewer(palette="D
 #Resampling: Cross-Validated (10 fold, repeated 100 times) 
 #Summary of sample sizes: 2590, 2590, 2591, 2590, 2590, 2591, ... 
 #Resampling results:
-#names4 <- rownames(df4)
- 0.1008465
 #
 #Tuning parameter 'intercept' was held constant at a value of TRUE
-
 
 # MODEL 4
 anova(model4)
@@ -280,7 +261,8 @@ aggs.ha_value <- aggregate(nt$ha_value, list(nt$giregion), FUN=mean.t)
 
 for (region in unique(df$giregion))
 {
-v[v$GI_NAME==region , ]$ha_tonnes_grapes_harvested <- aggs.ha_tonnes_grapes_harvested[aggs.ha_tonnes_grapes_harvested$Group.1==region , ]$x
+v[v$GI_NAME==region , ]$ha_tonnes_grapes_harvested <-
+ aggs.ha_tonnes_grapes_harvested[aggs.ha_tonnes_grapes_harvested$Group.1==region , ]$x
 v[v$GI_NAME==region , ]$ha_value <- aggs.ha_value[aggs.ha_value$Group.1==region , ]$x
 }
 
