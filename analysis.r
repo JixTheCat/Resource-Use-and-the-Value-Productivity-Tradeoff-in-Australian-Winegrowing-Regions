@@ -173,7 +173,7 @@ ggplot(
 
 df1 <- data.frame(summary(model1)$coefficients)
 names1 <- rownames(df1) 
-df1[names3[grepl("^da", names1)], "class"] <- "Model 1: Year"
+df1[names1[grepl("^da", names1)], "class"] <- "Model 1: Year"
 df1[names1[grepl("^gi", names1)], "class"] <- "model 1: GI Region"
 df1 <- df1[complete.cases(df1),]
 
