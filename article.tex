@@ -175,8 +175,7 @@ We link these relations to the potential for improvement through decision-making
 \section{Methods}
 We created four linear models to explore relationships between resource-use and vineyard outputs (see Table 1). The data was sourced from Sustainable Winegrowing Australia and Wine Australia. Variables used included: yield, average sale price, region, water use, emissions, area harvested and year. After fitting to the data, each model was validated using k-fold cross validation.
 \begin{table}[]
-      \caption{Summary of models; their predictors, covariates and variable interactions.}
-      \label{tab:tab1}
+      \caption{Summary of models; their predictors, covariates and variable interactions.}\label{tab:tab1}
         \resizebox{\textwidth}{!}{\begin{tabular}{@{}ccccc@{}}
           \toprule
           & \textbf{Response} & \textbf{Predictors} & \textbf{Covariates} & \textbf{Interactions} \\ \midrule
@@ -247,7 +246,7 @@ Linear relationships between variables were explored using Pearson Correlation C
 \newline
 To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present, as all P-values were considered significant 
 % missing tables do we need these in tables?
-($< 2.200E-16$, see Tables  and )
+($< 2.200E-16$, see Tables  and) 
 % This reference is messed up and next some TLC
 , except for the non-transformed values for water used (see Table 4). 
 \subsection{General Linear Models}
@@ -259,22 +258,69 @@ General Linear Models were used to describe how response variables related to pr
           \toprule
            & $\mathbf{R^2}$ & $\mathbf{R^2}$ & \textbf{F-Statistic} & \textbf{P-Value} & \textbf{\begin{tabular}[c]{@{}c@{}}Residual\\ Standard Error\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Residual Sum\\ of Squares\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Residual Mean\\ of Squares\end{tabular}} \\ \midrule
           \textbf{\begin{tabular}[c]{@{}c@{}}Model 1\\ Yield\end{tabular}} & 9.072E-01 & 9.061E-01 & 7.753E+02 & 2.200e-16 & 3.065E-01 & 4.913E+02 & 1.000E-01 \\
+          \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
           \textbf{\begin{tabular}[c]{@{}c@{}}Model 2\\ Yield/Area\end{tabular}} & 7.951E-01 & 7.770E-01 & 4.403E+01 & 2.200e-16 & 4.722E-01 & 1.085E+03 & 2.200E-01 \\
+          \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
           \textbf{\begin{tabular}[c]{@{}c@{}}Model 3\\ Value\end{tabular}} & 9.753E-01 & 9.748E-01 & 1.885E+03 & 2.200e-16 & 1.589E-01 & 7.111E+01 & 3.000E-02 \\
+          \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
           \textbf{\begin{tabular}[c]{@{}c@{}}Model 4\\ Value / Area\end{tabular}} & 9.669E-01 & 9.638E-01 & 3.095E+02 & 2.200e-16 & 1.904E-01 & 9.528E+01 & 4.000E-02 \\ \bottomrule
           \end{tabular}
         }
-      \end{table}
+\end{table}
 Each model showed a strong relationship between the predictors and the response (see Table~\ref{tab:modelsummary}). Model accuracy was measured in $R^2$, as this allowed an easy comparison between their performances and their validation.
 \subsubsection{F-tests}
-% \ref{tab:ftests}
-% We need a table with all F-tests.
-%         | Yield   | ...
-% Model 1 | -2e^-16 | ...
 %
-To determine if predictors significantly related to a Model's response variable, F-tests were conducted. Models 1 and 2 showed significant linear relationships present between all predictors and their response variables (see Table \ref{tab:ftests}). Predictors in Models 3 and 4 reported the same significance for each variable except for scope 1 emissions. Scope 1 emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients scope one emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yield and average price per tonne as a ratio to area harvested, respectively).
+% This table is absolutely trash.
+%
+% Kate madea good point that, although figures can be combined into a single figure. Tables cannot.
+%
+% cheat way to multi line comment
+\iffalse{}
+%
+\begin{table}[]
+  \caption{Ftests and wsutff}\label{tab:ftests}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{@{}cllllllll@{}}
+      \toprule
+       & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Water\\ Used\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Scope 1\\ Emissions\end{tabular}}} & \textbf{Year} & \textbf{\begin{tabular}[c]{@{}l@{}}GI\\ Region\end{tabular}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ *\\ Scope 1\\ Emissions\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ *\\ Water\\ Used\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Year\\ *\\ GI\\ Region\end{tabular}}} \\ \midrule
+      \textbf{Model 1} &  &  &  &  &  &  &  &  \\
+      \begin{tabular}[c]{@{}c@{}}Total Sum\\ of Squares\end{tabular} & 3211 & 10.4 & 6.6 & 70.6 & 1507.1 &  &  &  \\
+      F-Value & 34187.908 & 110.255 & 70.56 & 83.533 & 297.163 &  &  &  \\
+      Pr(>F) & 2.20E-16 & 2.20E-16 & 2.20E-16 & 2.20E-16 & 2.20E-16 &  &  &  \\
+      \multicolumn{1}{l}{} &  &  &  &  &  &  &  &  \\
+      \textbf{Model 2} &  &  &  &  &  &  &  &  \\
+      \begin{tabular}[c]{@{}c@{}}Total Sum\\ of Squares\end{tabular} & 2856.23 & 473.32 & 33.06 &  &  & 53.47 & 0.28 & 975.61 \\
+      F-Value & 15363.1866 & 177.8109 & 2545.9357 &  &  & 287.6126 & 1.5097 & 12.3766 \\
+      Pr(>F) & <2e-16 & <2e-16 & <2e-16 &  &  & <2e-16 & 0.2192 & <2e-16 \\
+      \multicolumn{1}{l}{} &  &  &  &  &  &  &  &  \\
+      \textbf{Model 3} &  &  &  &  &  &  &  &  \\
+      \begin{tabular}[c]{@{}c@{}}Total Sum\\ of Squares\end{tabular} & 2142.46 & 0.32 & 0.04 & 13.24 & 649.83 &  &  &  \\
+      F-Value & 84905.8197 & 12.5874 & 1.4915 & 87.4771 & 515.0601 &  &  &  \\
+      Pr(>F) & <2.2E-016 & 0.0003947 & 0.2220844 & <2.2E-016 & <2.2E-016 &  &  &  \\
+      \multicolumn{1}{l}{} &  &  &  &  &  &  &  &  \\
+      \textbf{Model 4} &  &  &  &  &  &  &  &  \\
+      \begin{tabular}[c]{@{}c@{}}Total Sum\\ of Squares\end{tabular} & 1868.46 & 274.92 & 0.04 &  &  & 35.02 & 4.18 & 582.96 \\
+      F-Value & 44084.0278 & 6486.2867 & 0.8311 &  &  & 826.1925 & 98.5895 & 56.6019 \\
+      Pr(>F) & <2e-16 & <2e-16 & 0.3621 &  &  & <2e-16 & <2e-16 & <2e-16
+      \end{tabular}
+  }
+\end{table}
+%
+\fi
+%
+%
+%
+% model 1 - all sig
+% model 2 - area * water used interaction was not sig
+% model 3 - scope 1 was not sig
+% model 4 - scope 1 was not sig
+To determine if predictors significantly related to a Model's response variable, F-tests were conducted. Aside from 3 variables, all F-tests across each model indicated a significant contribution was made at 95\% confidence (See Table
+%\ref{tab:ftests}).
+). The exceptions were scope 1 emissions in models 3 and 4, as well as the interaction between area harvested and water used in Model 3. 
+Models 1 and 2 showed significant linear relationships present between all predictors and their response variables (with P-values being less than 2.200E-16). Predictors in Models 3 and 4 reported the same significance for each variable except for scope 1 emissions. Scope 1 emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients scope 1 emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yield and average price per tonne as a ratio to area harvested, respectively).
 \subsubsection{t-tests}
 %We want two tables
+\includegraphics{violinplot.pdf}
 % \ref{tab:ttests}
 % \ref{fig:sigregions}
 % a table for t-tests as per the f-tests table (only continuous variables)
