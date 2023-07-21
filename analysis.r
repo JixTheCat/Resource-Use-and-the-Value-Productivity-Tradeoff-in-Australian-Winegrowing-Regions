@@ -193,8 +193,10 @@ names4 <- rownames(df4)
 df4[names4[grepl("^da", names4)], "class"] <- "Model 4: Year * GI Region"
 df4 <- df4[complete.cases(df4),]
 
-ggplot(rbind(df1, df2, df3, df4), aes(class, Estimate, fill=class)) + geom_violin() + geom_boxplot(width=0.1, fill="white") + scale_color_brewer(palette="Dark2") + theme_minimal()
-
+violinplot <- ggplot(rbind(df1, df2, df3, df4), aes(class, Estimate, fill=class)) + geom_violin() + geom_boxplot(width=0.1, fill="white") + scale_color_brewer(palette="Dark2") + theme_minimal()
+pdf("violinplot.pdf")
+print(violinplot)
+dev.off()
 # Residual standard error: 0.1949 on 1791 degrees of freedom
 #   (2877 observations deleted due to missingness)
 # Multiple R-squared:  0.9662,	Adjusted R-squared:  0.962 
