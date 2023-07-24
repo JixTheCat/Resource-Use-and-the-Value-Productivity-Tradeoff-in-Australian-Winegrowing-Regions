@@ -189,9 +189,9 @@ We created four linear models to explore relationships between resource-use and 
           \end{tabular}}
 \end{table}
 \subsection{Analysis}
-Before models were fit to the data, Pearson Correlation Coefficients were used to look at the existence of linear relationships between predictor variables. These relationships were summarised in correlation matrices to compare levels of interaction present between predictor variables. The relationships between the predictors and response variables were then modelled using General Linear Models. Both the Pearson Correlation Coefficients and General Linear Models were created using the R statistical programming language \citep{rcoreteamLanguageEnvironmentStatistical2021}. General Linear Models were chosen as they offer the ability to produce statistical models that are explicit in the relationships between predictors and response variables.
+Before models were fit to the data, Pearson Correlation Coefficients were used to look at the existence of linear relationships between predictor variables. These relationships were summarised in correlation matrices to compare the level of interaction present between predictor variables. The relationships between the predictors and response variables were then modelled using General Linear Models. Both the Pearson Correlation Coefficients and General Linear Models were created using the R statistical programming language \citep{rcoreteamLanguageEnvironmentStatistical2021}. General Linear Models were chosen as they offer the ability to produce statistical models that are explicit in the relationships between predictors and response variables.
 %reference?
-General Linear Models also allow the exploration of interactions between predictors and easily comparable differences in the influence and magnitude of relationships.
+General Linear Models also allow the exploration of interactions between predictors and present easily comparable differences in the influence and magnitude of relationships.
 % reference?
  A variety of alternate methods were also explored, including: Splines, hierarchical regression, General Additive Models, and Generalised Linear Models. These alternative approaches were not used as final models due to offering no further insights or improvements in accuracy.
 \newline
@@ -244,11 +244,10 @@ Models were validated using K-fold cross validation calculated through the R Car
 \subsection{Exploratory Analysis}
 Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale (see Table 2) and for data as a logarithmic transform (see Table 3). The logarithmic transformed data showed the strongest correlations, likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table 5). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. With all this in mind, when considering the logarithmically transformed variables, a coefficient of 1 would indicate that: given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its own standard deviation. The importance of this is the dimensionless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
 \newline
-To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present, as all P-values were considered significant 
+To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present as all P-values, except for the non-transformed values for water used (see Table ?), were considered significant
 % missing tables do we need these in tables?
-($< 2.200E-16$, see Tables  and) 
+($< 2.200E-16$, see Tables  and).
 % This reference is messed up and next some TLC
-, except for the non-transformed values for water used (see Table 4). 
 \subsection{General Linear Models}
 General Linear Models were used to describe how response variables related to predictors' values. Log transformed variables were used as inputs to these models as they resulted in higher $R^2$ values and described the relationships proportionally; reflecting coefficient values as percentages of a variable's standard deviation.
 \begin{table}[]
@@ -314,25 +313,44 @@ Each model showed a strong relationship between the predictors and the response 
 % model 2 - area * water used interaction was not sig
 % model 3 - scope 1 was not sig
 % model 4 - scope 1 was not sig
-To determine if predictors significantly related to a Model's response variable, F-tests were conducted. Aside from 3 variables, all F-tests across each model indicated a significant contribution was made at 95\% confidence (See Table
+To determine if predictors significantly related to a Model's response variable, F-tests were conducted. Aside from 3 variables, all F-tests across each model indicated a significant contribution at 95\% confidence (See Table
 %\ref{tab:ftests}).
 ). The exceptions were scope 1 emissions in models 3 and 4, as well as the interaction between area harvested and water used in Model 3. 
 Models 1 and 2 showed significant linear relationships present between all predictors and their response variables (with P-values being less than 2.200E-16). Predictors in Models 3 and 4 reported the same significance for each variable except for scope 1 emissions. Scope 1 emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients scope 1 emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yield and average price per tonne as a ratio to area harvested, respectively).
-\subsubsection{t-tests}
+\subsubsection{T-tests}
 %We want two tables
-\includegraphics{violinplot.pdf}
 % \ref{tab:ttests}
 % \ref{fig:sigregions}
 % a table for t-tests as per the f-tests table (only continuous variables)
 % A map of significant areas contributing to each model.
-T-tests were used to determine if predictors significantly contributed to their models when accounting for other variables; this allowed a more granular examination of interactions and factors within categorical variables, showing which specific years and areas contributed significantly and which did not (see appendix). With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were significant when accounting for other variables. T-tests for Model 3 showed all continuous variables except scope 1 emissions were significant. Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not when considered on their own.
-\subsubsection{Model Comparison}
+T-tests were used to determine if predictors significantly contributed to their models when accounting for other variables; this allowed a more granular examination of interactions and factors within categorical variables, showing which specific years and areas contributed significantly and which did not (see appendix).
+% The range of how significant these variable were is important.
+%
+% How many were important vs how many were not?
+%
+% was it the same across each of the models? For example was one year/region always bad for every model?
+%
+With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were significant when accounting for other variables. T-tests for Model 3 showed all continuous variables except scope 1 emissions were significant. Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not when considered on their own.
+\subsubsection{Model Coefficients}
+% A map and a table just like the t-test section.
+\begin{figure}
+\caption{Violine plot of GI Region and Year coefficients for each model.}\label{fig:violin}
+\includegraphics{violinplot.pdf}
+\end{figure}
+
+The correlation between average sales price and yield was a negative trend (see table 2); the contributing factors to yield and average sales price was ???. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4).
+In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. % ALSO THAT CATASTROPHES HAPPEN EVEN ON SMALL SCALES THis needs to be tied up better.
+
+\subsubsection{Model Comparisons: Productivity Verse Value}
 % wHY ARE WE COMPARING MODELS?
 % We compare models to see which predictors contributed relatively to each of the models.
 %
 % There were two subsets - when comparing these models what is the difference between them?
 %
-Models were compared using $R^2$ values. The comparison of models performance showed that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing Model 2 to Model 4 (see Table \ref*{tab:modelperformance}). 
+Models were compared using $R^2$ values. The comparison of models performance showed that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing Model 2 to Model 4 
+% Graph of productivity verse value.
+
+(see Table \ref*{tab:modelperformance}). 
 % This is important but you do not illustrate why
 %
 % This section needs to be heavily revised. Why are there tails on the distributions? What does a heavy tail indicate?
@@ -340,16 +358,8 @@ Models were compared using $R^2$ values. The comparison of models performance sh
 % split the discussion sections out of the results!! Even the questions I am asking are answered in the discussion, however they need to be highlighted as aspects of the models here beforehand.
  Reviewing the data to uncover reasons for this included the use of binary variables such as the utilisation of renewable energy, contractors, and the occurrence of disease, fire and frost; however none of these variables were able to explain why some vineyards produced less, or why other vineyards sold at higher prices than predicted. A wide variety of these influences were likely already explained within the use of year and GI Region, or the interaction of both variables. The change between some regions was dramatic, with particularly warmer and drier regions producing much higher volumes of grapes at lower prices (See Figures 5 and 6). The use of other variables and methods, specifically splines, were able to create a more normally distributed set of residuals but at a drastically reduced accuracy when comparing R2 and RSE. The introduction of known average prices per tonne also helped increase R2 values a small amount; it is important to not that it is common practice for wineries to purchase grapes at a regional average rate, likely resulting in much less variance within a region.
 
- \subsubsection{Model Coefficients}
-% A map and a table just like the t-test section.
-% ^ This does not work
-
-The correlation between average sales price and yield was a negative trend (see table 2); the contributing factors to yield and average sales price was ???. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4).
-In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. % ALSO THAT CATASTROPHES HAPPEN EVEN ON SMALL SCALES THis needs to be tied up better.
-
-\subsection{Productivity verse Value}
-% Graph of productivity verse value.
 different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. This is most notable when grouping regions by climate, especially when considering GI Regions in the 'Hot Very Dry' climate (see Figure 7). The effect of climate in the models was not more significant than the more granular use of GI regions. The interaction between year and GI Region likely accounted for localised events such as bushfires, which would be impactful, but only at a local level in both time and space.
+
 \subsection{Model Validation}
 To validate the performance of these models k-fold cross validation was used. This was done using 10 folds, $k=10$, repeated 100 times. The models performed similarly to their original counter parts (see Table \ref*{tab:kfold}).
 \begin{table}[]
