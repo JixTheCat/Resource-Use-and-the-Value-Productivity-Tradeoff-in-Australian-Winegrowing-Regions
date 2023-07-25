@@ -265,7 +265,7 @@ anova(lm(df$ha_value ~ df$ha_tonnes_grapes_harvested))
 # not the quality.
 
 # here are some plots
-ggplot(df
+yield.vs.value <- ggplot(df
     , aes(
         x = tonnes_grapes_harvested
         , y = tonnes_grapes_harvested * average_per_tonne
@@ -277,7 +277,11 @@ ggplot(df
     xlab("Yield") +
     ylab("Yield * Average Price") +
     theme_light()
-ggplot(
+pdf("yvv.pdf")
+print(yield.vs.value)
+dev.off()
+
+yield.vs.value.per.ha <- ggplot(
     df
     , aes(
         x = ha_tonnes_grapes_harvested
@@ -290,6 +294,9 @@ ggplot(
         xlab("Yield / Area Harvested") +
         ylab("Yield * Average Price / Area Harvested") +
         theme_light()
+pdf("yvvph.pdf")
+print(yield.vs.value.per.ha)
+dev.off()
 
 #######################
 # Lets make some maps #
