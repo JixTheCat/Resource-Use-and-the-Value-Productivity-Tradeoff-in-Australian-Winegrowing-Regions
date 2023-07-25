@@ -272,25 +272,11 @@ To determine if predictors significantly related to a Model's response variable,
 \newline
 Scope 1 emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients scope 1 emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yield and average price per tonne as a ratio to area harvested, respectively).
 \subsubsection{T-tests}
-%We want two tables
-% \ref{tab:ttests}
-% \ref{fig:sigregions}
-% a table for t-tests as per the f-tests table (only continuous variables)
-% A map of significant areas contributing to each model.
 T-tests were used to determine if predictors significantly contributed to their models when accounting for other variables; this allowed a more granular examination of interactions and factors within categorical variables, showing which specific years and areas contributed significantly and which did not (the appendix contains a comprehensive list of these values). 
-
-For Models 1 and 3, depicting yield and value as totals, year played a pivitol role; with only one year in each model not being significant (2021/2022 and 2016/2017 respectively). Both Model 1 and 3 showed a majority of regions were significant with 32 of 54 regions being significant in Model 1 and 42 of 50 regions being significant in Model 3.
-
-For Model 1, All years were significant except for the 2021/2022 financial year (where, P=4.325E-01). 32/54 giregions were significant (59.26\%). Adelaide planes was the reference region with 2012/2013 being the reference year.
-%
-For Model 3, all years were significant except for 2016/2017 (P=7.532E-01
-). 42 out of 50 regions were significant.
-% The range of how significant these variable were is important.
-%
-% How many were important vs how many were not?
-%
-% was it the same across each of the models? For example was one year/region always bad for every model?
-%
+\newline
+For Models 1 (yield) and 3 (value) year played a pivotal role, with only one year in each model not being significant (2021/2022 and 2016/2017 respectively). Both Model 1 and 3 showed a majority of regions were significant with 32 of 54 regions being significant in Model 1, and 42 of 50 regions being significant in Model 3 with 95\% confidence.
+\newline
+The number of combinations of year and region meant that Models 2 and 4 had many tests (424 and 243 respectively). Model 2 found 62.56\% of these combinations were indicative of a significant contribution to the model at 95\% significance. Model 4 was found to have 88.07\% of its year/region combinations indicating a significant contribution. A likely reason for some combinations not being significant was a lack of samples in that particular region/year being present; with region sample sizes ranging from 1 to 1006.
 \newline
 With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were significant at 95\% confidence when accounting for other variables. T-tests for Model 3 showed all continuous variables except scope 1 emissions were significant. Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not when considered on their own.
 \subsubsection{Model Coefficients}
