@@ -26,9 +26,6 @@ model4 <- lm(
 # MODEL 1
 anova(model1)
 summary(model1)
-coefs1 <- coefs(model1)
-coefs1_giregion <- coefs1[grep("gi*", row.names(ok)), ]
-coefs1_year <- coefs1[grep("data*", row.names(ok)), ]
 model1_residuals <- residuals(model1)
 model1_fitted <- fitted(model1)
 ggplot(
@@ -53,8 +50,8 @@ ggplot(
 #   5 predictor
 #
 #No pre-processing
-#Resampling: Cross-Validated (10 fold, repeated 100 times) 
-#Summary of sample sizes: 4768, 4767, 4768, 4769, 4768, 4769, ... 
+#Resampling: Cross-Validated (10 fold, repeated 100 times)
+#Summary of sample sizes: 4768, 4767, 4768, 4769, 4768, 4769,
 #Resampling results:
 #
 #Tuning parameter 'intercept' was held constant at a value of TRUE
@@ -63,9 +60,6 @@ ggplot(
 # Lets look at ratios
 anova(model2)
 summary(model2)
-coefs2 <- coefs(model2)
-coefs2_giregion <- coefs2[grep("gi*", row.names(ok)), ]
-coefs2_year <- coefs2[grep("data*", row.names(ok)), ]
 model2_residuals <- residuals(model2)
 model2_fitted <- fitted(model2)
 ggplot(
@@ -83,17 +77,17 @@ ggplot(
     ) +
     geom_point() +
     geom_hline(yintercept = 0)
-#Linear Regression 
+#Linear Regression
 #
 #6068 samples
 #   5 predictor
 #
 #No pre-processing
-#Resampling: Cross-Validated (10 fold, repeated 100 times) 
-#Summary of sample sizes: 4768, 4768, 4768, 4769, 4769, 4768, ... 
+#Resampling: Cross-Validated (10 fold, repeated 100 times)
+#Summary of sample sizes: 4768, 4768, 4768, 4769, 4769, 4768,
 #Resampling results:
 #
-#  RMSE       Rsquared   MAE      
+#  RMSE       Rsquared   MAE
 #  0.5104218  0.7408576  0.3492901
 #
 #Tuning parameter 'intercept' was held constant at a value of TRUE
@@ -102,10 +96,6 @@ ggplot(
 # We add Value to the model :P
 anova(model3)
 summary(model3)
-coefs3 <- coefs(model3)
-
-coefs3_giregion <- coefs3[grep("gi*", row.names(ok)), ]
-coefs3_year <- coefs3[grep("data*", row.names(ok)), ]
 model3_residuals <- residuals(model3)
 model3_fitted <- fitted(model3)
 ggplot(
@@ -123,18 +113,11 @@ ggplot(
     geom_point() +
     geom_hline(yintercept = 0)
 
-ggplot(df4, aes(class, Estimate)) + ggplot(df2, aes(class, Estimate)) + geom_violin() + geom_boxplot(width=0.1, fill="white") + theme_classic()
-
-df3[names3[grepl("^da", names3)], "class"] <- "Year"
-df3[names3[grepl("^gi", names3)], "class"] <- "GI Region"
-df3 <- df3[complete.cases(df3),]
-ggplot(df3, aes(class, Estimate)) + geom_violin() + scale_fill_brewer(palette="Dark2") + theme_minimal()
-
 # Residual standard error: 0.1688 on 1962 degrees of freedom
 #   (2877 observations deleted due to missingness)
 # Multiple R-squared:  0.9723,	Adjusted R-squared:  0.9715 
 # F-statistic:  1274 on 54 and 1962 DF,  p-value: < 2.2e-16
-#Linear Regression 
+#Linear Regression
 #
 #6068 samples
 #   5 predictor
@@ -149,9 +132,6 @@ ggplot(df3, aes(class, Estimate)) + geom_violin() + scale_fill_brewer(palette="D
 # MODEL 4
 anova(model4)
 summary(model4)
-coefs4 <- coefs(model4)
-coefs4_giregion <- coefs4[grep("gi*", row.names(ok)), ]
-coefs4_year <- coefs4[grep("data*", row.names(ok)), ]
 model4_residuals <- residuals(model4)
 model4_fitted <- fitted(model4)
 ggplot(
@@ -264,8 +244,37 @@ anova(lm(df$ha_value ~ df$ha_tonnes_grapes_harvested))
 # note that scope1 is only good for predicting the amount of grapes
 # not the quality.
 
+# #D81B60
+# #1E88E5
+# #FFC107
+# #004D40
+
+my_colors <- c(
+    # Cool
+    #"#1E88E5"
+    "#1E88E5"
+    , "#1E88E5"
+    , "#1E88E5"
+    # Mild
+    #, "#004D40"
+    , "#004d40"
+    , "#004D40"
+    , "#004D40"
+    # Warm
+    #, "#FFC107"
+    , "#FFC107"
+    , "#FFC107"
+    , "#FFC107"
+    # Hot
+    #, "#D81B60"
+    , "#D81B60"
+    , "#D81B60"
+)
+scale_color_manual(values = my_colors)
+
 # here are some plots
-yield.vs.value <- ggplot(df
+yield.vs.value <- ggplot(
+    df[df$climate!="", ]
     , aes(
         x = tonnes_grapes_harvested
         , y = tonnes_grapes_harvested * average_per_tonne
@@ -273,7 +282,7 @@ yield.vs.value <- ggplot(df
     ) +
     xlim(-2.5, 2.5) +
     ylim(-2.5, 2.5) +
-    geom_point() +
+    geom_point(size = .5) +
     xlab("Yield") +
     ylab("Yield * Average Price") +
     theme_light()
@@ -282,7 +291,7 @@ print(yield.vs.value)
 dev.off()
 
 yield.vs.value.per.ha <- ggplot(
-    df
+    df[df$climate!="", ]
     , aes(
         x = ha_tonnes_grapes_harvested
         , y = ha_tonnes_grapes_harvested * average_per_tonne
@@ -290,7 +299,7 @@ yield.vs.value.per.ha <- ggplot(
         ) +
         xlim(-2.5, 2.5) +
         ylim(-2.5, 2.5) +
-        geom_point() +
+        geom_point(size = .5) +
         xlab("Yield / Area Harvested") +
         ylab("Yield * Average Price / Area Harvested") +
         theme_light()
@@ -325,5 +334,5 @@ lines(aus)
 sbar(1000, lonlat=TRUE, label="1000km")
 north(xy="bottomleft", type=2)
 
-# below is just a way to grab the coefs from a linear model.
+# below is just a way to grab the coef from a linear model.
 #summary(model2)$coefficients
