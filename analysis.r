@@ -170,34 +170,6 @@ ggplot(
     geom_point() +
     geom_hline(yintercept = 0)
 
-# We graph the coefficients!
-
-df1 <- data.frame(summary(model1)$coefficients)
-names1 <- rownames(df1) 
-df1[names1[grepl("^da", names1)], "class"] <- "Model 1: Year"
-df1[names1[grepl("^gi", names1)], "class"] <- "model 1: GI Region"
-df1 <- df1[complete.cases(df1),]
-
-df2 <- data.frame(summary(model2)$coefficients)
-names2 <- rownames(df2)
-df2[names2[grepl("^da", names2)], "class"] <- "Model 2: Year * GI Region"
-df2 <- df2[complete.cases(df2),]
-
-df3 <- data.frame(summary(model3)$coefficients)
-names3 <- rownames(df3) 
-df3[names3[grepl("^da", names3)], "class"] <- "Model 3: Year"
-df3[names3[grepl("^gi", names3)], "class"] <- "model 3: GI Region"
-df3 <- df3[complete.cases(df3),]
-
-df4 <- data.frame(summary(model4)$coefficients)
-names4 <- rownames(df4)
-df4[names4[grepl("^da", names4)], "class"] <- "Model 4: Year * GI Region"
-df4 <- df4[complete.cases(df4),]
-
-violinplot <- ggplot(rbind(df1, df2, df3, df4), aes(class, Estimate, fill=class)) + geom_violin() + geom_boxplot(width=0.1, fill="white") + scale_color_brewer(palette="Dark2") + theme_minimal()
-pdf("violinplot.pdf")
-print(violinplot)
-dev.off()
 # Residual standard error: 0.1949 on 1791 degrees of freedom
 #   (2877 observations deleted due to missingness)
 # Multiple R-squared:  0.9662,	Adjusted R-squared:  0.962 
@@ -216,7 +188,9 @@ dev.off()
 #  0.22349  0.9500051  0.1279485
 #
 
-# We look at the t-values:
+############################ #
+# We graph the coefficients! #
+##############################
 
 df1 <- data.frame(summary(model1)$coefficients)
 names1 <- rownames(df1) 
@@ -245,9 +219,40 @@ pdf("violinplot.pdf")
 print(violinplot)
 dev.off()
 
+############################
+# We look at the t-values: #
+############################
 
+df1 <- data.frame(summary(model1)$coefficients)
+names1 <- rownames(df1) 
+df1[names1[grepl("^da", names1)], "class"] <- "Model 1: Year"
+df1[names1[grepl("^gi", names1)], "class"] <- "model 1: GI Region"
+df1 <- df1[complete.cases(df1),]
 
+df2 <- data.frame(summary(model2)$coefficients)
+names2 <- rownames(df2)
+df2[names2[grepl("^da", names2)], "class"] <- "Model 2: Year * GI Region"
+df2 <- df2[complete.cases(df2),]
 
+df3 <- data.frame(summary(model3)$coefficients)
+names3 <- rownames(df3) 
+df3[names3[grepl("^da", names3)], "class"] <- "Model 3: Year"
+df3[names3[grepl("^gi", names3)], "class"] <- "model 3: GI Region"
+df3 <- df3[complete.cases(df3),]
+
+df4 <- data.frame(summary(model4)$coefficients)
+names4 <- rownames(df4)
+df4[names4[grepl("^da", names4)], "class"] <- "Model 4: Year * GI Region"
+df4 <- df4[complete.cases(df4),]
+
+violinplot <- ggplot(rbind(df1, df2, df3, df4), aes(class, Estimate, fill=class)) + geom_violin() + geom_boxplot(width=0.1, fill="white") + scale_color_brewer(palette="Dark2") + theme_minimal()
+pdf("violinplot.pdf")
+print(violinplot)
+dev.off()
+
+####################################
+# We look at productivity vs value #
+####################################
 
 #Tuning parameter 'intercept' was held constant at a value of TRUE
 
@@ -266,6 +271,8 @@ ggplot(df
         , y = tonnes_grapes_harvested * average_per_tonne
         , col = climate)
     ) +
+    xlim(-2.5, 2.5) +
+    ylim(-2.5, 2.5) +
     geom_point() +
     xlab("Yield") +
     ylab("Yield * Average Price") +
@@ -277,6 +284,8 @@ ggplot(
         , y = ha_tonnes_grapes_harvested * average_per_tonne
         , col = climate)
         ) +
+        xlim(-2.5, 2.5) +
+        ylim(-2.5, 2.5) +
         geom_point() +
         xlab("Yield / Area Harvested") +
         ylab("Yield * Average Price / Area Harvested") +
