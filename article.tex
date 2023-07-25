@@ -280,15 +280,23 @@ The number of combinations of year and region meant that Models 2 and 4 had many
 \newline
 With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were significant at 95\% confidence when accounting for other variables. T-tests for Model 3 showed all continuous variables except scope 1 emissions were significant. Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not when considered on their own.
 \subsubsection{Model Coefficients}
-% A map and a table just like the t-test section.
 \begin{figure}
 \caption{Violine plot of GI Region and Year coefficients for each model.}\label{fig:violin}
 \includegraphics{violinplot.pdf}
 \end{figure}
-
+%
+% What are you trying to say here?
+%
+% We want to compare how much influence each variable has on the model!
+% This is prior to postulating about the why these variables matter, or have so much influence.
+% 
+% A table will help to compare the continuous variables, the others are done in the violin plot.
+%
+% What is this below paragraph?
 The correlation between average sales price and yield was a negative trend (see table 2); the contributing factors to yield and average sales price was ???. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4).
+%
 In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. % ALSO THAT CATASTROPHES HAPPEN EVEN ON SMALL SCALES THis needs to be tied up better.
-
+%
 \subsubsection{Model Comparisons: Productivity Verse Value}
 % wHY ARE WE COMPARING MODELS?
 % We compare models to see which predictors contributed relatively to each of the models.
@@ -325,7 +333,7 @@ To validate the performance of these models k-fold cross validation was used. Th
 \subsection{Limitations}
 Limitations included overestimating yield for models 1 and 2, (see Figures 1 and 2) and underestimating crop value in models 3 and 4 (see Figures 3 and 4).
 % this needs serious revision.
-This study investigated the general relationships between input resources of a vineyard, including fuel and water, and the outputs including yield and value. Some regions appeared to produce many low quality grapes at scale compared to attempting to produce fewer higher quality grapes. This behaviour can be observed when reviewing Wine Australia’s annual reports, where it is apparent that warm inland regions such as the Riverland are known to only produce large amounts of lower graded grapes \cite{wineaustraliaNationalVintageReport2022,winemakersfederationofaustraliaNationalVintageReport2017}. Comparatively, regions such as Tasmania only produce A grade grapes but in much smaller quantities than the Riverland. Knowing that the difference in pricing per tonne can exceed a magnitude of 10 between grades E and A, the operations in regions that target different grades would have varied priorities. However, some regions such as the Yarra Valley produce a Variety of different grades of grapes, from C to A, highlighting that vineyard priorities, although may be somewhat present within regional classifications, are not necessarily aligned within a given region. 
+This study investigated the general relationships between input resources of a vineyard, including fuel and water, and the outputs including yield and value. Some regions appeared to produce many low quality grapes at scale compared to attempting to produce fewer higher quality grapes. This behaviour can be observed when reviewing Wine Australia's annual reports, where it is apparent that warm inland regions such as the Riverland are known to only produce large amounts of lower graded grapes \cite{wineaustraliaNationalVintageReport2022,winemakersfederationofaustraliaNationalVintageReport2017}. Comparatively, regions such as Tasmania only produce A grade grapes but in much smaller quantities than the Riverland. Knowing that the difference in pricing per tonne can exceed a magnitude of 10 between grades E and A, the operations in regions that target different grades would have varied priorities. However, some regions such as the Yarra Valley produce a Variety of different grades of grapes, from C to A, highlighting that vineyard priorities, although may be somewhat present within regional classifications, are not necessarily aligned within a given region. 
 
 The opportunity to target different grades of grapes may not always be available, with some regions being more renowned than others, and likely to be sought after regardless \citep{hallidayAustralianWineEncyclopedia2009}. The Barossa is an example of this, known for its quality could also lend itself to a bias in purchasers not considering other regions that may be capable of similar quality. This effect could stifle the potential for market opportunities within these lesser known regions. A further possibility is that there may be regional upper limits with the relationship between resource input and the value gained becoming no longer proportional due to diminishing returns. Climate was considered to be a large determinant of the ability to grow a larger quantity of grapes, as well as a determinant in grape quality \citep{agostaRegionalClimateVariability2012}; however there were vineyards in similar regions that were able to produce exceptionally better results than others (See Figure 7).
 
