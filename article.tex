@@ -212,7 +212,7 @@ Regional average prices from Wine Australia were filled into values that were mi
 %{It would be lovely to have a reference for this but it is currently only anacdotal.}
 Two subsets of data were then created for the analysis. The first subset contained all vineyards and was used for Models 1 and 3. The second subset contained vineyards which either recorded a value for average price of sale per tonne through Sustainable Winegrowing Australia, or were within a region with an average price of sale recorded by Wine Australia; this subset was used for Models 2 and 4. These subsets meant that the data would be limited to samples which had recorded values for the response variables (see Table 1), where every sample had a recorded value for yield but not average price of sale per tonne.
 \newline
-The first subset of data was used for Model 1 and Model 2 (see Table 1). This subset contained 5298 samples spanning the period from 2012 to 2022, covering 57 GI Regions and 1432 separate vineyards.
+The first subset of data was used for Model 1 and Model 2 (see Table 1). This subset contained 5298 samples spanning the period from 2012 to 2022, covering 55 GI Regions and 1261 separate vineyards.
 \newline
 The second subset of data, was limited to vineyards that recorded a value for their average sale price of grapes per tonne. This subset was used for Model 3 and Model 4 (see Table 1); and contained 2878 samples spanning the period from 2015 to 2022, covering 51 GI Regions and 944 separate vineyards. 1842 of the values for average price of sale per tonne were extracted from Wine Australia surveys with the remaining 1036 being from Sustainable Winegrowing Australia's dataset.
 \newline
@@ -268,69 +268,31 @@ General Linear Models were used to describe how response variables related to pr
 \end{table}
 Each model showed a strong relationship between the predictors and the response (see Table~\ref{tab:modelsummary}). Model accuracy was measured in $R^2$, as this allowed an easy comparison between their performances and their validation.
 \subsubsection{F-tests}
-%
-% This table is absolutely trash.
-%
-% Kate madea good point that, although figures can be combined into a single figure. Tables cannot.
-%
-% cheat way to multi line comment
-\iffalse{}
-%
-\begin{table}[]
-  \caption{Ftests and wsutff}\label{tab:ftests}
-  \resizebox{\textwidth}{!}{
-    \begin{tabular}{@{}cllllllll@{}}
-      \toprule
-       & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Water\\ Used\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Scope 1\\ Emissions\end{tabular}}} & \textbf{Year} & \textbf{\begin{tabular}[c]{@{}l@{}}GI\\ Region\end{tabular}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ *\\ Scope 1\\ Emissions\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ *\\ Water\\ Used\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Year\\ *\\ GI\\ Region\end{tabular}}} \\ \midrule
-      \textbf{Model 1} &  &  &  &  &  &  &  &  \\
-      \begin{tabular}[c]{@{}c@{}}Total Sum\\ of Squares\end{tabular} & 3211 & 10.4 & 6.6 & 70.6 & 1507.1 &  &  &  \\
-      F-Value & 34187.908 & 110.255 & 70.56 & 83.533 & 297.163 &  &  &  \\
-      Pr(>F) & 2.20E-16 & 2.20E-16 & 2.20E-16 & 2.20E-16 & 2.20E-16 &  &  &  \\
-      \multicolumn{1}{l}{} &  &  &  &  &  &  &  &  \\
-      \textbf{Model 2} &  &  &  &  &  &  &  &  \\
-      \begin{tabular}[c]{@{}c@{}}Total Sum\\ of Squares\end{tabular} & 2856.23 & 473.32 & 33.06 &  &  & 53.47 & 0.28 & 975.61 \\
-      F-Value & 15363.1866 & 177.8109 & 2545.9357 &  &  & 287.6126 & 1.5097 & 12.3766 \\
-      Pr(>F) & <2e-16 & <2e-16 & <2e-16 &  &  & <2e-16 & 0.2192 & <2e-16 \\
-      \multicolumn{1}{l}{} &  &  &  &  &  &  &  &  \\
-      \textbf{Model 3} &  &  &  &  &  &  &  &  \\
-      \begin{tabular}[c]{@{}c@{}}Total Sum\\ of Squares\end{tabular} & 2142.46 & 0.32 & 0.04 & 13.24 & 649.83 &  &  &  \\
-      F-Value & 84905.8197 & 12.5874 & 1.4915 & 87.4771 & 515.0601 &  &  &  \\
-      Pr(>F) & <2.2E-016 & 0.0003947 & 0.2220844 & <2.2E-016 & <2.2E-016 &  &  &  \\
-      \multicolumn{1}{l}{} &  &  &  &  &  &  &  &  \\
-      \textbf{Model 4} &  &  &  &  &  &  &  &  \\
-      \begin{tabular}[c]{@{}c@{}}Total Sum\\ of Squares\end{tabular} & 1868.46 & 274.92 & 0.04 &  &  & 35.02 & 4.18 & 582.96 \\
-      F-Value & 44084.0278 & 6486.2867 & 0.8311 &  &  & 826.1925 & 98.5895 & 56.6019 \\
-      Pr(>F) & <2e-16 & <2e-16 & 0.3621 &  &  & <2e-16 & <2e-16 & <2e-16
-      \end{tabular}
-  }
-\end{table}
-%
-\fi
-%
-%
-%
-% model 1 - all sig
-% model 2 - area * water used interaction was not sig
-% model 3 - scope 1 was not sig
-% model 4 - scope 1 was not sig
-To determine if predictors significantly related to a Model's response variable, F-tests were conducted. Aside from 3 variables, all F-tests across each model indicated a significant contribution at 95\% confidence (See Table
-%\ref{tab:ftests}).
-). The exceptions were scope 1 emissions in models 3 and 4, as well as the interaction between area harvested and water used in Model 3. 
-Models 1 and 2 showed significant linear relationships present between all predictors and their response variables (with P-values being less than 2.200E-16). Predictors in Models 3 and 4 reported the same significance for each variable except for scope 1 emissions. Scope 1 emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients scope 1 emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yield and average price per tonne as a ratio to area harvested, respectively).
+To determine if predictors significantly related to a Model's response variable, F-tests were conducted. Aside from 3 variables, all F-tests across each model indicated a significant contribution at 95\% confidence. The three exceptions were: scope 1 emissions in Model 3 (P=2.221E-01) and Model 4 (P=3.621E-01), and Model 2's interaction between area harvested and water used (P=2.192E-01).
+\newline
+Scope 1 emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values. Even though not significant within models 3 and 4, when using the Pearson Correlation Coefficients scope 1 emissions was strongly correlated to every Model's response variable; this was especially so for Model 1 and 4 (Yield and average price per tonne as a ratio to area harvested, respectively).
 \subsubsection{T-tests}
 %We want two tables
 % \ref{tab:ttests}
 % \ref{fig:sigregions}
 % a table for t-tests as per the f-tests table (only continuous variables)
 % A map of significant areas contributing to each model.
-T-tests were used to determine if predictors significantly contributed to their models when accounting for other variables; this allowed a more granular examination of interactions and factors within categorical variables, showing which specific years and areas contributed significantly and which did not (see appendix).
+T-tests were used to determine if predictors significantly contributed to their models when accounting for other variables; this allowed a more granular examination of interactions and factors within categorical variables, showing which specific years and areas contributed significantly and which did not (the appendix contains a comprehensive list of these values). 
+
+For Models 1 and 3, depicting yield and value as totals, year played a pivitol role; with only one year in each model not being significant (2021/2022 and 2016/2017 respectively). Both Model 1 and 3 showed a majority of regions were significant with 32 of 54 regions being significant in Model 1 and 42 of 50 regions being significant in Model 3.
+
+For Model 1, All years were significant except for the 2021/2022 financial year (where, P=4.325E-01). 32/54 giregions were significant (59.26\%). Adelaide planes was the reference region with 2012/2013 being the reference year.
+%
+For Model 3, all years were significant except for 2016/2017 (P=7.532E-01
+). 42 out of 50 regions were significant.
 % The range of how significant these variable were is important.
 %
 % How many were important vs how many were not?
 %
 % was it the same across each of the models? For example was one year/region always bad for every model?
 %
-With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were significant when accounting for other variables. T-tests for Model 3 showed all continuous variables except scope 1 emissions were significant. Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not when considered on their own.
+\newline
+With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were significant at 95\% confidence when accounting for other variables. T-tests for Model 3 showed all continuous variables except scope 1 emissions were significant. Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not when considered on their own.
 \subsubsection{Model Coefficients}
 % A map and a table just like the t-test section.
 \begin{figure}
