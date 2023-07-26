@@ -303,6 +303,18 @@ We look at the categorical variables' and continuous variables' coefficients sep
   \includegraphics{violinplot.pdf}
   \end{figure}
 %
+\begin{table}[]
+  \caption{Summary of models; their performance, F-statistics and Residual error.}\label{tab:contvar}
+      \resizebox{\textwidth}{!}{
+        \begin{tabular}{@{}cllllll@{}}
+          \toprule
+           & \textbf{Intercept} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Water\\ Used\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Scope 1\\ Emissions\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ $\ast$\\ Scope 1\\ Emissions\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ $\ast$\\ Water\\ Used\end{tabular}}} \\ \midrule
+          \textbf{Model 1} & -3.318E-02 & 7.418E-01 & 8.660E-02 & 6.731E-02 &  &  \\
+          \textbf{Model 2} & -6.516E-01 & 5.774E-01 & 1.079E-02 & 8.498E-02 & -4.971E-02 & -5.346E-02 \\
+          \textbf{Model 3} & 1.808E-02 & 9.713E-01 & -2.310E-02 & -6.992E-03 &  &  \\
+          \textbf{Model 4} & 6.702E-01 & -7.354E-01 & -6.732E-03 & -5.645E-03 & 2.726E-02 & 7.515E-02 \\ \bottomrule
+          \end{tabular}}
+\end{table}
 % We want to compare how much influence each variable has on the model!
 % This is prior to postulating about the why these variables matter, or have so much influence.
 % 
