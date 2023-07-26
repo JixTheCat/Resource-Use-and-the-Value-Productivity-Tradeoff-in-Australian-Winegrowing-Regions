@@ -252,7 +252,7 @@ The site of a vineyard predetermines several physical parameters such as climate
 Models were validated using K-fold cross validation calculated through the R Caret Package \citep{kuhnBuildingPredictiveModels2008}. K-fold cross validation works by removing a subset of data from the sample used to train models and then predicts those variables to determine how sensitive the model is to changes in the sample data. For this analysis each model was validated using 10 folds, repeated 100 times.
 % A reference for this is absolutely needed.
 \section{Results}
-\subsection{Exploratory Analysis}
+\subsection{Exploratory Analysis} \label{sec:exp_anal}
 Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale (see Table 2) and for data as a logarithmic transform (see Table 3). The logarithmic transformed data showed the strongest correlations, likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table 5). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. With all this in mind, when considering the logarithmically transformed variables, a coefficient of 1 would indicate that: given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its own standard deviation. The importance of this is the dimensionless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
 \newline
 To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present as all P-values, except for the non-transformed values for water used (see Table ?), were considered significant
@@ -291,12 +291,17 @@ The number of combinations of year and region meant that Models 2 and 4 had many
 \newline
 With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emissions and area harvested were significant at 95\% confidence when accounting for other variables. T-tests for Model 3 showed all continuous variables except scope 1 emissions were significant. Model 4 showed scope 1 emissions and water use to only be significant when considered as an interaction with area harvested but not when considered on their own.
 \subsubsection{Model Coefficients}
-\begin{figure}
-\caption{Violine plot of GI Region and Year coefficients for each model.}\label{fig:violin}
-\includegraphics{violinplot.pdf}
-\end{figure}
 %
 % What are you trying to say here?
+% Coefficients are important as they describe the direct relationship between a variable and its response. They indicate whether it is a positive, or negative relationship and the magnitude of this relationship.
+The coefficients of each model describe the relationship of a predictor variable to its response when considering all other predictor variables. Due to the transformations of the data, coefficients are individually interpreted in the same manner as the prior regression values were (section\ref{sec:exp_anal}); although all coefficients need to be considered together. Unlike the regression values the coefficients range is not limited between -1 and 1, as the ratio of each variables contribution needs to be considered together.
+%The dimensionless nature of these variables each coefficient refers to its own variable's distribution's standard deviations.
+\newline
+We look at the categorical variables' and continuous variables' coefficients separately. This is primarily done as the categorical variables have many coefficients, one for each category, whilst continuous variables have only one. The coefficient for categorical variables are summarised in Figure\ref{fig:violin}. The continuous variables coefficients are summarised in Table\ref{tab:contvar}.
+\begin{figure}
+  \caption{Violine plot of GI Region and Year coefficients for each model.}\label{fig:violin}
+  \includegraphics{violinplot.pdf}
+  \end{figure}
 %
 % We want to compare how much influence each variable has on the model!
 % This is prior to postulating about the why these variables matter, or have so much influence.
@@ -304,7 +309,7 @@ With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emi
 % A table will help to compare the continuous variables, the others are done in the violin plot.
 %
 % What is this below paragraph?
-The correlation between average sales price and yield was a negative trend (see table 2); the contributing factors to yield and average sales price was ???. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4).
+%The correlation between average sales price and yield was a negative trend (see table 2); the contributing factors to yield and average sales price was ???. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4).
 %
 In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. % ALSO THAT CATASTROPHES HAPPEN EVEN ON SMALL SCALES THis needs to be tied up better.
 %
