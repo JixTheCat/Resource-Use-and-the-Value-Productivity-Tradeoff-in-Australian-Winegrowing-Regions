@@ -289,7 +289,7 @@ temp_yield_vs_value <- ggplot(
     geom_point(size = .5) +
     xlab("Yield") +
     ylab("Yield * Averfdxage Price") +
-    ggtitle("Temperature Class") +
+    ggtitle("Temperature") +
     theme_light() +
     theme(panel.grid.minor = element_blank()
         , legend.title = element_blank()
@@ -308,7 +308,7 @@ rain_yield_vs_value <- ggplot(
         geom_point(size = .5) +
         xlab("Yield") +
         ylab("Yield * Average Price") +
-        ggtitle("Rainfall Class") +
+        ggtitle("Rainfall") +
         theme_light() +
         theme(panel.grid.minor = element_blank()
             , legend.title = element_blank()
@@ -333,7 +333,7 @@ temp_yield_vs_value <- ggplot(
     geom_point(size = .5) +
     xlab("Yield / Area Harvested") +
     ylab("Yield * Average Price / Area Harvested") +
-    ggtitle("Temperature Class") +
+    ggtitle("Temperature") +
     theme_light() +
     theme(panel.grid.minor = element_blank()
         , legend.title = element_blank()
@@ -352,7 +352,7 @@ rain_yield_vs_value <- ggplot(
         geom_point(size = .5) +
         xlab("Yield / Area Harvested") +
         ylab("Yield * Average Price / Area Harvested") +
-        ggtitle("Rainfall Class") +
+        ggtitle("Rainfall") +
         theme_light() +
         theme(panel.grid.minor = element_blank()
             , legend.title = element_blank()
