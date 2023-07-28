@@ -59,10 +59,7 @@
 \begin{document}
 \begin{linenumbers}
 \begin{frontmatter}
-
-
 %% Title, authors and addresses
-
 %% use the tnoteref command within \title for footnotes;
 %% use the tnotetext command for theassociated footnote;
 %% use the fnref command within \author or \affiliation for footnotes;
@@ -85,10 +82,7 @@
 %%            state={},
 %%            country={}}
 %% \fntext[label3]{}
-
-    \title{An exploratory analysis of the influence of resource use on the yield verse quality trade-off in Australian vineyards}
-
-
+\title{An exploratory analysis of the influence of resource use on the yield verse quality trade-off in Australian vineyards}
 %% use optional labels to link authors explicitly to addresses:
 %% \author[label1,label2]{}
 %% \affiliation[label1]{organization={},
@@ -104,59 +98,49 @@
 %%             postcode={},
 %%             state={},
 %%             country={}}
-
-    \affiliation[label1]{organization={QUT},
-                 addressline={},
-                 city={},
-                 postcode={},
-                 state={QLD},
-                 country={}}
-    \affiliation[label2]{organization={AWRI},
-                 addressline={},
-                 city={},
-                 postcode={},
-                 state={SA},
-                 country={}}
-    \affiliation[label3]{organization={Food Agility CRC},
-                 addressline={},
-                 city={},
-                 postcode={},
-                 state={Vic},
-                 country={}}
+\affiliation[label1]{organization={QUT},
+  addressline={},
+  city={},
+  postcode={},
+  state={QLD},
+  country={}}
+\affiliation[label2]{organization={AWRI},
+  addressline={},
+  city={},
+  postcode={},
+  state={SA},
+  country={}}
+\affiliation[label3]{organization={Food Agility CRC},
+  addressline={},
+  city={},
+  postcode={},
+  state={Vic},
+  country={}}
 \author[label1,label2,label3]{Bryce Polley}
 \date{20/06/2023}
+\begin{abstract}
+%% Text of abstract
+\end{abstract}
+%%Graphical abstract`
+\begin{graphicalabstract}
+  \includegraphics{graphical_abstract.jpeg}
+\end{graphicalabstract}'
 
-      
-
-
-    \begin{abstract}
-      %% Text of abstract
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      \end{abstract}
-
-      %%Graphical abstract
-      \begin{graphicalabstract}
-        \includegraphics{graphical_abstract.jpeg}
-      \end{graphicalabstract}
-
-      \begin{keyword}
-      %% keywords here, in the form: keyword \sep keyword
-      Keyword one \sep{} keyword two
-      %% PACS codes here, in the form: \PACS code \sep code
-      \PACS{} 0000 \sep{} 1111
-      %% MSC codes here, in the form: \MSC code \sep code
-      %% or \MSC[2008] code \sep code (2000 is the default)
-      \MSC{} 0000 \sep{} 1111
-      \end{keyword}
-      
-
-      %%Research highlights
-      \begin{highlights}
-        \item Research highlight 1
-        \item Research highlight 2
-        \end{highlights}
-
-      \end{frontmatter}
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+Keyword one \sep{} keyword two
+%% PACS codes here, in the form: \PACS code \sep code
+\PACS{} 0000 \sep{} 1111
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+\MSC{} 0000 \sep{} 1111
+\end{keyword}
+%%Research highlights
+\begin{highlights}
+  \item Research highlight 1
+  \item Research highlight 2
+\end{highlights}
+\end{frontmatter}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                main text             %%
@@ -252,10 +236,10 @@ The site of a vineyard predetermines several physical parameters such as climate
 Models were validated using K-fold cross validation calculated through the R Caret Package \citep{kuhnBuildingPredictiveModels2008}. K-fold cross validation works by removing a subset of data from the sample used to train models and then predicts those variables to determine how sensitive the model is to changes in the sample data. For this analysis each model was validated using 10 folds, repeated 100 times.
 % A reference for this is absolutely needed.
 \section{Results}
-\subsection{Exploratory Analysis} \label{sec:exp_anal}
+\subsection{Exploratory Analysis}\label{sec:exp_anal}
 Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale (see Table ??) and for data as a logarithmic transform (see Table ??). The logarithmic transformed data showed the strongest correlations, likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table ??). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. With all this in mind, when considering the logarithmically transformed variables, a coefficient of 1 would indicate that: given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its own standard deviation. The importance of this is the dimensionless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
 \newline
-To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present as all P-values, except for the non-transformed values for water used, were considered significant (P \< 2.200E-16).
+To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present as all P-values, except for the non-transformed values for water used, were considered significant (P $<$ 2.200E-16).
 \subsection{General Linear Models}
 General Linear Models were used to describe how response variables related to predictors' values. Log transformed variables were used as inputs to these models as they resulted in higher $R^2$ values and described the relationships proportionally; reflecting coefficient values as percentages of a variable's standard deviation.
 \begin{table}[]
@@ -291,11 +275,11 @@ With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emi
 %
 % What are you trying to say here?
 % Coefficients are important as they describe the direct relationship between a variable and its response. They indicate whether it is a positive, or negative relationship and the magnitude of this relationship.
-The coefficients of each model describe the relationship of a predictor variable to its response when considering all other predictor variables. Due to the transformations of the data, coefficients are individually interpreted in the same manner as the prior regression values were (see section\ref{sec:exp_anal}); although all coefficients need to be considered together. Unlike the regression values the coefficients range is not limited between -1 and 1, as each variable's contribution needs to be considered together.
+The coefficients of each model describe the relationship of a predictor variable to its response when considering all other variables. Due to the transformations of the data, coefficients are individually interpreted in the same manner as the prior regression values were (see Section \ref{sec:exp_anal}); unlike the regression values,  coefficient ranges are not limited between -1 and 1, as each variable needs to be considered together.
 %The dimensionless nature of these variables each coefficient refers to its own variable's distribution's standard deviations.
 \newline
-We look at the coefficients of categorical and continuous variables  separately. This is primarily done as the categorical variables have many coefficients, one for each category, whilst continuous variables have only one. The coefficient for categorical variables is summarised in Figure\ref{fig:violin}; illustrating the difference in the range and the affect region and year could have on each of the models. Comparatively, the continuous variables coefficients are summarised in Table\ref{tab:contvar}.
-In terms of magnitude, GI region has the highest possible absolute value for each model. An important consideration is that region and year are binary variables, such that they are only equal to zero or the coefficient (as they will present as a value of 1 multiplied by the coefficient); this means that, although region may have a strong relationship, it can be overshadowed by an extreme value of one of the continuous variables. The most notable difference between the continuous variables coefficients is the change from positive to negative values. This change occurs between the Models for Yield (Model 1 and 2) and the Models for value (Models 3 and 4); where all but the coefficient for area harvested has the opposite sign between them. These models also differ in an order of magnitude when looking at resource use, with the coefficients for yield being smaller than those for value. 
+We look at the coefficients of categorical and continuous variables separately. This is primarily done as the categorical variables have many coefficients, one for each category, whilst continuous variables have only one. The coefficient for categorical variables is summarised in Figure\ref{fig:violin}; illustrating the difference in the range as well as affect region and year could have on each of the models. Comparatively, the continuous variables coefficients are summarised in Table \ref{tab:contvar}.
+In terms of magnitude, GI region has the highest possible absolute value for each model. An important consideration is that region and year are binary, such that they are only equal to zero or the coefficient (as they will present as a value of 1 which will be multiplied by the coefficient); this means that, although region may have a strong relationship, it can be overshadowed by an extreme value of one of the continuous variables. The most notable difference between the continuous variables coefficients is the change from positive to negative values. This change occurs between the Models for Yield (Model 1 and 2) and the Models for value (Models 3 and 4); where all but the coefficient for area harvested had the opposite sign. These models also differ in an order of magnitude when looking at resource use, with the coefficients for yield being smaller than those for value. 
 %
 % The resource input is different by an order of magnitude between value and yield
 %
@@ -320,15 +304,16 @@ In terms of magnitude, GI region has the highest possible absolute value for eac
           \textbf{Model 4} & 6.702E-01 & -7.354E-01 & -6.732E-03 & -5.645E-03 & 2.726E-02 & 7.515E-02 \\ \bottomrule
           \end{tabular}}
 \end{table}
-\subsubsection{Model Comparisons: Productivity Verse Value}
+\subsubsection{Model Comparisons: Yield Verse Value}
+
+
+
 % wHY ARE WE COMPARING MODELS?
 % We compare models to see which predictors contributed relatively to each of the models.
-
 %
 %Models were compared using $R^2$ values. The comparison of models performance showed that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing Model 2 to Model 4 
 % Graph of productivity verse value.
-
-(see Table \ref*{tab:modelperformance}). 
+%(see Table \ref*{tab:modelperformance}). 
 % This is important but you do not illustrate why
 %
 % This section needs to be heavily revised. Why are there tails on the distributions? What does a heavy tail indicate?
