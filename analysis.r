@@ -359,7 +359,6 @@ rain_yield_vs_value <- ggplot(
             , legend.position = "top", legend.direction = "horizontal") +
         scale_color_manual(values = rain_colors)
 
-
 pdf("yield_verse_value_by_area.pdf")
 grid.arrange(temp_yield_vs_value, rain_yield_vs_value, ncol=2)
 dev.off()
@@ -386,10 +385,14 @@ v[v$GI_NAME==region , ]$ha_value <- aggs.ha_value[aggs.ha_value$Group.1==region 
 }
 
 # note these are the averages.
-plot(v, "ha_value")
+
+pdf("my_map")
+plot(v, "ha_value", ylim=c(-45, -25))
 lines(aus)
-sbar(1000, lonlat=TRUE, label="1000km")
-north(xy="bottomleft", type=2)
+#    ylim(-45, -25) +
+#    sbar(1000, lonlat=TRUE, label="1000km") +
+#    north(xy="bottomleft", type=2)
+dev.off()
 
 # below is just a way to grab the coef from a linear model.
 #summary(model2)$coefficients
