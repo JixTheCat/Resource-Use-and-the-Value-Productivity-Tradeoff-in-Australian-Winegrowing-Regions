@@ -173,7 +173,7 @@ In achieving this, the context of how resource-use relates to yield and quality 
 % Describing baselines is more important - it needs to be emphasised more so than something that is known but not shown. This is the heart of what your are doing sell it more.
 We link these relations to the potential for improvement through decision-making processes, whilst highlighting that the way moving forward will require the optimisation of these processes. The practical addition of these aims is a baseline for comparison - given a vineyard within Australia, one could extrapolate their comparative efficiency with regard to the tradeoff between invested resources, yield and quality.
 \section{Methods}
-We created four linear models to explore relationships between resource-use and vineyard outputs (see Table 1). The data was sourced from Sustainable Winegrowing Australia and Wine Australia. Variables used included: yield, average sale price, region, water use, emissions, area harvested and year. After fitting to the data, each model was validated using k-fold cross validation.
+We created four linear models to explore relationships between resource-use and vineyard outputs (see Table\ref{tab:tab1}). The data was sourced from Sustainable Winegrowing Australia and Wine Australia. Variables used included: yield, average sale price, region, water use, emissions, area harvested and year. After fitting to the data, each model was validated using k-fold cross validation.
 \begin{table}[]
       \caption{Summary of models; their predictors, covariates and variable interactions.}\label{tab:tab1}
         \resizebox{\textwidth}{!}{\begin{tabular}{@{}ccccc@{}}
@@ -221,11 +221,11 @@ Data sampled by Wine Australia was collected via phone surveys and included: sum
 The inclusion of Wine Australia data was due to average sale price being an optional field in Sustainable Winegrowing Australia's dataset. 
 Regional average prices from Wine Australia were filled into values that were missing from the Sustainable Winegrowing Australia data; the common practice of purchasing grapes at regional prices was an important consideration in this decision.
 %{It would be lovely to have a reference for this but it is currently only anacdotal.}
-Two subsets of data were then created for the analysis. The first subset contained all vineyards and was used for Models 1 and 3. The second subset contained vineyards which either recorded a value for average price of sale per tonne through Sustainable Winegrowing Australia, or were within a region with an average price of sale recorded by Wine Australia; this subset was used for Models 2 and 4. These subsets meant that the data would be limited to samples which had recorded values for the response variables (see Table 1), where every sample had a recorded value for yield but not average price of sale per tonne.
+Two subsets of data were then created for the analysis. The first subset contained all vineyards and was used for Models 1 and 3. The second subset contained vineyards which either recorded a value for average price of sale per tonne through Sustainable Winegrowing Australia, or were within a region with an average price of sale recorded by Wine Australia; this subset was used for Models 2 and 4. These subsets meant that the data would be limited to samples which had recorded values for the response variables (see Table\ref{tab:tab1}), where every sample had a recorded value for yield but not average price of sale per tonne.
 \newline
-The first subset of data was used for Model 1 and Model 2 (see Table 1). This subset contained 5298 samples spanning the period from 2012 to 2022, covering 55 GI Regions and 1261 separate vineyards.
+The first subset of data was used for Model 1 and Model 2 (see Table\ref{tab:tab1}). This subset contained 5298 samples spanning the period from 2012 to 2022, covering 55 GI Regions and 1261 separate vineyards.
 \newline
-The second subset of data, was limited to vineyards that recorded a value for their average sale price of grapes per tonne. This subset was used for Model 3 and Model 4 (see Table 1); and contained 2878 samples spanning the period from 2015 to 2022, covering 51 GI Regions and 944 separate vineyards. 1842 of the values for average price of sale per tonne were extracted from Wine Australia surveys with the remaining 1036 being from Sustainable Winegrowing Australia's dataset.
+The second subset of data, was limited to vineyards that recorded a value for their average sale price of grapes per tonne. This subset was used for Model 3 and Model 4 (see Table\ref{tab:tab1}); and contained 2878 samples spanning the period from 2015 to 2022, covering 51 GI Regions and 944 separate vineyards. 1842 of the values for average price of sale per tonne were extracted from Wine Australia surveys with the remaining 1036 being from Sustainable Winegrowing Australia's dataset.
 \newline
 Additional variables were considered for analysis but were excluded due to being either underreported or had insignificant contributions to model accuracies. Variables explored but not used due to low reporting values included: fertiliser, and scope 2 emissions. Variables considered but ultimately removed due to a lack of significant contributions to models, included: the use of renewable energy, contractor use, and pressures such as frost, fire and disease.
 \newline
@@ -253,12 +253,9 @@ Models were validated using K-fold cross validation calculated through the R Car
 % A reference for this is absolutely needed.
 \section{Results}
 \subsection{Exploratory Analysis} \label{sec:exp_anal}
-Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale (see Table 2) and for data as a logarithmic transform (see Table 3). The logarithmic transformed data showed the strongest correlations, likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table 5). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. With all this in mind, when considering the logarithmically transformed variables, a coefficient of 1 would indicate that: given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its own standard deviation. The importance of this is the dimensionless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
+Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale (see Table ??) and for data as a logarithmic transform (see Table ??). The logarithmic transformed data showed the strongest correlations, likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table ??). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. With all this in mind, when considering the logarithmically transformed variables, a coefficient of 1 would indicate that: given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its own standard deviation. The importance of this is the dimensionless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
 \newline
-To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present as all P-values, except for the non-transformed values for water used (see Table ?), were considered significant
-% missing tables do we need these in tables?
-($< 2.200E-16$, see Tables  and).
-% This reference is messed up and next some TLC
+To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present as all P-values, except for the non-transformed values for water used, were considered significant (P \< 2.200E-16).
 \subsection{General Linear Models}
 General Linear Models were used to describe how response variables related to predictors' values. Log transformed variables were used as inputs to these models as they resulted in higher $R^2$ values and described the relationships proportionally; reflecting coefficient values as percentages of a variable's standard deviation.
 \begin{table}[]
@@ -294,17 +291,25 @@ With regard to continuous variables, Model 1 and 2 showed water use, scope 1 emi
 %
 % What are you trying to say here?
 % Coefficients are important as they describe the direct relationship between a variable and its response. They indicate whether it is a positive, or negative relationship and the magnitude of this relationship.
-The coefficients of each model describe the relationship of a predictor variable to its response when considering all other predictor variables. Due to the transformations of the data, coefficients are individually interpreted in the same manner as the prior regression values were (section\ref{sec:exp_anal}); although all coefficients need to be considered together. Unlike the regression values the coefficients range is not limited between -1 and 1, as the ratio of each variables contribution needs to be considered together.
+The coefficients of each model describe the relationship of a predictor variable to its response when considering all other predictor variables. Due to the transformations of the data, coefficients are individually interpreted in the same manner as the prior regression values were (see section\ref{sec:exp_anal}); although all coefficients need to be considered together. Unlike the regression values the coefficients range is not limited between -1 and 1, as each variable's contribution needs to be considered together.
 %The dimensionless nature of these variables each coefficient refers to its own variable's distribution's standard deviations.
 \newline
-We look at the categorical variables' and continuous variables' coefficients separately. This is primarily done as the categorical variables have many coefficients, one for each category, whilst continuous variables have only one. The coefficient for categorical variables are summarised in Figure\ref{fig:violin}. The continuous variables coefficients are summarised in Table\ref{tab:contvar}.
+We look at the coefficients of categorical and continuous variables  separately. This is primarily done as the categorical variables have many coefficients, one for each category, whilst continuous variables have only one. The coefficient for categorical variables is summarised in Figure\ref{fig:violin}; illustrating the difference in the range and the affect region and year could have on each of the models. Comparatively, the continuous variables coefficients are summarised in Table\ref{tab:contvar}.
+In terms of magnitude, GI region has the highest possible absolute value for each model. An important consideration is that region and year are binary variables, such that they are only equal to zero or the coefficient (as they will present as a value of 1 multiplied by the coefficient); this means that, although region may have a strong relationship, it can be overshadowed by an extreme value of one of the continuous variables. The most notable difference between the continuous variables coefficients is the change from positive to negative values. This change occurs between the Models for Yield (Model 1 and 2) and the Models for value (Models 3 and 4); where all but the coefficient for area harvested has the opposite sign between them. These models also differ in an order of magnitude when looking at resource use, with the coefficients for yield being smaller than those for value. 
+%
+% The resource input is different by an order of magnitude between value and yield
+%
+% Area has the strongest nfluence
+%
+% The models as a ratio of area show opposite trends - this could be indicative that smaller vineyards tend twoards more valuable crops and larger to crops of greater yield. 
+%
 \begin{figure}
-  \caption{Violine plot of GI Region and Year coefficients for each model.}\label{fig:violin}
+  \caption{Violin plots of GI Region and Year coefficients for each model.}\label{fig:violin}
   \includegraphics{violinplot.pdf}
   \end{figure}
 %
 \begin{table}[]
-  \caption{Summary of models; their performance, F-statistics and Residual error.}\label{tab:contvar}
+  \caption{Summary of each Models coefficients for continuous variables}\label{tab:contvar}
       \resizebox{\textwidth}{!}{
         \begin{tabular}{@{}cllllll@{}}
           \toprule
@@ -315,23 +320,12 @@ We look at the categorical variables' and continuous variables' coefficients sep
           \textbf{Model 4} & 6.702E-01 & -7.354E-01 & -6.732E-03 & -5.645E-03 & 2.726E-02 & 7.515E-02 \\ \bottomrule
           \end{tabular}}
 \end{table}
-% We want to compare how much influence each variable has on the model!
-% This is prior to postulating about the why these variables matter, or have so much influence.
-% 
-% A table will help to compare the continuous variables, the others are done in the violin plot.
-%
-% What is this below paragraph?
-%The correlation between average sales price and yield was a negative trend (see table 2); the contributing factors to yield and average sales price was ???. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4).
-%
-In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. % ALSO THAT CATASTROPHES HAPPEN EVEN ON SMALL SCALES THis needs to be tied up better.
-%
 \subsubsection{Model Comparisons: Productivity Verse Value}
 % wHY ARE WE COMPARING MODELS?
 % We compare models to see which predictors contributed relatively to each of the models.
+
 %
-% There were two subsets - when comparing these models what is the difference between them?
-%
-Models were compared using $R^2$ values. The comparison of models performance showed that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing Model 2 to Model 4 
+%Models were compared using $R^2$ values. The comparison of models performance showed that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing Model 2 to Model 4 
 % Graph of productivity verse value.
 
 (see Table \ref*{tab:modelperformance}). 
@@ -358,6 +352,16 @@ To validate the performance of these models k-fold cross validation was used. Th
   \end{tabular}
   \end{table}
 \section{Discussion}
+% We want to compare how much influence each variable has on the model!
+% This is prior to postulating about the why these variables matter, or have so much influence.
+% 
+% A table will help to compare the continuous variables, the others are done in the violin plot.
+%
+% What is this below paragraph?
+%The correlation between average sales price and yield was a negative trend (see table 2); the contributing factors to yield and average sales price was ???. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4).
+%
+In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. % ALSO THAT CATASTROPHES HAPPEN EVEN ON SMALL SCALES THis needs to be tied up better.
+%
 \subsection{Limitations}
 Limitations included overestimating yield for models 1 and 2, (see Figures 1 and 2) and underestimating crop value in models 3 and 4 (see Figures 3 and 4).
 % this needs serious revision.
