@@ -255,6 +255,10 @@ my_colors <- c(
     "#1E88E5"
     , "#1E88E5"
     , "#1E88E5"
+    # Hot
+    #, "#D81B60"
+    , "#D81B60"
+    , "#D81B60"
     # Mild
     #, "#004D40"
     , "#004d40"
@@ -265,9 +269,26 @@ my_colors <- c(
     , "#FFC107"
     , "#FFC107"
     , "#FFC107"
+)
+my_colors <- c(
+    # Cool
+    #"#1E88E5"
+    "#1E88E5"
+    , "#FFC107"
+    , "#D81B60"
     # Hot
     #, "#D81B60"
+    , "#1E88E5"
     , "#D81B60"
+    # Mild
+    #, "#004D40"
+    , "#1E88E5"
+    , "#FFC107"
+    , "#D81B60"
+    # Warm
+    #, "#FFC107"
+    , "#1E88E5"
+    , "#FFC107"
     , "#D81B60"
 )
 scale_color_manual(values = my_colors)
@@ -285,7 +306,8 @@ yield.vs.value <- ggplot(
     geom_point(size = .5) +
     xlab("Yield") +
     ylab("Yield * Average Price") +
-    theme_light()
+    theme_light() +
+    scale_color_manual(values = my_colors)
 pdf("yvv.pdf")
 print(yield.vs.value)
 dev.off()
