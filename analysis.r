@@ -398,7 +398,7 @@ for (region in unique(df$giregion)){
 }
 
 # note these are the averages.
-pdf("my_map")
+pdf("my_map.pdf")
 
 plot(v
     , "ha_value"
