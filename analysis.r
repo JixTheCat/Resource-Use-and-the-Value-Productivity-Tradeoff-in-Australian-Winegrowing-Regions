@@ -359,7 +359,6 @@ rain_yield_vs_value <- ggplot(
             , legend.position = "top", legend.direction = "horizontal") +
         scale_color_manual(values = rain_colors)
 
-
 pdf("yield_verse_value_by_area.pdf")
 grid.arrange(temp_yield_vs_value, rain_yield_vs_value, ncol=2)
 dev.off()
@@ -374,22 +373,66 @@ aus <- vect("data/STE_2021_AUST_SHP_GDA2020/STE_2021_AUST_GDA2020.shp")
 v$ha_tonnes_grapes_harvested <- 0
 v$ha_value <- 0
 
-mean.t <- function(x) {mean(x, na.rm=TRUE)}
-aggs.ha_tonnes_grapes_harvested <- aggregate(nt$ha_tonnes_grapes_harvested*1000, list(nt$giregion), FUN=mean.t)
-aggs.ha_value <- aggregate(nt$ha_value, list(nt$giregion), FUN=mean.t)
+mean.t <- function(x) {
+    mean(x, na.rm = TRUE)
+}
 
-for (region in unique(df$giregion))
-{
-v[v$GI_NAME==region , ]$ha_tonnes_grapes_harvested <-
- aggs.ha_tonnes_grapes_harvested[aggs.ha_tonnes_grapes_harvested$Group.1==region , ]$x
-v[v$GI_NAME==region , ]$ha_value <- aggs.ha_value[aggs.ha_value$Group.1==region , ]$x
+aggs.ha_tonnes_grapes_harvested <- aggregate(
+    nt$ha_tonnes_grapes_harvested * 10000
+    , list(nt$giregion), FUN = mean.t)
+aggs.ha_value <- aggregate(
+    nt$ha_value
+    , list(nt$giregion)
+    , FUN=mean.t)
+
+for (region in unique(df$giregion)){
+    v[v$GI_NAME == region
+    , ]$ha_tonnes_grapes_harvested <- aggs.ha_tonnes_grapes_harvested[
+    aggs.ha_tonnes_grapes_harvested$Group.1 == region
+    , ]$x
+    v[
+        v$GI_NAME==region
+        , ]$ha_value <- aggs.ha_value[
+            aggs.ha_value$Group.1 == region
+            , ]$x
 }
 
 # note these are the averages.
-plot(v, "ha_value")
-lines(aus)
-sbar(1000, lonlat=TRUE, label="1000km")
-north(xy="bottomleft", type=2)
+pdf("my_map")
+
+plot(v
+    , "ha_value"
+    , asp = 1
+   , xlim = c(113, 154)
+   , ylim = c(-45, -25)
+   , legend = "bottomleft"
+   , main = "Average Value per Hectare"
+)
+lines(aus,
+   , xlim = c(113, 154)
+   , ylim = c(-45, -25))
+sbar(1000
+    , lonlat = TRUE
+    , label = "1000km"
+    , xy = "bottomright")
+
+map_one <- plot(v
+    , "ha_tonnes_grapes_harvested"
+    , asp = 1
+   , xlim = c(113, 154)
+   , ylim = c(-45, -25)
+   , legend = "bottomleft"
+   , main = "Average Yield per Hectare"
+)
+lines(aus,
+   , xlim = c(113, 154)
+   , ylim = c(-45, -25))
+    sbar(1000
+    , lonlat = TRUE
+    , label = "1000km"
+    , xy = "bottomright")
+
+dev.off()
 
 # below is just a way to grab the coef from a linear model.
 #summary(model2)$coefficients
