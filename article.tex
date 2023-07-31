@@ -236,6 +236,32 @@ The site of a vineyard predetermines several physical parameters such as climate
 Models were validated using K-fold cross validation calculated through the R Caret Package \citep{kuhnBuildingPredictiveModels2008}. K-fold cross validation works by removing a subset of data from the sample used to train models and then predicts those variables to determine how sensitive the model is to changes in the sample data. For this analysis each model was validated using 10 folds, repeated 100 times.
 % A reference for this is absolutely needed.
 \section{Results}
+\subsection{Data}
+Each variable was logarithmically transformed and then centred around a mean of 0. The values of these variables were then divided by standard deviation creating a comparable ratio intrinsic to each variable. Table \ref{tab:summary} shows the summary statistics of each variable, to contextualise these ratios to real values.
+
+\begin{table}[]
+  \caption{Summary statistics of each continuous variable.}\label{tab:summary}
+      \resizebox{\textwidth}{!}{
+        \begin{tabular}{@{}cllll@{}}
+          \toprule
+          \textbf{Variable} & \textbf{Mean} & \textbf{\begin{tabular}[c]{@{}l@{}}Standard\\ Deviation\end{tabular}} & \textbf{Minimum} & \textbf{Maximum} \\ \midrule
+          \textbf{Yield} & 7.757E+02 & 2.179E+03 & 1.000E+00 & 7.231E+04 \\
+          \multicolumn{1}{l}{} &  &  &  &  \\
+          \textbf{Area Harvested} & 6.670E+05 & 1.337E+06 & 7.000E+02 & 2.436E+07 \\
+          \multicolumn{1}{l}{} &  &  &  &  \\
+          \textbf{Water Used} & 7.471E+06 & 5.646E+08 & 1.000E+00 & 4.268E+10 \\
+          \multicolumn{1}{l}{} &  &  &  &  \\
+          \textbf{Scope One Emissions} & 4.173E+04 & 8.571E+04 & 6.755E+00 & 2.110E+06 \\
+          \multicolumn{1}{l}{} &  &  &  &  \\
+          $\textbf{Yield}\over \textbf{Area}$ & 1.009E+01 & 8.127E+00 & 4.000E-02 & 8.634E+01 \\
+          \multicolumn{1}{l}{} &  &  &  &  \\
+          \textbf{Average Sale Price} & 1.477E+03 & 9.216E+02 & 1.600E+02 & 2.600E+04 \\
+          \multicolumn{1}{l}{} &  &  &  &  \\
+          $\textbf{Average Sale Price} \over \textbf{Area Harvested}$ & 1.347E+02 & 5.711E+02 & 1.753E-01 & 2.979E+04 \\ \bottomrule
+          \end{tabular}
+  }
+  \end{table}
+
 \subsection{Exploratory Analysis}\label{sec:exp_anal}
 \begin{table}[]
   \caption{Variable Pearson correlation values for logarithmically transformed values.}\label{tab:pearson_correlation}
