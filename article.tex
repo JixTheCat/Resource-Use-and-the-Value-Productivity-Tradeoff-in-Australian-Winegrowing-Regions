@@ -253,9 +253,25 @@ Models were validated using K-fold cross validation calculated through the R Car
 % A reference for this is absolutely needed.
 \section{Results}
 \subsection{Exploratory Analysis} \label{sec:exp_anal}
-Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale (see Table ??) and for data as a logarithmic transform (see Table ??). The logarithmic transformed data showed the strongest correlations, likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table ??). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. With all this in mind, when considering the logarithmically transformed variables, a coefficient of 1 would indicate that: given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its own standard deviation. The importance of this is the dimensionless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
+\begin{table}[]
+  \caption{Variable Pearson correlation values for logarithmically transformed values.}\label{tab:pearson_correlation}
+      \resizebox{\textwidth}{!}{
+        \begin{tabular}{@{}cccccccc@{}}
+        \toprule
+        \textbf{Variable} & \textbf{Yield} & \textbf{Area Harvested} & \textbf{Water Used} & \textbf{Scope One Emissions} & $\textbf{Yield}\over \textbf{Area}$ & \textbf{Average Sale Price} & $\textbf{Average Sale Price}\over \textbf{Area Harvested}$ \\ \midrule
+        \textbf{Yield} & 1.00E+00 & 7.44E-01 & -4.31E-03 & 7.29E-01 & 3.50E-01 & -2.26E-01 & -1.64E-01 \\
+        \textbf{Area Harvested} & 7.44E-01 & 1.00E+00 & -5.33E-03 & 8.92E-01 & 7.85E-02 & -1.18E-01 & -2.04E-01 \\
+        \textbf{Water Used} & -4.31E-03 & -5.33E-03 & 1.00E+00 & -1.93E-03 & -5.60E-03 & -3.56E-02 & -2.67E-02 \\
+        \textbf{Scope One Emissions} & 7.29E-01 & 8.92E-01 & -1.93E-03 & 1.00E+00 & 9.36E-02 & -9.42E-02 & -1.93E-01 \\
+        $\textbf{Yield}\over \textbf{Area}$ & 3.50E-01 & 7.85E-02 & -5.60E-03 & 9.36E-02 & 1.00E+00 & -4.85E-01 & -1.70E-01 \\
+        \textbf{Average Sale Price} & -2.26E-01 & -1.18E-01 & -3.56E-02 & -9.42E-02 & -4.85E-01 & 1.00E+00 & 4.73E-01 \\
+        $\textbf{Average Sale Price} \over \textbf{Area Harvested}$ & -1.64E-01 & -2.04E-01 & -2.67E-02 & -1.93E-01 & -1.70E-01 & 4.73E-01 & 1.00E+00 \\ \bottomrule
+        \end{tabular}
+}
+\end{table}
+Linear relationships between variables were explored using Pearson Correlation Coefficients. Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale and for data as a logarithmic transform. The logarithmic transformed data showed the strongest correlations, likely due to a skew caused by a greater number of smaller vineyards within the dataset (see Table \ref{tab:pearson_correlation}). Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. Scaling by standard deviation also makes the Pearson Correlation Coefficient equal to the covariance of the two variables. With all this in mind, when considering the logarithmically transformed variables, a coefficient of 1 would indicate that: given the change of one variable by one percentage of its standard deviation, the other variable would change by one percent of its own standard deviation. The importance of this is the dimensionless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
 \newline
-To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present as all P-values, except for the non-transformed values for water used, were considered significant (P \< 2.200E-16).
+To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error. Strong relationships were found to be present as all P-values, except for the non-transformed values for water used, were considered significant (P $<$ 2.200E-16).
 \subsection{General Linear Models}
 General Linear Models were used to describe how response variables related to predictors' values. Log transformed variables were used as inputs to these models as they resulted in higher $R^2$ values and described the relationships proportionally; reflecting coefficient values as percentages of a variable's standard deviation.
 \begin{table}[]
@@ -306,7 +322,7 @@ In terms of magnitude, GI region has the highest possible absolute value for eac
 \begin{figure}
   \caption{Violin plots of GI Region and Year coefficients for each model.}\label{fig:violin}
   \includegraphics{violinplot.pdf}
-  \end{figure}
+\end{figure}
 %
 \begin{table}[]
   \caption{Summary of each Models coefficients for continuous variables}\label{tab:contvar}
