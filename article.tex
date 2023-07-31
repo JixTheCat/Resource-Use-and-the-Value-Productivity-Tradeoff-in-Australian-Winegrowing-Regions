@@ -318,20 +318,6 @@ The coefficients of each model describe the relationship of a predictor variable
 %, as each variable needs to be considered together.
 %The dimensionless nature of these variables each coefficient refers to its own variable's distribution's standard deviations.
 \newline
-We look at the coefficients of categorical and continuous variables separately. This is done as the categorical variables have many coefficients, one for each category, whilst continuous variables have only one. The coefficient for categorical variables is summarised in Figure \ref{fig:violin}; illustrating the difference in the range as well as affect region and year could have on each model. Comparatively, the continuous variables coefficients are summarised in Table \ref{tab:contvar}.
-In terms of magnitude, GI region has the highest possible absolute value for each model. An important consideration is that region and year are binary, such that they are only equal to zero or the coefficient (as they will present as a value of 1 which will be multiplied by the coefficient); this means that, although region may have a strong relationship, it can be overshadowed by an extreme value of one of the continuous variables. The most notable difference between the continuous variables coefficients is the change from positive to negative values. This change occurs between the Models for Yield (Model 1 and 2) and the Models for value (Models 3 and 4); where all but the coefficient for area harvested had the opposite sign (see Table \ref{contvar}). These models also differ in an order of magnitude when looking at resource use, with the coefficients for yield being smaller than those for value. 
-%
-% The resource input is different by an order of magnitude between value and yield
-%
-% Area has the strongest nfluence
-%
-% The models as a ratio of area show opposite trends - this could be indicative that smaller vineyards tend twoards more valuable crops and larger to crops of greater yield. 
-%
-\begin{figure}\label{fig:violin}
-  \includegraphics{violinplot.pdf}
-  \caption{Violin plots of GI Region and Year coefficients for each model.}
-  \end{figure}
-%
 \begin{table}[]
   \caption{Summary of each Models coefficients for continuous variables}\label{tab:contvar}
       \resizebox{\textwidth}{!}{
@@ -344,7 +330,20 @@ In terms of magnitude, GI region has the highest possible absolute value for eac
           \textbf{Model 4} & 6.702E-01 & -7.354E-01 & -6.732E-03 & -5.645E-03 & 2.726E-02 & 7.515E-02 \\ \bottomrule
           \end{tabular}}
 \end{table}
-\section{stop here}
+We look at the coefficients of categorical and continuous variables separately. This is done as the categorical variables have many coefficients, one for each category, whilst continuous variables have only one. The coefficient for categorical variables is summarised in Figure \ref{fig:violin}; illustrating the difference in the range as well as affect region and year could have on each model. Comparatively, the continuous variables coefficients are summarised in Table \ref{tab:contvar}.
+In terms of magnitude, GI region has the highest possible absolute value for each model. An important consideration is that region and year are binary, such that they are only equal to zero or the coefficient (as they will present as a value of 1 which will be multiplied by the coefficient); this means that, although region may have a strong relationship, it can be overshadowed by an extreme value of one of the continuous variables. The most notable difference between the continuous variables coefficients is the change from positive to negative values. This change occurs between the Models for Yield (Model 1 and 2) and the Models for value (Models 3 and 4); where all but the coefficient for area harvested had the opposite sign (see Table \ref{tab:contvar}). These models also differ in an order of magnitude when looking at resource use, with the coefficients for yield being smaller than those for value. 
+%
+% The resource input is different by an order of magnitude between value and yield
+%
+% Area has the strongest nfluence
+%
+% The models as a ratio of area show opposite trends - this could be indicative that smaller vineyards tend twoards more valuable crops and larger to crops of greater yield. 
+%
+\begin{figure}\label{fig:violin}
+  \includegraphics{violinplot.pdf}
+  \caption{Violin plots of GI Region and Year coefficients for each model.}
+  \end{figure}
+%
 \subsubsection{Model Comparisons: Yield Verse Value}
 %
 \begin{figure}\label{fig:yield_vs_value}
@@ -374,9 +373,8 @@ In terms of magnitude, GI region has the highest possible absolute value for eac
 % Show how regions are almost inverted between avereage value vs yield per area when looking at the maps.
 %
 %
-
+%Although the initial correlation between average sales price and yield was a negative trend (see table 2), these models were able to shed light on several contributing factors to yield and average sales price. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4). In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. This is most notable when grouping regions by climate, especially when considering GI Regions in the ‘Hot Very Dry’ climate (see Figure 7). The effect of climate when used in models was not more significant than the more granular use of GI regions. The interaction between year and GI Region likely accounted for localised events such as bushfires, which would be impactful, but only at a local level in both time and space.
 \subsection{Model Validation}
-To validate the performance of these models k-fold cross validation was used. This was done using 10 folds, $k=10$, repeated 100 times. The models performed similarly to their original counter parts (see Table \ref*{tab:kfold}).
 \begin{table}[]
   \label{tab:kfold}
   \caption{Model validation using k-fold cross validation, for 10 folds repeated 100 times.}
@@ -391,6 +389,7 @@ To validate the performance of these models k-fold cross validation was used. Th
     \end{tabular}
   }
   \end{table}
+To validate the performance of these models k-fold cross validation was used. This was done using 10 folds, $k=10$, repeated 100 times. The models performed similarly to their original counter parts (see Table \ref{tab:kfold}).
 \section{Discussion}
 % We want to compare how much influence each variable has on the model!
 % This is prior to postulating about the why these variables matter, or have so much influence.
