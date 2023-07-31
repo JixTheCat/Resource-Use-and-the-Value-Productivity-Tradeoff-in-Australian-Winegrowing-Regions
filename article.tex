@@ -149,7 +149,7 @@ Keyword one \sep{} keyword two
 \section{Introduction}
 The global focus on sustainability in agronomic industries has changed the way in which these enterprises do business. When strategies for a sustainable winegrowing industry are assessed, there is a trade-off between balancing the amount of resources invested and the resultant yield verses quality produced. This dilemma exists across agriculture through shared fundamental considerations such as water use and nitrogen levels \citep{hemmingCherryTomatoProduction2020,kawasakiQualityMattersMore2016, zhuEffectsNitrogenLevel2017}. Quality in viticulture (the cultivation of grapes for wine production) is driven through its integration within the wine industry; with a wine's potential quality being initially defined through the chemical makeup of the grapes used in its production. The consideration of sustainability within viticulture is further complicated by environmental and socio-demographic pressures. In the Australian context, these include: biosecurity, climate and international market demands.
 \newline
-In this analysis we observe relationships between yield and quality through the use of linear models. An extensive amount of research into a variety of factors' effect on grape quality and yield exists; due to the lack of long-term and in-depth data, individual effects are often studied in isolation \citep{abbalDecisionSupportSystem2016}. The lack of consolidated datasets also restricts the ability to gain statistical insights at large scales and across multiple regions \citep{keithjonesAustralianWineIndustry2002,knightFirmResourcesDevelopment2019}. The dataset used for this analysis includes data collected for the past 10 years from a multitude of vineyards located over a diverse range of Australian winegrowing regions.
+In this analysis we observe relationships between yield and quality through the use of linear models. An extensive amount of research into a variety of factors' effect on grape quality and yield exists; but due to the lack of long-term and in-depth data, individual effects are often studied in isolation \citep{abbalDecisionSupportSystem2016}. The lack of consolidated datasets also restricts the ability to gain statistical insights at large scales and across multiple regions \citep{keithjonesAustralianWineIndustry2002,knightFirmResourcesDevelopment2019}. The dataset used for this analysis includes data collected for the past 10 years from a multitude of vineyards located over a diverse range of Australian winegrowing regions.
 \newline
 We aim to use this broad dataset to describe the relationship of input resources to the output yield and quality of vineyards. The practical addition of this aim is a baseline for comparison - given a vineyard within Australia, one could extrapolate their comparative efficiency with regard to the tradeoff between invested resources, yield and quality. In achieving this we will also confirm the existence of a yield verse quality trade off within Australian winegrowing; one not prior confirmed explicitly across such varying regions, scales and climates. 
 \section{Methods}
@@ -209,7 +209,7 @@ The second subset of data, was limited to vineyards that recorded a value for th
 \newline
 Additional variables were considered for analysis but were excluded due to being either underreported or had insignificant contributions to model accuracies. Variables explored but not used due to low reporting values included: fertiliser, and scope 2 emissions. Variables considered but ultimately removed due to a lack of significant contributions to models, included: the use of renewable energy, contractor use, and pressures such as frost, fire and disease.
 \newline
-Data preprocessing was conducted prior to analysis using the Python programming language \citep{g.vanrossumPythonTutorialTechnical1995}. Preprocessing included logarithmic transformations, centring and scaling by standard deviation. Variables such as scope 1, which required prior calculations were also computed using Python.
+Data preprocessing was conducted prior to analysis using the Python programming language \citep{g.vanrossumPythonTutorialTechnical1995}. Preprocessing included logarithmic transformations, centring and scaling by standard deviation. Variables such as scope 1 emissions, which required prior calculations were also computed using Python.
 % Two values for average sale price were removed from the dataset, due to a recording of \$1. 
 % \citep{wineaustraliaNationalVintageReport2019,wineaustraliaNationalVintageReport2020,wineaustraliaNationalVintageReport2021,wineaustraliaNationalVintageReport2022,winemakersfederationofaustraliaNationalVintageReport2012,winemakersfederationofaustraliaNationalVintageReport2013,winemakersfederationofaustraliaNationalVintageReport2014,winemakersfederationofaustraliaNationalVintageReport2015,winemakersfederationofaustraliaNationalVintageReport2016,winemakersfederationofaustraliaNationalVintageReport2017,winemakersfederationofaustraliaNationalVintageReport2018}.
 \subsection{Total Emissions}
@@ -220,7 +220,7 @@ The equation given from the Australian National Greenhouse Accounts Factors, sho
     tCO_{2}e={{Q \times EC \times EF1 + EF3}\over{1000}},
 \end{equation}
 \newline
-was used to convert the quantity of fuel in litres, $Q$, using a prescribed Energy Content, $EC$, and emission factors of scope one, $EF1$, and scope three, $EF3$, to tonnes of Carbon Dioxide equivalent, $tCO2e$ \citep{departmentofclimatechangeenergytheenvironmentandwaterAustralianNationalGreenhouse2022}. Emissions were calculated for total diesel, petrol, bio-diesel and LPG used. 
+was used to convert the quantity of fuel in litres, $Q$, using a prescribed Energy Content, $EC$, and emission factors of scope one, $EF1$, and scope three, $EF3$, to tonnes of Carbon Dioxide Emission equivalent, $tCO2e$ \citep{departmentofclimatechangeenergytheenvironmentandwaterAustralianNationalGreenhouse2022}. Emissions were calculated for total diesel, petrol, bio-diesel and LPG used. 
 %\newline
 % What the hell is the below paragraph and why is it here?
 %The variables were reviewed for correlations by using a Pearson's Correlation Coefficient (see Tables 1, 2 and 3). This was undertaken for data on the original scale (see Table 1) and for data as a logarithmic transform (see Table 2). All P-values were found to be significant (< 2.200E-16), except the non-transformed values for water used (see Table 3). The logarithmic transforms performed the best due to a skew likely caused by a greater number of smaller vineyards within the dataset (see Table 4).
@@ -344,6 +344,7 @@ In terms of magnitude, GI region has the highest possible absolute value for eac
           \textbf{Model 4} & 6.702E-01 & -7.354E-01 & -6.732E-03 & -5.645E-03 & 2.726E-02 & 7.515E-02 \\ \bottomrule
           \end{tabular}}
 \end{table}
+\section{stop here}
 \subsubsection{Model Comparisons: Yield Verse Value}
 %
 \begin{figure}\label{fig:yield_vs_value}
@@ -367,17 +368,12 @@ In terms of magnitude, GI region has the highest possible absolute value for eac
 % wHY ARE WE COMPARING MODELS?
 % We compare models to see which predictors contributed relatively to each of the models.
 %
-%Models were compared using $R^2$ values. The comparison of models performance showed that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing Model 2 to Model 4 
-% Graph of productivity verse value.
-%(see Table \ref*{tab:modelperformance}). 
-% This is important but you do not illustrate why
+% Although the graphs showing yield and value look similar when presented as raw values and as ratios of area. The flow of resource use is inverted.
+% Talk about how resources use relates to these graphs.
 %
-% This section needs to be heavily revised. Why are there tails on the distributions? What does a heavy tail indicate?
-% What does it look like with respect to disaster events?
-% split the discussion sections out of the results!! Even the questions I am asking are answered in the discussion, however they need to be highlighted as aspects of the models here beforehand.
- Reviewing the data to uncover reasons for this included the use of binary variables such as the utilisation of renewable energy, contractors, and the occurrence of disease, fire and frost; however none of these variables were able to explain why some vineyards produced less, or why other vineyards sold at higher prices than predicted. A wide variety of these influences were likely already explained within the use of year and GI Region, or the interaction of both variables. The change between some regions was dramatic, with particularly warmer and drier regions producing much higher volumes of grapes at lower prices (See Figures 5 and 6). The use of other variables and methods, specifically splines, were able to create a more normally distributed set of residuals but at a drastically reduced accuracy when comparing R2 and RSE. The introduction of known average prices per tonne also helped increase R2 values a small amount; it is important to not that it is common practice for wineries to purchase grapes at a regional average rate, likely resulting in much less variance within a region.
-
-different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. This is most notable when grouping regions by climate, especially when considering GI Regions in the 'Hot Very Dry' climate (see Figure 7). The effect of climate in the models was not more significant than the more granular use of GI regions. The interaction between year and GI Region likely accounted for localised events such as bushfires, which would be impactful, but only at a local level in both time and space.
+% Show how regions are almost inverted between avereage value vs yield per area when looking at the maps.
+%
+%
 
 \subsection{Model Validation}
 To validate the performance of these models k-fold cross validation was used. This was done using 10 folds, $k=10$, repeated 100 times. The models performed similarly to their original counter parts (see Table \ref*{tab:kfold}).
@@ -406,6 +402,21 @@ To validate the performance of these models k-fold cross validation was used. Th
 %
 In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. % ALSO THAT CATASTROPHES HAPPEN EVEN ON SMALL SCALES THis needs to be tied up better.
 %
+
+
+
+%Models were compared using $R^2$ values. The comparison of models performance showed that the average price per tonne of grapes describes a great deal of the relationship between predictor and response when comparing Model 2 to Model 4 
+% Graph of productivity verse value.
+%(see Table \ref*{tab:modelperformance}). 
+% This is important but you do not illustrate why
+%
+% This section needs to be heavily revised. Why are there tails on the distributions? What does a heavy tail indicate?
+% What does it look like with respect to disaster events?
+% split the discussion sections out of the results!! Even the questions I am asking are answered in the discussion, however they need to be highlighted as aspects of the models here beforehand.
+Reviewing the data to uncover reasons for this included the use of binary variables such as the utilisation of renewable energy, contractors, and the occurrence of disease, fire and frost; however none of these variables were able to explain why some vineyards produced less, or why other vineyards sold at higher prices than predicted. A wide variety of these influences were likely already explained within the use of year and GI Region, or the interaction of both variables. The change between some regions was dramatic, with particularly warmer and drier regions producing much higher volumes of grapes at lower prices (See Figures 5 and 6). The use of other variables and methods, specifically splines, were able to create a more normally distributed set of residuals but at a drastically reduced accuracy when comparing R2 and RSE. The introduction of known average prices per tonne also helped increase R2 values a small amount; it is important to not that it is common practice for wineries to purchase grapes at a regional average rate, likely resulting in much less variance within a region.
+
+different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. This is most notable when grouping regions by climate, especially when considering GI Regions in the 'Hot Very Dry' climate (see Figure 7). The effect of climate in the models was not more significant than the more granular use of GI regions. The interaction between year and GI Region likely accounted for localised events such as bushfires, which would be impactful, but only at a local level in both time and space.
+
 \subsection{Limitations}
 Limitations included overestimating yield for models 1 and 2, (see Figures 1 and 2) and underestimating crop value in models 3 and 4 (see Figures 3 and 4).
 % this needs serious revision.
