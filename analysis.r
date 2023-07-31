@@ -1,4 +1,5 @@
 library(ggplot2)
+library(gridExtra)
 
 # data_prep.py has to be executed in order for df.csv to exist
 set.seed(100)
@@ -249,84 +250,117 @@ anova(lm(df$ha_value ~ df$ha_tonnes_grapes_harvested))
 # #FFC107
 # #004D40
 
-my_colors <- c(
+temp_colors <- c(
     # Cool
     #"#1E88E5"
     "#1E88E5"
-    , "#1E88E5"
-    , "#1E88E5"
     # Hot
     #, "#D81B60"
-    , "#D81B60"
     , "#D81B60"
     # Mild
     #, "#004D40"
     , "#004d40"
-    , "#004D40"
-    , "#004D40"
     # Warm
     #, "#FFC107"
     , "#FFC107"
-    , "#FFC107"
-    , "#FFC107"
 )
-my_colors <- c(
-    # Cool
+rain_colors <- c(
+    # Damp
     #"#1E88E5"
     "#1E88E5"
-    , "#FFC107"
-    , "#D81B60"
-    # Hot
+    # Dry
     #, "#D81B60"
-    , "#1E88E5"
-    , "#D81B60"
-    # Mild
-    #, "#004D40"
-    , "#1E88E5"
-    , "#FFC107"
-    , "#D81B60"
-    # Warm
+    , "#FFC107"# Very Dry
     #, "#FFC107"
-    , "#1E88E5"
-    , "#FFC107"
     , "#D81B60"
 )
-scale_color_manual(values = my_colors)
+#scale_color_manual(values = my_colors)
 
 # here are some plots
-yield.vs.value <- ggplot(
-    df[df$climate!="", ]
+temp_yield_vs_value <- ggplot(
+    df[df$temp!="", ]
     , aes(
         x = tonnes_grapes_harvested
         , y = tonnes_grapes_harvested * average_per_tonne
-        , col = climate)
+        , col = temp)
     ) +
     xlim(-2.5, 2.5) +
     ylim(-2.5, 2.5) +
     geom_point(size = .5) +
     xlab("Yield") +
-    ylab("Yield * Average Price") +
+    ylab("Yield * Averfdxage Price") +
+    ggtitle("Temperature") +
     theme_light() +
-    scale_color_manual(values = my_colors)
-pdf("yvv.pdf")
-print(yield.vs.value)
+    theme(panel.grid.minor = element_blank()
+        , legend.title = element_blank()
+        , legend.position = "top", legend.direction = "horizontal") +
+    scale_color_manual(values = temp_colors)
+
+rain_yield_vs_value <- ggplot(
+    df[df$rain!="", ]
+    , aes(
+        x = tonnes_grapes_harvested
+        , y = tonnes_grapes_harvested * average_per_tonne
+        , col = rain)
+        ) +
+        xlim(-2.5, 2.5) +
+        ylim(-2.5, 2.5) +
+        geom_point(size = .5) +
+        xlab("Yield") +
+        ylab("Yield * Average Price") +
+        ggtitle("Rainfall") +
+        theme_light() +
+        theme(panel.grid.minor = element_blank()
+            , legend.title = element_blank()
+            , legend.position = "top", legend.direction = "horizontal") +
+        scale_color_manual(values = rain_colors)
+
+pdf("yield_verse_value.pdf")
+grid.arrange(temp_yield_vs_value, rain_yield_vs_value, ncol=2)
 dev.off()
 
-yield.vs.value.per.ha <- ggplot(
-    df[df$climate!="", ]
+
+# here are some plots
+temp_yield_vs_value <- ggplot(
+    df[df$temp!="", ]
     , aes(
         x = ha_tonnes_grapes_harvested
         , y = ha_tonnes_grapes_harvested * average_per_tonne
-        , col = climate)
+        , col = temp)
+    ) +
+    xlim(-2.5, 2.5) +
+    ylim(-2.5, 2.5) +
+    geom_point(size = .5) +
+    xlab("Yield / Area Harvested") +
+    ylab("Yield * Average Price / Area Harvested") +
+    ggtitle("Temperature") +
+    theme_light() +
+    theme(panel.grid.minor = element_blank()
+        , legend.title = element_blank()
+        , legend.position = "top", legend.direction = "horizontal") +
+    scale_color_manual(values = temp_colors)
+
+rain_yield_vs_value <- ggplot(
+    df[df$rain!="", ]
+    , aes(
+        x = ha_tonnes_grapes_harvested
+        , y = ha_tonnes_grapes_harvested * average_per_tonne
+        , col = rain)
         ) +
         xlim(-2.5, 2.5) +
         ylim(-2.5, 2.5) +
         geom_point(size = .5) +
         xlab("Yield / Area Harvested") +
         ylab("Yield * Average Price / Area Harvested") +
-        theme_light()
-pdf("yvvph.pdf")
-print(yield.vs.value.per.ha)
+        ggtitle("Rainfall") +
+        theme_light() +
+        theme(panel.grid.minor = element_blank()
+            , legend.title = element_blank()
+            , legend.position = "top", legend.direction = "horizontal") +
+        scale_color_manual(values = rain_colors)
+
+pdf("yield_verse_value_by_area.pdf")
+grid.arrange(temp_yield_vs_value, rain_yield_vs_value, ncol=2)
 dev.off()
 
 #######################
@@ -339,22 +373,66 @@ aus <- vect("data/STE_2021_AUST_SHP_GDA2020/STE_2021_AUST_GDA2020.shp")
 v$ha_tonnes_grapes_harvested <- 0
 v$ha_value <- 0
 
-mean.t <- function(x) {mean(x, na.rm=TRUE)}
-aggs.ha_tonnes_grapes_harvested <- aggregate(nt$ha_tonnes_grapes_harvested*1000, list(nt$giregion), FUN=mean.t)
-aggs.ha_value <- aggregate(nt$ha_value, list(nt$giregion), FUN=mean.t)
+mean.t <- function(x) {
+    mean(x, na.rm = TRUE)
+}
 
-for (region in unique(df$giregion))
-{
-v[v$GI_NAME==region , ]$ha_tonnes_grapes_harvested <-
- aggs.ha_tonnes_grapes_harvested[aggs.ha_tonnes_grapes_harvested$Group.1==region , ]$x
-v[v$GI_NAME==region , ]$ha_value <- aggs.ha_value[aggs.ha_value$Group.1==region , ]$x
+aggs.ha_tonnes_grapes_harvested <- aggregate(
+    nt$ha_tonnes_grapes_harvested * 10000
+    , list(nt$giregion), FUN = mean.t)
+aggs.ha_value <- aggregate(
+    nt$ha_value
+    , list(nt$giregion)
+    , FUN=mean.t)
+
+for (region in unique(df$giregion)){
+    v[v$GI_NAME == region
+    , ]$ha_tonnes_grapes_harvested <- aggs.ha_tonnes_grapes_harvested[
+    aggs.ha_tonnes_grapes_harvested$Group.1 == region
+    , ]$x
+    v[
+        v$GI_NAME==region
+        , ]$ha_value <- aggs.ha_value[
+            aggs.ha_value$Group.1 == region
+            , ]$x
 }
 
 # note these are the averages.
-plot(v, "ha_value")
-lines(aus)
-sbar(1000, lonlat=TRUE, label="1000km")
-north(xy="bottomleft", type=2)
+pdf("my_map.pdf")
+
+plot(v
+    , "ha_value"
+    , asp = 1
+   , xlim = c(113, 154)
+   , ylim = c(-45, -25)
+   , legend = "bottomleft"
+   , main = "Average Value per Hectare"
+)
+lines(aus,
+   , xlim = c(113, 154)
+   , ylim = c(-45, -25))
+sbar(1000
+    , lonlat = TRUE
+    , label = "1000km"
+    , xy = "bottomright")
+
+map_one <- plot(v
+    , "ha_tonnes_grapes_harvested"
+    , asp = 1
+   , xlim = c(113, 154)
+   , ylim = c(-45, -25)
+   , legend = "bottomleft"
+   , main = "Average Yield per Hectare"
+)
+lines(aus,
+   , xlim = c(113, 154)
+   , ylim = c(-45, -25))
+    sbar(1000
+    , lonlat = TRUE
+    , label = "1000km"
+    , xy = "bottomright")
+
+dev.off()
 
 # below is just a way to grab the coef from a linear model.
 #summary(model2)$coefficients
