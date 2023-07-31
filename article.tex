@@ -386,13 +386,16 @@ To validate the performance of these models k-fold cross validation was used. Th
 \begin{table}[]
   \label{tab:kfold}
   \caption{Model validation using k-fold cross validation, for 10 folds repeated 100 times.}
-  \begin{tabular}{cccc}
-          & RMSE      & R2        & MAE       \\
-  Model 1 & 3.087E-01 & 9.045E-01 & 2.165E-01 \\
-  Model 2 & 5.104E-01 & 7.409E-01 & 3.493E-01 \\
-  Model 3 & 1.652E-01 & 9.723E-01 & 1.008E-01 \\
-  Model 4 & 2.235E-01 & 9.500E-01 & 1.279E-01
-  \end{tabular}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{@{}cccc@{}}
+    \toprule
+    \textbf{} & \textbf{\begin{tabular}[c]{@{}c@{}}Residual Mean\\ Squared Error\end{tabular}} & \textbf{R2} & \textbf{\begin{tabular}[c]{@{}c@{}}Mean Average \\ Error\end{tabular}} \\ \midrule
+    \textbf{Model 1} & 3.087E-01 & 9.045E-01 & 2.165E-01 \\
+    \textbf{Model 2} & 5.104E-01 & 7.409E-01 & 3.493E-01 \\
+    \textbf{Model 3} & 1.652E-01 & 9.723E-01 & 1.008E-01 \\
+    \textbf{Model 4} & 2.235E-01 & 9.500E-01 & 1.279E-01 \\ \bottomrule
+    \end{tabular}
+  }
   \end{table}
 \section{Discussion}
 % We want to compare how much influence each variable has on the model!
