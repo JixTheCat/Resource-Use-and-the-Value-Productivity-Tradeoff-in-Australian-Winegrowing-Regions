@@ -320,15 +320,15 @@ The coefficients of each model describe the relationship of a predictor variable
 \newline
 \begin{table}[]
   \caption{Summary of each Models coefficients for continuous variables}\label{tab:contvar}
-      \resizebox{\textwidth}{!}{
-        \begin{tabular}{@{}cllllll@{}}
-          \toprule
-           & \textbf{Intercept} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Water\\ Used\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Scope 1\\ Emissions\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ $\ast$\\ Scope 1\\ Emissions\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ $\ast$\\ Water\\ Used\end{tabular}}} \\ \midrule
-          \textbf{Model 1} & -3.318E-02 & 7.418E-01 & 8.660E-02 & 6.731E-02 &  &  \\
-          \textbf{Model 2} & -6.516E-01 & 5.774E-01 & 1.079E-02 & 8.498E-02 & -4.971E-02 & -5.346E-02 \\
-          \textbf{Model 3} & 1.808E-02 & 9.713E-01 & -2.310E-02 & -6.992E-03 &  &  \\
-          \textbf{Model 4} & 6.702E-01 & -7.354E-01 & -6.732E-03 & -5.645E-03 & 2.726E-02 & 7.515E-02 \\ \bottomrule
-          \end{tabular}}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{@{}cllllll@{}}
+  \toprule
+    & \textbf{Intercept} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Water\\ Used\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Scope 1\\ Emissions\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ $\ast$\\ Scope 1\\ Emissions\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ $\ast$\\ Water\\ Used\end{tabular}}} \\ \midrule
+  \textbf{Model 1} & -3.318E-02 & 7.418E-01 & 8.660E-02 & 6.731E-02 &  &  \\
+  \textbf{Model 2} & -6.516E-01 & 5.774E-01 & 1.079E-02 & 8.498E-02 & -4.971E-02 & -5.346E-02 \\
+  \textbf{Model 3} & 1.808E-02 & 9.713E-01 & -2.310E-02 & -6.992E-03 &  &  \\
+  \textbf{Model 4} & 6.702E-01 & -7.354E-01 & -6.732E-03 & -5.645E-03 & 2.726E-02 & 7.515E-02 \\ \bottomrule
+\end{tabular}}
 \end{table}
 We look at the coefficients of categorical and continuous variables separately. This is done as the categorical variables have many coefficients, one for each category, whilst continuous variables have only one. The coefficient for categorical variables is summarised in Figure \ref{fig:violin}; illustrating the difference in the range as well as affect region and year could have on each model. Comparatively, the continuous variables coefficients are summarised in Table \ref{tab:contvar}.
 In terms of magnitude, GI region has the highest possible absolute value for each model. An important consideration is that region and year are binary, such that they are only equal to zero or the coefficient (as they will present as a value of 1 which will be multiplied by the coefficient); this means that, although region may have a strong relationship, it can be overshadowed by an extreme value of one of the continuous variables. The most notable difference between the continuous variables coefficients is the change from positive to negative values. This change occurs between the Models for Yield (Model 1 and 2) and the Models for value (Models 3 and 4); where all but the coefficient for area harvested had the opposite sign (see Table \ref{tab:contvar}). These models also differ in an order of magnitude when looking at resource use, with the coefficients for yield being smaller than those for value. 
@@ -364,8 +364,17 @@ In terms of magnitude, GI region has the highest possible absolute value for eac
   \caption{Map of regional average yield and value per hectare.}
 \end{figure}
 %
-% wHY ARE WE COMPARING MODELS?
-% We compare models to see which predictors contributed relatively to each of the models.
+% Why compare models?
+
+Directly comparing response variables, how value changes with yield, also allows an indirect comparison of resource use. We do this through using the known relationships of the variables to their predictors. These relationships are described by the coefficients, and as the predictors are known to have a strong positive correlation, they will increase together. Resource use is described by the predictor variables (through water used and scope 1 emissions), we can observe these response variables somewhat interchangably with the predictors - although caution should be taken to look at them skeptically and through the lens of their appropriate coefficients. It is important to also consider the interactions of these variables, especially when comparing response variables that are a ratio of area.
+%
+Although it is adhoc, we also know that each of these predictors are positively correlated when logarithmically transformed, making it likely that the predictors will increase together - although not necessarily at the same rate. Observing Figure \ref{fig:yield_vs_value} shows a predictable convergence towards the mean of 0, with trends appearing in almost stratified lines. These linear formations are caused by regional trends, with some regions being more predictable than others, such as the the 'Hot' regions.
+\newline
+Comparing Figure \ref{fig:yield_vs_value} to Figure \ref{fig:yield_vs_value_area} shows similar trends. However, a not so obvious difference is that the same vineyards (or graphed points) are dispersed differently. In many cases these graphs are closer to mirror images of each other; this is more visible when comparing regional averages of these response variables, see Figure \ref{fig:map}. 
+We can use the response variables relationship to its predictors to compare how resource use changes 
+Knowing the response variables relation to resource use 
+
+%We compare models to see which predictors contributed relatively to each of the models.
 %
 % Although the graphs showing yield and value look similar when presented as raw values and as ratios of area. The flow of resource use is inverted.
 % Talk about how resources use relates to these graphs.
