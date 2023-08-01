@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: article.aux
+The style file: elsarticle-harv.bst
+Database file #1: references.bib
+Warning--to sort, need author or key in WineAustraliaAct2019
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty journal in wineaustraliaNationalVintageReport2019
+Warning--empty journal in wineaustraliaNationalVintageReport2021
+Warning--empty journal in wineaustraliaNationalVintageReport2022
+Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2013
+Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2014
+Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2015
+Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2016
+Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2017
+Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2018
+You've used 37 entries,
+            2990 wiz_defined-function locations,
+            877 strings with 14341 characters,
+and the built_in function-call counts, 21599 in all, are:
+= -- 1605
+> -- 848
+< -- 23
++ -- 330
+- -- 291
+* -- 2213
+:= -- 3247
+add.period$ -- 108
+call.type$ -- 37
+change.case$ -- 280
+chr.to.int$ -- 37
+cite$ -- 49
+duplicate$ -- 1678
+empty$ -- 1600
+format.name$ -- 367
+if$ -- 3965
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 309
+newline$ -- 197
+num.names$ -- 144
+pop$ -- 676
+preamble$ -- 1
+purify$ -- 245
+quote$ -- 0
+skip$ -- 526
+stack$ -- 0
+substring$ -- 764
+swap$ -- 1068
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 330
+warning$ -- 10
+while$ -- 139
+width$ -- 0
+write$ -- 509
+(There were 10 warnings)
