@@ -1,5 +1,8 @@
 library(ggplot2)
 library(gridExtra)
+library(viridis)
+library(sf)
+library(cowplot)
 
 # data_prep.py has to be executed in order for df.csv to exist
 set.seed(100)
@@ -365,10 +368,9 @@ dev.off()
 
 #######################
 # Lets make some maps #
-library(terra)
 nt <- read.csv("no_trans.csv")
 v <- st_read("data/Wine_Geographical_Indications_Australia_2022/Wine_Geographical_Indications_Australia_2022.shp")
-aus <- vect("data/STE_2021_AUST_SHP_GDA2020/STE_2021_AUST_GDA2020.shp")
+aus <- st_read("data/STE_2021_AUST_SHP_GDA2020/STE_2021_AUST_GDA2020.shp")
 
 v$ha_tonnes_grapes_harvested <- 0
 v$ha_value <- 0
@@ -398,10 +400,10 @@ for (region in unique(df$giregion)){
 }
 
 # note these are the averages.
+#ggdraw() + 
 value_map <- ggplot() +
-        ggtitle("Average Price Per Ha ") +
-    geom_sf(data = v
-        , aes(fill = ha_value)) +
+    ggtitle("Average Price Per Ha ") +
+    geom_sf(data = v, aes(fill = ha_value)) +
     geom_sf(data=aus, fill = NA) +
     xlim(113, 154) +
     ylim(-45, -25) +
@@ -411,19 +413,19 @@ value_map <- ggplot() +
     theme_void()
 
 yield_map <-  ggplot() +
+    xlim(113, 154) +
+    ylim(-45, -25) +
+    theme_void() +
         ggtitle("Average Yield (tonnes) Per Ha") +
     geom_sf(data = v
         , aes(fill = ha_tonnes_grapes_harvested)) +
     geom_sf(data=aus, fill = NA) +
-    xlim(113, 154) +
-    ylim(-45, -25) +
     scale_fill_gradientn(colours=rev(viridis(3))
                          , name=""
-                         , na.value = "grey100") +
-    theme_void()
+                         , na.value = "grey100")
 
 pdf("my_map.pdf")
-grid.arrange(value_map, yield_map, ncol=2)
+grid.arrange(value_map, yield_map, ncol=2, nrow=1)
 dev.off()
 
 # below is just a way to grab the coef from a linear model.
