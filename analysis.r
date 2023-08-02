@@ -367,7 +367,7 @@ dev.off()
 # Lets make some maps #
 library(terra)
 nt <- read.csv("no_trans.csv")
-v <- vect("data/Wine_Geographical_Indications_Australia_2022/Wine_Geographical_Indications_Australia_2022.shp")
+v <- st_read("data/Wine_Geographical_Indications_Australia_2022/Wine_Geographical_Indications_Australia_2022.shp")
 aus <- vect("data/STE_2021_AUST_SHP_GDA2020/STE_2021_AUST_GDA2020.shp")
 
 v$ha_tonnes_grapes_harvested <- 0
@@ -387,12 +387,12 @@ aggs.ha_value <- aggregate(
 
 for (region in unique(df$giregion)){
     v[v$GI_NAME == region
-    , ]$ha_tonnes_grapes_harvested <- aggs.ha_tonnes_grapes_harvested[
+    , "ha_tonnes_grapes_harvested"] <- aggs.ha_tonnes_grapes_harvested[
     aggs.ha_tonnes_grapes_harvested$Group.1 == region
     , ]$x
     v[
         v$GI_NAME==region
-        , ]$ha_value <- aggs.ha_value[
+        , "ha_value"] <- aggs.ha_value[
             aggs.ha_value$Group.1 == region
             , ]$x
 }
@@ -416,6 +416,17 @@ sbar(1000
     , label = "1000km"
     , xy = "bottomright")
 
+value_map <- ggplot() +
+    geom_sf(data = v
+        , aes(fill = ha_value)) +
+    geom_sf(data=aus, fill = NA) +
+    xlim(113, 154) +
+    ylim(-45, -25) +
+    scale_fill_gradientn(colours=rev(viridis(3)),
+                         name="Average Sale Price",
+                         na.value = "grey100") +
+    theme_void()
+
 map_one <- plot(v
     , "ha_tonnes_grapes_harvested"
     , asp = 1
@@ -423,10 +434,10 @@ map_one <- plot(v
    , ylim = c(-45, -25)
    , legend = "bottomleft"
    , main = "Average Yield per Hectare"
-)
+) +
 lines(aus,
    , xlim = c(113, 154)
-   , ylim = c(-45, -25))
+   , ylim = c(-45, -25)) +
     sbar(1000
     , lonlat = TRUE
     , label = "1000km"
