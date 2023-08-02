@@ -398,51 +398,32 @@ for (region in unique(df$giregion)){
 }
 
 # note these are the averages.
-pdf("my_map.pdf")
-
-plot(v
-    , "ha_value"
-    , asp = 1
-   , xlim = c(113, 154)
-   , ylim = c(-45, -25)
-   , legend = "bottomleft"
-   , main = "Average Value per Hectare"
-)
-lines(aus,
-   , xlim = c(113, 154)
-   , ylim = c(-45, -25))
-sbar(1000
-    , lonlat = TRUE
-    , label = "1000km"
-    , xy = "bottomright")
-
 value_map <- ggplot() +
+        ggtitle("Average Price Per Ha ") +
     geom_sf(data = v
         , aes(fill = ha_value)) +
     geom_sf(data=aus, fill = NA) +
     xlim(113, 154) +
     ylim(-45, -25) +
-    scale_fill_gradientn(colours=rev(viridis(3)),
-                         name="Average Sale Price",
-                         na.value = "grey100") +
+    scale_fill_gradientn(colours=rev(viridis(3))
+                         , name=""
+                         , na.value = "grey100") +
     theme_void()
 
-map_one <- plot(v
-    , "ha_tonnes_grapes_harvested"
-    , asp = 1
-   , xlim = c(113, 154)
-   , ylim = c(-45, -25)
-   , legend = "bottomleft"
-   , main = "Average Yield per Hectare"
-) +
-lines(aus,
-   , xlim = c(113, 154)
-   , ylim = c(-45, -25)) +
-    sbar(1000
-    , lonlat = TRUE
-    , label = "1000km"
-    , xy = "bottomright")
+yield_map <-  ggplot() +
+        ggtitle("Average Yield (tonnes) Per Ha") +
+    geom_sf(data = v
+        , aes(fill = ha_tonnes_grapes_harvested)) +
+    geom_sf(data=aus, fill = NA) +
+    xlim(113, 154) +
+    ylim(-45, -25) +
+    scale_fill_gradientn(colours=rev(viridis(3))
+                         , name=""
+                         , na.value = "grey100") +
+    theme_void()
 
+pdf("my_map.pdf")
+grid.arrange(value_map, yield_map, ncol=2)
 dev.off()
 
 # below is just a way to grab the coef from a linear model.
