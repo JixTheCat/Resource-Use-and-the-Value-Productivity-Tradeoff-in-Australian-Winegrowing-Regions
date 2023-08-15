@@ -8,9 +8,9 @@ mean.t <- function(x) {
     mean(x, na.rm = TRUE)
 }
 
-selected_columns <- c("water_used", "scope1", "area_harvested")
+selected_columns <- c("water_used", "scope1", "area_harvested", "average_per_tonne", "tonnes_grapes_harvested")
 
-dfrescale <- df[, c("water_used", "scope1", "area_harvested")]
+dfrescale <- df[, selected_columns]
 dfrescale$rain <- df$rain
 means <- aggregate(dfrescale, list(df$rain), FUN = mean.t)
 
