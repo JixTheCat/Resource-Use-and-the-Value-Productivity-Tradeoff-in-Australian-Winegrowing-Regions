@@ -331,57 +331,24 @@ The regression coefficients for the categorical variables year and GI region, an
 % The models as a ratio of area show opposite trends - this could be indicative that smaller vineyards tend twoards more valuable crops and larger to crops of greater yield. 
 %
 
-Broad regional differences are summarised in Figure \ref{fig:spider}. The most notable difference is between vineyards within 'Very Hot' and 'Very Dry' (inland) areas where little emphasis is put on achieving high average sale prices, with the focus being on the larger scale yield. Water Use changes dramatically between these regions as well, with water being a driving force in the mass production of grapes but not necessarily the quality. The warmer and drier regions tend to also cater to larger vineyards, with greater areas. 
-
+Broad regional differences are summarised in Figure \ref{fig:spider}. The most notable difference is between vineyards within 'Hot' and 'Very Dry' (inland) areas where little emphasis is put on achieving high average sale prices, with the focus being on the larger scale yield. Water Use changes dramatically between these regions as well, with water being a driving force in the mass production of grapes but not necessarily the quality. The warmer and drier regions tend to also cater to larger vineyards, with greater areas. 
+\par
 \begin{figure}
   \resizebox{\textwidth}{!}{
   \includegraphics{starplots.pdf}}
   \caption{Radar plot of climatic profile's resource use, yield and average sale price.}\label{fig:spider}
 \end{figure}
 
-
-
-\begin{figure}
-  \resizebox{\textwidth}{!}{
-  \includegraphics{yield_verse_value.pdf}}
-  \caption{Scatter plot of vineyard yield against the product of yield and average price per tonne. The axes are in standard deviations with points coloured by climate.}\label{fig:yield_vs_value}
-\end{figure}
-
-
-\begin{figure}
-  \resizebox{\textwidth}{!}{
-  \includegraphics{yield_verse_value.pdf}}
-  \caption{Scatter plot of vineyard yield against the product of yield and average price per tonne. The axes are in standard deviations with points coloured by climate.}\label{fig:yield_vs_value}
-\end{figure}
-%
+Figure \ref{fig:yield_vs_value_area} further shows the emphasis that 'Hot' areas have on high yields with low average sale price compared with other regions. Scaling average price and yield by area shows a strong negative trend, trading quantity for higher sales prices.
+\par
 \begin{figure}
   \resizebox{\textwidth}{!}{
   \includegraphics{yield_verse_value_by_area.pdf}}
     \caption{Scatter plot of vineyard yield against the product of yield and average price per tonne as ratios to area harvested. The axes are in standard deviations with points coloured by climate.}\label{fig:yield_vs_value_area}
 \end{figure}
-%
 
-%
-% KM: Are these observed or modelled values?
-%
-% Replace with star charts?
-%
-%Observing Figure \ref{fig:yield_vs_value} shows an almost discrete difference between vineyards in 'Hot' areas than other regions. Comparing Figure \ref{fig:yield_vs_value} to Figure \ref{fig:yield_vs_value_area} shows almost opposing trends. However, with area coming into play in Figure \ref{fig:yield_vs_value_area}, many data points are scaled differently; specifically the vineyards from 'Hot' regions change to be found the bottom right tail end, indicating the production of large quantity of lower value grapes. An inconspicuous difference between the Figures, is that a large amount of the difference can be explained by rotation (being $90^\circ$ clockwise from Figure \ref{fig:yield_vs_value} to \ref{fig:yield_vs_value_area}). This is more visible when comparing both graphs to the map of regional averages for response variables, see Figure \ref{fig:map}.
-
-%\newline
-%\newline
-
-%There is a notable change between regional averages when looking at yield versus value. Through the coefficients we can deduce that: this difference is also a difference between more resources used for the raw response variables; and a difference between overall resource use and the size of the vineyard when considering the response variables as a ratio to area. Noting, resource use and area harvested have a combined relationship through their interactions, and separate relationships as individual variables (see Table \ref{tab:contvar}). A notable occurrence in Figure \ref{fig:yield_vs_value_area}, is that the 'Very Dry' vineyards which produce lower yields and higher quality grapes are predominantly found in the Barossa Valley (a wine region known for its high quality Shiraz). This note is important as it shows climate is not exclusively the consideration, soil and other geographical phenomenon have considerable impacts on vineyard outcomes.
-%We compare models to see which predictors contributed relatively to each of the models.
-%
-% Although the graphs showing yield and value look similar when presented as raw values and as ratios of area. The flow of resource use is inverted.
-% Talk about how resources use relates to these graphs.
-%
-% Show how regions are almost inverted between avereage value vs yield per area when looking at the maps.
-%
-%
-%Although the initial correlation between average sales price and yield was a negative trend (see table 2), these models were able to shed light on several contributing factors to yield and average sales price. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4). In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. This is most notable when grouping regions by climate, especially when considering GI Regions in the ‘Hot Very Dry’ climate (see Figure 7). The effect of climate when used in models was not more significant than the more granular use of GI regions. The interaction between year and GI Region likely accounted for localised events such as bushfires, which would be impactful, but only at a local level in both time and space.
-
+Table \ref{tab:kfold} shows the validation results of each of the models. The $R^2$ measures of fit show similar results to the original models, with a slight decrease. Indicating that the models are robust and consistent.
+\par
 \begin{table}[]
   \label{tab:kfold}
   \caption{Model validation using k-fold cross validation, for 10 folds repeated 100 times.}
@@ -399,6 +366,31 @@ Broad regional differences are summarised in Figure \ref{fig:spider}. The most n
 
 \section{Discussion}
 %Interestingly all but Model 2 do not appear to capture the introduction of Tariffs to Australian exports, which had a pronounced effect within the sale and production of wine in Australia . This needs a wine aus ref and to be put in the discussion
+
+%
+
+%
+% KM: Are these observed or modelled values?
+%
+% Replace with star charts?
+%
+%
+
+%\newline
+%\newline
+
+%There is a notable change between regional averages when looking at yield versus value. Through the coefficients we can deduce that: this difference is also a difference between more resources used for the raw response variables; and a difference between overall resource use and the size of the vineyard when considering the response variables as a ratio to area. Noting, resource use and area harvested have a combined relationship through their interactions, and separate relationships as individual variables (see Table \ref{tab:contvar}). A notable occurrence in Figure \ref{fig:yield_vs_value_area}, is that the 'Very Dry' vineyards which produce lower yields and higher quality grapes are predominantly found in the Barossa Valley (a wine region known for its high quality Shiraz). This note is important as it shows climate is not exclusively the consideration, soil and other geographical phenomenon have considerable impacts on vineyard outcomes.
+%We compare models to see which predictors contributed relatively to each of the models.
+%
+% Although the graphs showing yield and value look similar when presented as raw values and as ratios of area. The flow of resource use is inverted.
+% Talk about how resources use relates to these graphs.
+%
+% Show how regions are almost inverted between avereage value vs yield per area when looking at the maps.
+%
+%
+%Although the initial correlation between average sales price and yield was a negative trend (see table 2), these models were able to shed light on several contributing factors to yield and average sales price. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4). In alternative attempts at models it was found that without the incorporation of GI Region or year the predictions greatly under performed. The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. This is most notable when grouping regions by climate, especially when considering GI Regions in the ‘Hot Very Dry’ climate (see Figure 7). The effect of climate when used in models was not more significant than the more granular use of GI regions. The interaction between year and GI Region likely accounted for localised events such as bushfires, which would be impactful, but only at a local level in both time and space.
+
+
 There was an expected strong relationship between size and resource use, with the overall space of a vineyard and its access to resources greatly determining the upper limit of potential yield. However, size was also inversely related to the potential quality, with higher quality being related to high resource inputs per area; rather than to the overall expenditure of resources. Vineyard outputs were also augmented by regional and yearly affects. Even given regional and yearly changes, there was a strong connection between smaller vineyards and higher quality. This could have been due to the easier management of smaller properties.
 \subsection{Resource use and yield versus quality} 
  There are many on-the-ground decisions that influence both quality and yield. The $R^2$ values for Models 2 and 4 showed that the average price per tonne of grapes described a great deal of the relationship between resource use and yield when variables were considered as ratios of area (due to the discrepancy in $R^2$ between the two models, see Table \ref{tab:modelsummary}). This discrepancy is likely due to different vineyard prioritisation, which can be described by the type of quality and quantity a vineyard aims to target. Decisions such as the prioritisation of quality over quantity, are governed by complex physical and social forces, for example international market demands, disease pressures and natural disasters \citep{abadCoverCropsViticulture2021,cortezUsingDataMining2009,hallWithinseasonTemporalVariation2011,i.goodwinManagingSoilWater2009,kasimatiPredictingGrapeSugar2022,oliverReviewSoilPhysical2013,srivastavaNondestructiveSensingMethods2018}, with many of these occurrences being highlighted throughout the reports from Wine Australia \citep{wineaustraliaNationalVintageReport2019,wineaustraliaNationalVintageReport2021,wineaustraliaNationalVintageReport2022,winemakersfederationofaustraliaNationalVintageReport2013,winemakersfederationofaustraliaNationalVintageReport2014,winemakersfederationofaustraliaNationalVintageReport2015,winemakersfederationofaustraliaNationalVintageReport2016,winemakersfederationofaustraliaNationalVintageReport2017,winemakersfederationofaustraliaNationalVintageReport2018} over the past decade. It is also important to consider that these reports show that the warm inland regions have seen a decline in profit during this period, whereas regions targeting quality did not. Size becomes an important consideration, as it dictates the potential capacity to produce greater volumes of grapes. However, given the comparison of value per area, regions with larger vineyards (such as warmer in land regions) and larger vineyards in general, tend to underperform. The 'Hot Very Dry' vineyards (see Figure \ref{fig:yield_vs_value_area}) These vineyards would be very competitive with only a minor increase to sale price, possibly outperforming other regions.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.20)  2 AUG 2023 14:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.20)  18 AUG 2023 04:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -246,11 +246,11 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 144.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 145.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 144.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 145.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -266,95 +266,138 @@ Overfull \hbox (2.61108pt too wide) has occurred while \output is active
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 158.
 
-[3] [4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 217--219
-
- []
-
-[7] [8]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 239.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 263.
-
-[9] [10]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 284.
-
-[11] [12]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 322.
-
-<violinplot.pdf, id=57, 505.89pt x 505.89pt>
-File: violinplot.pdf Graphic file (type pdf)
-<use violinplot.pdf>
-Package pdftex.def Info: violinplot.pdf  used on input line 344.
+[3] [4] [5]
+<my_map.pdf, id=31, 505.89pt x 505.89pt>
+File: my_map.pdf Graphic file (type pdf)
+<use my_map.pdf>
+Package pdftex.def Info: my_map.pdf  used on input line 204.
 (pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
+ [6] [7 <./my_map.pdf>] [8] [9]
 
-Overfull \hbox (115.88875pt too wide) in paragraph at lines 344--345
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 227.
+
+
+Overfull \hbox (42.9253pt too wide) in paragraph at lines 230--248
 [][] 
  []
 
-[13] [14]
-<yield_verse_value.pdf, id=64, 505.89pt x 505.89pt>
-File: yield_verse_value.pdf Graphic file (type pdf)
-<use yield_verse_value.pdf>
-Package pdftex.def Info: yield_verse_value.pdf  used on input line 352.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<yield_verse_value_by_area.pdf, id=65, 505.89pt x 505.89pt>
-File: yield_verse_value_by_area.pdf Graphic file (type pdf)
-<use yield_verse_value_by_area.pdf>
-Package pdftex.def Info: yield_verse_value_by_area.pdf  used on input line 358.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<my_map.pdf, id=66, 505.89pt x 505.89pt>
-File: my_map.pdf Graphic file (type pdf)
-<use my_map.pdf>
-Package pdftex.def Info: my_map.pdf  used on input line 364.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
- [15] [16 <./violinplot.pdf>] [17 <./yield_verse_value.pdf>] [18 <./yield_verse_value_by_area.pdf>] [19 <./my_map.pdf>]
+[10]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 384.
+               Default added (so using `tbp') on input line 252.
 
-[20] [21] [22] [23] [24] [25] [26] (./article.bbl [27] [28]
-Underfull \hbox (badness 1097) in paragraph at lines 152--160
-\OT1/cmr/m/n/12 tity: Asym-met-ric Tem-per-a-ture Ef-fects on Crop Yield and Qual-ity
+[11]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 272.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 293.
+
+[12]
+<yearly_plots.pdf, id=64, 505.89pt x 505.89pt>
+File: yearly_plots.pdf Graphic file (type pdf)
+<use yearly_plots.pdf>
+Package pdftex.def Info: yearly_plots.pdf  used on input line 311.
+(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
+
+Overfull \hbox (115.88875pt too wide) in paragraph at lines 311--312
+[][] 
  []
 
 
-Underfull \hbox (badness 4779) in paragraph at lines 177--184
+LaTeX Warning: Float too large for page by 5.33319pt on input line 313.
+
+[13] [14 <./yearly_plots.pdf>]
+<starplots.pdf, id=76, 505.89pt x 505.89pt>
+File: starplots.pdf Graphic file (type pdf)
+<use starplots.pdf>
+Package pdftex.def Info: starplots.pdf  used on input line 338.
+(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
+<yield_verse_value_by_area.pdf, id=77, 505.89pt x 505.89pt>
+File: yield_verse_value_by_area.pdf Graphic file (type pdf)
+<use yield_verse_value_by_area.pdf>
+Package pdftex.def Info: yield_verse_value_by_area.pdf  used on input line 346.
+(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 352.
+
+[15] [16 <./starplots.pdf>] [17 <./yield_verse_value_by_area.pdf>] [18] [19] [20]
+
+LaTeX Warning: Reference `fig:yield_vs_value' on page 21 undefined on input line 417.
+
+[21]
+Overfull \hbox (0.35289pt too wide) in paragraph at lines 430--431
+[]\OT1/cmr/m/n/12 Having more data for each re-gion would also be ben-e-fi-cial, al-low-ing greater
+ []
+
+[22] (./article.bbl [23] [24]
+Underfull \hbox (badness 1406) in paragraph at lines 118--130
+\OT1/cmr/m/n/12 meth-ods.  Com-put-ers and Elec-tron-ics in Agri-cul-ture 195, 106812.
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 165--173
+\OT1/cmr/m/n/12 tity: Asym-met-ric Tem-per-a-ture Ef-fects on Crop Yield and Qual-ity
+ []
+
+[25]
+Underfull \hbox (badness 4779) in paragraph at lines 190--198
 []\OT1/cmr/m/n/12 Kuhn, M., 2008.  Build-ing Pre-dic-tive Mod-els in R Us-ing the
  []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 177--184
+Underfull \hbox (badness 1237) in paragraph at lines 190--198
 \OT1/cmr/m/n/12 caret Pack-age.  Jour-nal of Sta-tis-ti-cal Soft-ware, Ar-ti-cles 28, 1--26.
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 245--250
+
+Underfull \hbox (badness 2608) in paragraph at lines 212--220
+[]\OT1/cmr/m/n/12 Liakos, K.G., Busato, P., Moshou, D., Pear-son, S., Bochtis, D.,
+ []
+
+
+Underfull \hbox (badness 1968) in paragraph at lines 230--243
+\OT1/cmr/m/n/12 vine-yard.  Com-put-ers and elec-tron-ics in agri-cul-ture 200, 107167.
+ []
+
+[26]
+Underfull \hbox (badness 1533) in paragraph at lines 290--301
+\OT1/cmr/m/n/12 Zarco-Tejada, P., 2021.  As-sess-ing wine grape qual-ity pa-ram-e-ters
+ []
+
+
+Underfull \hbox (badness 1270) in paragraph at lines 290--301
+\OT1/cmr/m/n/12 us-ing plant traits de-rived from phys-i-cal model in-ver-sion of hy-per-
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 307--312
 []\OT1/cmr/m/n/12 SWA, S.W.A., 2022.  Sus-tain-able Wingrow-ing Aus-tralia.
  []
 
-[30]) [31] (./article.aux) ) 
+[28]) [29] (./article.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4791 strings out of 478287
- 79868 string characters out of 5849289
- 373153 words of memory out of 5000000
- 22921 multiletter control sequences out of 15000+600000
+ 4807 strings out of 478287
+ 80456 string characters out of 5849289
+ 376609 words of memory out of 5000000
+ 22937 multiletter control sequences out of 15000+600000
  476461 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,18n,76p,2422b,374s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on article.pdf (32 pages, 3472214 bytes).
+ 70i,17n,76p,2389b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on article.pdf (30 pages, 2755475 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 128 compressed objects within 2 object streams
+ 192 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
