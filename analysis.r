@@ -366,6 +366,51 @@ pdf("yield_verse_value_by_area.pdf")
 grid.arrange(temp_yield_vs_value, rain_yield_vs_value, ncol=2)
 dev.off()
 
+#####%%%%%%%%%%%%%%%%%%%%
+# Yearly variation plots
+########################
+
+temp_df <- data.frame(summary(model1)$coefficients)
+temp_df <- temp_df[grep("year", rownames(temp_df)), ]
+estimates <- data.frame(temp_df[, c("Estimate", "Std..Error")])
+#rownames(estimates) <- rownames(temp_df)
+#names(estimates) <- c("model_1_est", "model_1_er")
+
+estimates$model <- rep("model1", length(rownames(estimates)))
+
+#temp_df <- data.frame(summary(model2)$coefficients)
+#temp_df <- temp_df[grep("year", rownames(temp_df)), ]
+#estimates$model2  <- temp_df$Estimate
+temp_df <- data.frame(summary(model3)$coefficients)
+temp_df <- temp_df[grep("year", rownames(temp_df)), ]
+temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
+for (i in rownames(estimates)[!(rownames(estimates) %in% rownames(temp_df))]) {
+    temp_df[i,] <- NA
+}
+temp_df$model <- rep("model2", length(rownames(temp_df)))
+
+estimates <- rbind(estimates, temp_df)
+
+library(stringi)
+estimates$year <- stri_extract_first_regex(rownames(estimates), "[0-9]+")
+estimates$year <- as.integer(estimates$year)
+
+# Default line plot
+p<- ggplot(estimates, aes(x = year, y = Estimate, group = model, color=model)) + 
+  geom_line() +
+  geom_point()+
+  geom_errorbar(aes(ymin=Estimate-Std..Error, ymax=Estimate+Std..Error), width=.2,
+                 position=position_dodge(0.05))
+print(p)
+# Finished line plot
+p+labs(title="Tooth length per dose", x="Dose (mg)", y = "Length")+
+   theme_classic() +
+   scale_color_manual(values=c('#999999','#E69F00'))
+
+
+
+
+
 #######################
 # Lets make some maps #
 nt <- read.csv("no_trans.csv")
