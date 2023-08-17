@@ -358,14 +358,14 @@ temp_yield_vs_value <- ggplot(
     df[df$temp!="", ]
     , aes(
         x = ha_tonnes_grapes_harvested
-        , y = ha_value
+        , y = ha_average_per_tonne
         , col = temp)
     ) +
     xlim(-2.5, 2.5) +
     ylim(-2.5, 2.5) +
     geom_point(size = .5) +
     xlab("Yield / Area Harvested") +
-    ylab("Yield * Average Price / Area Harvested") +
+    ylab("Average Price / Area Harvested") +
     ggtitle("Temperature") +
     theme_light() +
     theme(panel.grid.minor = element_blank()
@@ -377,14 +377,14 @@ rain_yield_vs_value <- ggplot(
     df[df$rain!="", ]
     , aes(
         x = ha_tonnes_grapes_harvested
-        , y = ha_value
+        , y = ha_average_per_tonne
         , col = rain)
         ) +
         xlim(-2.5, 2.5) +
         ylim(-2.5, 2.5) +
         geom_point(size = .5) +
         xlab("Yield / Area Harvested") +
-        ylab("Yield * Average Price / Area Harvested") +
+        ylab("Average Price / Area Harvested") +
         ggtitle("Rainfall") +
         theme_light() +
         theme(panel.grid.minor = element_blank()
