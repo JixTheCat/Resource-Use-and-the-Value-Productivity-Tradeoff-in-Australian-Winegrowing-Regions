@@ -149,8 +149,7 @@
 
 \section{Introduction}
 The global focus on sustainability in agronomic industries has changed the way in which these enterprises do business. When strategies for a sustainable winegrowing industry are assessed, there is a trade-off between balancing the amount of resources invested and the resultant yield versus quality produced. This dilemma exists across agriculture through shared fundamental considerations such as water use and fuel usage \citep{hemmingCherryTomatoProduction2020,kawasakiQualityMattersMore2016, zhuEffectsNitrogenLevel2017}. Quality in viticulture (the cultivation of grapes for wine production) is driven through its integration within the wine industry, with the potential quality of a wine being initially defined through the chemical makeup of the grapes used in its production. The consideration of sustainability within viticulture is further complicated by environmental and socio-demographic pressures. In the Australian context, these include biosecurity, climate and international market demands.
-\newline
-\newline
+\par
 There is an extensive amount of research into the effects of a variety of factors on grape quality and yield \citep{heFruitYieldPrediction2022,laurentLocalInfluenceClimate2022,liakosMachineLearningAgriculture2018}. However, due to the lack of long-term and in-depth data, individual factors are often studied in isolation \citep{abbalDecisionSupportSystem2016}. The lack of consolidated datasets also restricts the ability to gain statistical insights at large scales and across multiple regions \citep{keithjonesAustralianWineIndustry2002,knightFirmResourcesDevelopment2019}. The dataset used for this analysis includes data collected for the past 10 years from a multitude of vineyards located over a diverse range of Australian winegrowing regions. We aim to use this dataset to describe the relationship of resources related to water and fuel use with the output yield and quality of the resultant product, taking into account the size and location of the vineyard. The practical addition of this aim is a baseline for comparison: given a vineyard within Australia, one could estimate the comparative efficiency with regard to the tradeoff between invested resources, yield and quality. This is the first time that such a trade off has been confirmed explicitly across such varying regions, scales and climates in the Australian winegrowing industry.
 \section{Methods}
 \subsection{Data}
@@ -172,36 +171,27 @@ There is an extensive amount of research into the effects of a variety of factor
 \end{table}
 
 Data used in this analysis were obtained from Sustainable Winegrowing Australia and Wine Australia. Sustainable Winegrowing Australia is Australia's national wine industry sustainability program, which aims to facilitate grape-growers and winemakers in demonstrating and improving their sustainability \citep{swaSustainableWingrowingAustralia2022}. Wine Australia is an Australian Government statutory authority governed by the Wine Australia Act 2013 \citep{WineAustraliaAct2019}.
-\newline
-\newline
+\par
 Predictor variables used in this analysis included yield, defined as the total tonnes of grapes harvested, and quality, defined as the average sale price. It is acknowledged that quality can be defined in a variety of ways, for example by the grapes': aroma, chemical composition and color \citep{kasimatiPredictingGrapeSugar2022,mejeanperrotDecisionsupportSystemPredict2022,suarezAssessingWineGrape2021}. Using sale price was based on the reliance of market value of winegrapes on grape quality and because Wine Australia explicitly defines grape quality through the use of discrete price brackets in their annual reports. The generalisation made to reflect quality through using average price assumed a due diligence of those who purchased the grapes \citep{yeggeInfluenceSensoryNonsensory2001}. Both response variables were examined as totals and as scales of area harvested. Values were compared in this manner to observe how economies of scale affect the use of resources.
-\newline
-\newline
+\par
 Data obtained from Wine Australia were collected via phone surveys and included: total tonnes purchased, average price per tonne and yearly change in price for region and grape varietal. Data recorded by Sustainable Winegrowing Australia was entered manually by winegrowers using a web based interface with some fields being optional. Required variables included: region, harvest year, yield and area harvested. Optional variables included average sale price, water used and fuel used (diesel, petrol, biodiesel and LPG). To enable direct comparisons between fuels, fuel use was converted to tonnes of Carbon Dioxide equivalent and collectively referenced to as emissions.
-\newline
-\newline
+\par
 Average sale price was an optional field in the Sustainable Winegrowing Australia's dataset. 
 Missing values were improved using regional average prices from Wine Australia. Two subsets of data were then created for the analysis. The first subset contained all vineyards and was used for two models (Model 1 and Model 2, see Table \ref{tab:tab1}). The second subset contained vineyards which either recorded a value for average price of sale per tonne through Sustainable Winegrowing Australia, or were within a region with an average price of sale recorded by Wine Australia; this subset was used for two further models (Models 3 and 4, see Table \ref{tab:tab1}. These subsets meant that the data would be limited to samples which had recorded values for the response variables (see Table \ref{tab:tab1}), where every sample had a recorded value for yield but not average price of sale per tonne.
-\newline
-\newline
+\par
 The first subset of data (used for Model 1 and Model 2, see Table\ref{tab:tab1}) contained 5298 samples spanning the period from 2012 to 2022, covering 55 GI Regions and 1261 separate vineyards.
-\newline
-\newline
+\par
 The second subset of data (used for Model 3 and Model 4, see Table\ref{tab:tab1}) contained 2878 samples spanning the period from 2015 to 2022, covering 51 GI Regions and 944 separate vineyards.Average price of sale per tonne was extracted from both Wine Australia (1842 values) and Sustainable Winegrowing Australia (remaining 1036 values).
-\newline
-\newline
+\par
 Additional variables were considered for analysis but were excluded due to being either underreported or had insignificant contributions to model accuracies. Variables explored but not used due to low reporting values included fertiliser, and scope two emissions. Variables considered but ultimately removed due to a lack of significant contributions to models, included the use of renewable energy, contractor use, and pressures such as frost, fire and disease.
-\newline
-\newline
+\par
 Data preprocessing was conducted prior to analysis using the Python programming language \citep{g.vanrossumPythonTutorialTechnical1995}. Preprocessing included the conversion from fuel to scope one emissions and prior calculations for all continuous variables which included logarithmic transformations, centring and scaling by standard deviation. The transformation of fuel use into scope one emissions was done using the equation given from the Australian National Greenhouse Accounts Factors, shown as
-\newline
-\newline
+\par
 \begin{equation}
 \label{(1)}
     tCO_{2}e={{Q \times EC \times EF1 + EF3}\over{1000}},
 \end{equation}
-\newline
-\newline
+\par
 was used to convert the quantity of fuel in litres, $Q$, using a prescribed Energy Content, $EC$, and emission factors of scope one, $EF1$, and scope three, $EF3$, to tonnes of Carbon Dioxide Emission equivalent, $tCO2e$ \citep{departmentofclimatechangeenergytheenvironmentandwaterAustralianNationalGreenhouse2022}.
 \newline
 %%
@@ -213,8 +203,7 @@ was used to convert the quantity of fuel in litres, $Q$, using a prescribed Ener
 %%
 \newline
 Differences in vineyard locations were captured through the use of Geographical Indicator Regions (GI Regions). Each GI Region has its own unique mixture of climatic and geophysical properties that describes a unique winegrowing region within Australia; these regions were predefined by Wine Australia \citep{hallidayAustralianWineEncyclopedia2009,oliverReviewSoilPhysical2013,soarClimateDriversRed2008}. Both Wine Australia and Sustainable Winegrowing Australia used the same GI Region format to describe location.
-\newline
-\newline
+\par
 The site of a vineyard predetermines several physical parameters such as climate, geology and soil, making location a widely considered key determinant of grape yield and quality \citep{abbalDecisionSupportSystem2016,agostaRegionalClimateVariability2012,fragaMultivariateClusteringViticultural2017}. The climatic properties of each GI Region were summarised by using predefined classifications as per the \citet{sustainablewinegrowingaustraliaSustainableWinegrowingAustralia2021} user manual. The user manual describes climates by rainfall and temperature, creating supersets of Regions of similar climatic properties. The climatic groups were used to illustrate similarities and differences occurring in areas larger than GI Regions.
 
 \subsection{Analysis}
@@ -294,8 +283,7 @@ T-tests were used to determine if predictors significantly contributed to their 
 }
 \end{table}
 Pearson Correlation Coefficients of the transformed, centered and scaled variables are shown in Table \ref{tab:pearson_correlation}. 
-\newline
-\newline
+\par
 All relationships were found to be statistically significant (P $<$ 2.200E-16).
 \subsection{General Linear Models}
 
@@ -320,8 +308,7 @@ Each model showed a strong relationship between the predictors and the response 
 Aside from 3 variables, F-tests across each model indicated a good model fit. The three exceptions were: scope one emissions in Model 3 (P=0.22) and Model 4 (P=0.36), and the interaction between area harvested and water used in model 2 (P=0.22). Note that, scope one emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values and because it was strongly correlated to the response variable in every model; especially for Models 1 and 4 (Table \ref{tab:pearson_correlation}).
 
 A full list of regression coefficients 95\% CIs and p-values for each of the four models is provided in the appendix. % You gotta add these to the appendix in a more readable fashion
-\newline
-\newline
+\par
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -438,30 +425,26 @@ In terms of magnitude, GI region has the highest possible absolute value for eac
 There was an expected strong relationship between size and resource use, with the overall space of a vineyard and its access to resources greatly determining the upper limit of potential yield. However, size was also inversely related to the potential quality, with higher quality being related to high resource inputs per area; rather than to the overall expenditure of resources. Vineyard outputs were also augmented by regional and yearly affects. Even given regional and yearly changes, there was a strong connection between smaller vineyards and higher quality. This could have been due to the easier management of smaller properties.
 \subsection{Resource use and yield versus quality} 
  There are many on-the-ground decisions that influence both quality and yield. The $R^2$ values for Models 2 and 4 showed that the average price per tonne of grapes described a great deal of the relationship between resource use and yield when variables were considered as ratios of area (due to the discrepancy in $R^2$ between the two models, see Table \ref{tab:modelsummary}). This discrepancy is likely due to different vineyard prioritisation, which can be described by the type of quality and quantity a vineyard aims to target. Decisions such as the prioritisation of quality over quantity, are governed by complex physical and social forces, for example international market demands, disease pressures and natural disasters \citep{abadCoverCropsViticulture2021,cortezUsingDataMining2009,hallWithinseasonTemporalVariation2011,i.goodwinManagingSoilWater2009,kasimatiPredictingGrapeSugar2022,oliverReviewSoilPhysical2013,srivastavaNondestructiveSensingMethods2018}, with many of these occurrences being highlighted throughout the reports from Wine Australia \citep{wineaustraliaNationalVintageReport2019,wineaustraliaNationalVintageReport2021,wineaustraliaNationalVintageReport2022,winemakersfederationofaustraliaNationalVintageReport2013,winemakersfederationofaustraliaNationalVintageReport2014,winemakersfederationofaustraliaNationalVintageReport2015,winemakersfederationofaustraliaNationalVintageReport2016,winemakersfederationofaustraliaNationalVintageReport2017,winemakersfederationofaustraliaNationalVintageReport2018} over the past decade. It is also important to consider that these reports show that the warm inland regions have seen a decline in profit during this period, whereas regions targeting quality did not. Size becomes an important consideration, as it dictates the potential capacity to produce greater volumes of grapes. However, given the comparison of value per area, regions with larger vineyards (such as warmer in land regions) and larger vineyards in general, tend to underperform. The 'Hot Very Dry' vineyards (see Figure \ref{fig:yield_vs_value_area}) These vineyards would be very competitive with only a minor increase to sale price, possibly outperforming other regions.
-\newline
-\newline
+\par
 The negative trend between size and average sales price could be a side effect of supply versus demand, especially when looking at the level of difference in production of some vineyards. Economies of scale likely played a role in determining yield but were only one consideration alongside resource use. 
 % (KM: WHere is this shown?)
 % This relationship is not shown well and should be reconsidered when changing the methods and results.
 Size was also less of a determining factor when considering quality. It is possible that the relationship of scope one emissions between yield and sale price was closely tied to a vineyard's area due to requiring more fuel to cover issues (such as fixing a broken irrigation pipe), where  a larger area has the potential for issues to be further away. This is further observed when noting that most irrigation systems are diesel based, with water use being a significant variable in each model and scope one emissions not; scope one emissions' lack of significance and contribution given its F-statistics, could be indicative that other vineyard activities requiring fuel are not leading factors for a vineyards grape quality. The relationship between yield, value and area was not simply about efficiently producing the most grapes; sales price and by association grape quality, are integral to the profitability, and this is strongly linked to resource-use and thus the longevity and sustainability of a vineyard.
-\newline
-\newline
+\par
 There are important considerations unique to winegrowing compared to other agricultural industries. The vertical integration of winegrowing within the wine industry ties winegrowers to secondary and tertiary industries, such as wine production, packaging, transport and sales. This results in unique issues and considerations for each vineyard, where on-the-ground decisions are influenced by other wine industry's choices, such as the use of sustainable practices in vineyards as a requirement for sale in overseas markets; notably these interactions can be further complicated by some winegrowers being completely integrated into a wine company, while others are not \citep{knightFirmResourcesDevelopment2019}. Incorporating decisions into the model could help describe the contributing factors to regional differences beyond resource consumption and regional differences this  motivates the call for more granular data and more sophisticated modelling.
 \subsection{Regional Differences}
 Some regions appeared to produce many low quality grapes at scale whilst others focussed on producing higher quality grapes in lower volumes. This emperical finding is consistent with Wine Australia's annual reports, which shows that some GI regions, such as the Riverland, are known for producing large amounts of lower grade (low value per tonne) grapes \cite{wineaustraliaNationalVintageReport2022,winemakersfederationofaustraliaNationalVintageReport2017}. Comparatively other regions, such as Tasmania, only produce high quality grapes but in smaller quantities. The difference in pricing per tonne between the lowest and highest graded grapes can be greater than a hundred times the difference in value per tonne.
 % ref
 Not all regions target only one grade of grape, with some producing a variety of differently graded grapes; such as the Yarra Valley, which produces grades from C to A.
 % ref
-\newline
-\newline
+\par
 Some regions are known for their quality and may have a bias in purchasers or bring greater demand regardless of similarities and differences in production of quality of grapes \citep{hallidayAustralianWineEncyclopedia2009}. 
 %The Barossa is an example of this, known for its quality could also lend itself to a bias in purchasers not considering other regions that may be capable of similar quality.
 This effect could stifle the potential for market opportunities within lesser known regions. A further possibility is the existence of regional upper limits on potential quality, or that there are diminishing returns in some regions when pursuing quality or quantity; however these types of relationships may be obfuscated by knowledgeable winegrowers who avoid this pitfall.
 % What is this below paragraph?
 %The correlation between average sales price and yield was a negative trend (see table 2); the contributing factors to yield and average sales price was ???. Correlation values showed that water and emissions increased with yield but decreased with average sale price (see Table 4).
 %
-\newline
-\newline
+\par
 Due to regional differences, different strategies are also  employed across different regions, such as some regions targeting mass production over quality. This is most notable when grouping regions by climate, especially when considering GI Regions in the 'Hot Very Dry' climate (see Figure \ref{fig:yield_vs_value}). 
 %In the preliminary analyses alternative models found that without the direct incorporation of GI Region or year, predictions greatly under performed. The effect of climate in the models was never as significant as the more granular GI regions, and always led to less accurate models. 
 Although not chosen over GI region, climate was considered to be a large determinant of the ability to produce larger quantities of grapes, as well as a determinant in grape quality \citep{agostaRegionalClimateVariability2012}. The more granular GI Region likely explained a broader mix of geographical phenomenon, such as soil, geology and access to water resources \citep{abbalDecisionSupportSystem2016,carmonaUseParticipatoryObjectOriented2011}. The interaction between year and GI Region likely accounted for events such as bushfires, which would be impactful, but only at a local level, both in time and space.
@@ -470,13 +453,11 @@ Although not chosen over GI region, climate was considered to be a large determi
 Limitations in the analyses presented in this paper included overestimating yield for models 1 and 2, and underestimating crop value in models 3 and 4 (see appendix).
 % KM: Need to see this.
 The issue of model 1 and 2 over-predicting yield may have been due to preventative measures brought on by regional pressures such as fire, frost and disease. More resources were required to prevent these issues from spreading within a region, thus disproportionately affecting some vineyards compared to others locally. This type of maintenance is not well captured in the models, especially when considering that some regions, especially those in warmer areas, are not as prone to disease as cooler climates and could potentially have lower operating costs per hectare. This could create a discrepancy in vineyards that utilised preventative measures in wetter regions, as opposed to those that did not, thus expending less fuel and energy but risking disease. When reviewing the differences between regions, it is important to consider that vineyards in 'Hot Very Dry' areas can be hundreds of times the size of those in other regions. This limitation could be overcome by incorporating the profitability of vineyards, comparing the financial success of working at different operational scales.
-\newline
-\newline
+\par
  %The possible reason behind this effect was that different strategies are likely employed between different regions, where some regions target the mass production of cheaper grapes over quality. % ALSO THAT CATASTROPHES HAPPEN EVEN ON SMALL SCALES THis needs to be tied up better.
 %Reviewing data to uncover reasons for the disparity between production and quality of similar vineyards  included the use of 
 Variables such as the utilisation of renewable energy, contractors, and the occurrence of disease, fire and frost were originally explored to capture the discrepancies between similar vineyards that produced different  yields and crop values. However, none of these variables was significantly correlated with the response variables, and did not add to model accuracy, even when considered as interactions. Allowance for nonlinear relationships, specifically through splines, resulted in more normally distributed residuals but at a drastically reduced overall accuracy when comparing $R^2$ and Residual Square Error. Attempts to fully explain small variations was always overshadowed by the dramatic differences in regional trends.
-\newline
-\newline
+\par
 Having more data for each region would also be beneficial, allowing greater comparison between regions. More variables may also help to discern vineyards that can produce larger volumes of grapes at higher prices. The use of other models such as random forests and decision trees alongside more variables and data may help to uncover the reasons for under or overestimation. These differences could be caused by the use of alternative sustainable practices in the field. Moreover, while there is evidence to suggest that environmentally sustainable practices can reduce costs, and increase efficiency whilst improving the quality of grapes; more research is needed to link these benefits across different regions and climates \citep{baianoOverviewSustainabilityWine2021,marianiSustainableWinegrowingCurrent2015,montalvo-falconSustainabilityResearchWine2023}.
 \section{Conclusion}
 % This belongs in the discussion
