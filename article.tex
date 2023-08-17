@@ -305,9 +305,8 @@ Models' continuous variable's coefficient values are summarised in Table \ref{ta
 \end{tabular}}
 \end{table}
 
-%%%%%%%%%%%%%%%%
 The regression coefficients for the categorical variables year and GI region, and their interaction under each of the four models are depicted in \ref{fig:yearly}. The first year for a model's data is used as the baseline. The Adelaide Hills is used as the regional baseline with the interaction between year and region using the first year and the Adelaide Hills as the baseline. Region and year contributed, in some but not all cases, more than the other variables. However, some years are not significant, as they are not statistically different from 0, given their error. Models 4 and 5 appear very similar, however this is likely due to the averaging generalising the finer differences between specific year and region combinations. No trend is apparent for any model, with only a slight drop for 2019 in Models 1 and 2, and a slight increase after 2018 for Models 3, 4 and 5.
-
+\par
 \begin{figure}
   \includegraphics{yearly_plots.pdf}
   \caption{Model Coefficient values for GI Region and Year, with standard error bars. The average of Models 2, 4 and 5 were used in place of every combination of region and year.}\label{fig:yearly}
@@ -332,7 +331,22 @@ The regression coefficients for the categorical variables year and GI region, an
 % The models as a ratio of area show opposite trends - this could be indicative that smaller vineyards tend twoards more valuable crops and larger to crops of greater yield. 
 %
 
-%
+Broad regional differences are summarised in Figure \ref{fig:spider}. The most notable difference is between vineyards within 'Very Hot' and 'Very Dry' (inland) areas where little emphasis is put on achieving high average sale prices, with the focus being on the larger scale yield. Water Use changes dramatically between these regions as well, with water being a driving force in the mass production of grapes but not necessarily the quality. The warmer and drier regions tend to also cater to larger vineyards, with greater areas. 
+
+\begin{figure}
+  \resizebox{\textwidth}{!}{
+  \includegraphics{starplots.pdf}}
+  \caption{Radar plot of climatic profile's resource use, yield and average sale price.}\label{fig:spider}
+\end{figure}
+
+
+
+\begin{figure}
+  \resizebox{\textwidth}{!}{
+  \includegraphics{yield_verse_value.pdf}}
+  \caption{Scatter plot of vineyard yield against the product of yield and average price per tonne. The axes are in standard deviations with points coloured by climate.}\label{fig:yield_vs_value}
+\end{figure}
+
 
 \begin{figure}
   \resizebox{\textwidth}{!}{
