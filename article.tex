@@ -185,7 +185,7 @@ Missing values were improved using regional average prices from Wine Australia. 
 \par
 The first subset of data (used for Model 1 and Model 2, see Table\ref{tab:tab1}) contained 5298 samples spanning the period from 2012 to 2022, covering 55 GI Regions and 1261 separate vineyards.
 \par
-The second subset of data (used for Model 3 and Model 4, see Table\ref{tab:tab1}) contained 2878 samples spanning the period from 2015 to 2022, covering 51 GI Regions and 944 separate vineyards.Average price of sale per tonne was extracted from both Wine Australia (1842 values) and Sustainable Winegrowing Australia (remaining 1036 values).
+The second subset of data (used for Model 3, Model 4 and Model 5, see Table\ref{tab:tab1}) contained 2878 samples spanning the period from 2015 to 2022, covering 51 GI Regions and 944 separate vineyards.Average price of sale per tonne was extracted from both Wine Australia (1842 values) and Sustainable Winegrowing Australia (remaining 1036 values).
 \par
 Additional variables were considered for analysis but were excluded due to being either underreported or had insignificant contributions to model accuracies. Variables explored but not used due to low reporting values included fertiliser, and scope two emissions. Variables considered but ultimately removed due to a lack of significant contributions to models, included the use of renewable energy, contractor use, and pressures such as frost, fire and disease.
 \par
@@ -205,49 +205,26 @@ was used to convert the quantity of fuel in litres, $Q$, using a prescribed Ener
 %%
 %%
 %%
-\newline
+
+
+\par
 Differences in vineyard locations were captured through the use of Geographical Indicator Regions (GI Regions). Each GI Region has its own unique mixture of climatic and geophysical properties that describes a unique winegrowing region within Australia; these regions were predefined by Wine Australia \citep{hallidayAustralianWineEncyclopedia2009,oliverReviewSoilPhysical2013,soarClimateDriversRed2008}. Both Wine Australia and Sustainable Winegrowing Australia used the same GI Region format to describe location.
 \par
 The site of a vineyard predetermines several physical parameters such as climate, geology and soil, making location a widely considered key determinant of grape yield and quality \citep{abbalDecisionSupportSystem2016,agostaRegionalClimateVariability2012,fragaMultivariateClusteringViticultural2017}. The climatic properties of each GI Region were summarised by using predefined classifications as per the \citet{sustainablewinegrowingaustraliaSustainableWinegrowingAustralia2021} user manual. The user manual describes climates by rainfall and temperature, creating supersets of Regions of similar climatic properties. The climatic groups were used to illustrate similarities and differences occurring in areas larger than GI Regions.
-
+\par
 \subsection{Analysis}
-Pairwise Pearson Correlation Coefficients were calculated to assess the potential existence of linear relationships between the input and predicted variable. Four general linear models were then created (see Table \ref{tab:tab1})
-
-Both the Pearson Correlation Coefficients and General Linear Models were created using the R statistical programming language \citep{rcoreteamLanguageEnvironmentStatistical2021} and the Caret packages \citep{kuhnBuildingPredictiveModels2008}. General Linear Models were chosen as they offer the ability to produce statistical models that are explicit in the relationships between predictors and response variables.
-
-General Linear Models also allow the exploration of interactions between predictors and present easily comparable differences in the influence and magnitude of relationships.
-
+Pairwise Pearson Correlation Coefficients were calculated to assess the potential existence of linear relationships between the input and predicted variables. To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient with statistical significance being declared when the associated value was lower than 0.05. Pairwise Pearson Correlation Coefficients were calculated for data on the original scale and for data as a logarithmic transform. Transforming data prior to calculating the coefficients changes several things. The logarithmic transform of the data alters the interpretation of the coefficients to percentage change; a coefficient will be indicative of the change in percentage of one variable compared to the other, scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. When considering the logarithmically transformed variables, a coefficient of 1 would indicate that the change of one variable by one percentage of its standard deviation would correlate to the other variable changing by one percent of its own standard deviation. The importance of this is the dimensionless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
+\par
+Five general linear models were created (see Table \ref{tab:tab1}). General Linear Models were chosen as they offer the ability to produce statistical models that are explicit in the relationships between predictors and response variables. General Linear Models also allowed the exploration of interactions between predictors and allow for easily comparable differences in the influence and magnitude of relationships. Model fit was measured in $R^2$ and adjusted $R^2$ as well as F statistics. T-tests were used to determine if predictors significantly contributed to their models when accounting for other variables, showing which specific years and areas contributed significantly. Both the Pearson Correlation Coefficients and General Linear Models were created using the R statistical programming language \citep{rcoreteamLanguageEnvironmentStatistical2021} with the Caret package \citep{kuhnBuildingPredictiveModels2008}.
+\par
 A variety of alternate methods were also explored, including splines, hierarchical regression, General Additive Models, and Generalised Linear Models. These alternative approaches were not used as final models due to offering no further insights or improvements in accuracy.
-
+\par
 \subsection{Model Validation}
-Models were validated using K-fold cross validation calculated through the R Caret Package \citep{kuhnBuildingPredictiveModels2008}. K-fold cross validation works by removing a subset of data from the sample used to train models and then predicts those variables to determine how sensitive the model is to changes in the sample data. For this analysis each model was validated using 10 folds, repeated 100 times.
-% A reference for this is absolutely needed.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% This is my results to methods prison
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-Values for these coefficients reflect the linear relation between two variables, on a scale between -1 and 1; the magnitude and sign of a coefficient indicates the strength of the relation, and whether the relation is positive or negative respectively. This was undertaken for data on the original scale and for data as a logarithmic transform. Transforming data prior to calculating the coefficients changes several things: The logarithmic transform of the data alters the interpretation of the coefficients to percentage change - a coefficient will be indicative of the change in percentage of one variable compared to the other; scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. When considering the logarithmically transformed variables, a coefficient of 1 would indicate that the change of one variable by one percentage of its standard deviation would correlate to the other variable changing by one percent of its own standard deviation. The importance of this is the dimensionless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
-
-To determine if a coefficient was indicative of a strong relationship, confidence intervals were used. P-values reflected the significance of a given correlation coefficient when considering its relation to sample size via its incorporation as an element of standard error.
-
-Model fit was also measured in $R^2$ and adjusted $R^2$, F statistics
-
-statistical significance p-values declared the associated was then 0.05
-
-
-T-tests were used to determine if predictors significantly contributed to their models when accounting for other variables; this allowed a more granular examination of interactions and factors within categorical variables, showing which specific years and areas contributed significantly and which did not (the appendix contains a comprehensive list of these values). 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+Models were validated using K-fold cross validation calculated. K-fold cross validation works by removing a subset of data from the sample used to train models and then predicts those variables to determine how sensitive the model is to changes in the sample data. For this analysis each model was validated using 10 folds, repeated 100 times.
+\par
 \section{Results}
 \subsection{Exploratory Analysis} \label{sec:exp_anal}
  Table \ref{tab:summary} shows the summary statistics of each variable used in Models 1 to 4 (See \ref{tab:tab1}).
-
 \begin{table}[]
   \caption{Summary statistics of each continuous variable.}\label{tab:summary}
       \resizebox{\textwidth}{!}{
