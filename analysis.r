@@ -26,11 +26,11 @@ model3 <- lm(
     data_year_id + giregion + area_harvested + water_used + scope1
     , data = df)
 model4 <- lm(
-    ha_value ~
+    average_per_tonne ~
     area_harvested * ((scope1) + water_used) + data_year_id:giregion
     , data = df)
 model5 <- lm(
-    ha_value ~
+    average_per_tonne ~
     scope1 + water_used + data_year_id:giregion
     , data = df)
 # We review our first model
@@ -442,6 +442,20 @@ rownames(temp_df) <- paste0(rownames(temp_df), "a")
 
 estimates <- rbind(estimates, temp_df)
 
+# The fith model is similar to the second and requires averaging
+temp_df <- data.frame(summary(model5)$coefficients)
+temp_df <- temp_df[grep("year", rownames(temp_df)), ]
+temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
+
+temp_df$year <- stri_extract_first_regex(rownames(temp_df), "[0-9]+")
+temp_df <- aggregate(temp_df, list(temp_df$year), FUN=mean.t)
+rownames(temp_df) <- temp_df$Group.1
+temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
+temp_df$model <- rep("model4", length(rownames(temp_df)))
+rownames(temp_df) <- paste0(rownames(temp_df), "b")
+
+estimates <- rbind(estimates, temp_df)
+
 estimates$year <- stri_extract_first_regex(rownames(estimates), "[0-9]+")
 estimates$year <- as.integer(estimates$year)
 
@@ -452,4 +466,7 @@ p<- ggplot(estimates, aes(x = year, y = Estimate, group = model, color=model)) +
   geom_errorbar(aes(ymin=Estimate-Std..Error, ymax=Estimate+Std..Error), width=.2,
                  position=position_dodge(0.05)) +
     theme_classic()
+
+pdf("yearly_plots.pdf")
 print(p)
+dev.off()
