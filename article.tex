@@ -162,13 +162,16 @@ There is an extensive amount of research into the effects of a variety of factor
     & \textbf{Response} & \textbf{Predictors} & \textbf{Covariates} & \textbf{Interactions} \\ \midrule
     \textbf{Model 1} & Yield & \begin{tabular}[c]{@{}c@{}}Water Used\\ scope one Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested\\ Year\\ GI Region\end{tabular} & N/A \\
     \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
-    \textbf{Model 2} & ${ \textrm{Yield}}\over{ \textrm{Area Harvested}}$ & \begin{tabular}[c]{@{}c@{}}Water Used\\ scope one Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested\\ Year\\ GI Region\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested * scope one Emissions\\ Area Harvested * Water Use\\ Year * Region\end{tabular} \\
-    {1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
-    \textbf{Model 3} & {$\textrm{Yield} {\times} \textrm{Average Sale Price}$} & \begin{tabular}[c]{@{}c@{}}Water Used\\ scope one Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested\\ Year\\ GI Region\end{tabular} & N/A \\
+    \textbf{Model 2} & ${ \textrm{Yield}}\over{ \textrm{Area Harvested}}$ & \begin{tabular}[c]{@{}c@{}}Water Used\\ scope one Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested \end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested * scope one Emissions\\ Area Harvested * Water Use\\ Year * Region\end{tabular} \\
     \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
-    \textbf{Model 4} & ${\textrm{Yield} \times \textrm{Average Sale Price}}\over{\textrm{Area Harvested}}$ & \begin{tabular}[c]{@{}c@{}}Water Used\\ scope one Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested\\
-        Year\\ GI Region\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested * scope one Emissions\\ Area Harvested * Water Use\\ Year * Region\end{tabular}
-    \end{tabular}}
+    \textbf{Model 3} & {$\textrm{Yield} {\times} \textrm{Average Sale Price}$} & \begin{tabular}[c]{@{}c@{}}Water Used\\ Scope One Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested\\ Year\\ GI Region\end{tabular} & N/A\\
+    \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
+    \textbf{Model 4} & ${\textrm{Yield} \times \textrm{Average Sale Price}}\over{\textrm{Area Harvested}}$ & \begin{tabular}[c]{@{}c@{}}Water Used\\ Scope One Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested\\
+        \\ \end{tabular} & \begin{tabular}[c]{@{}c@{}}Area Harvested * Scope One Emissions\\ Area Harvested * Water Use\\ Year * Region\end{tabular}
+        \\
+        \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\
+     \textbf{Model 5} & ${\textrm{Yield} \times \textrm{Average Sale Price}}\over{\textrm{Area Harvested}}$ & \begin{tabular}[c]{@{}c@{}}Water Used\\ Scope One Emissions\end{tabular} & \begin{tabular}[c]{@{}c@{}} Year\\ GI Region\end{tabular} & \begin{tabular}[c]{@{}c@{}} Year * Region\end{tabular}
+        \end{tabular}}
 \end{table}
 
 Data used in this analysis were obtained from Sustainable Winegrowing Australia and Wine Australia. Sustainable Winegrowing Australia is Australia's national wine industry sustainability program, which aims to facilitate grape-growers and winemakers in demonstrating and improving their sustainability \citep{swaSustainableWingrowingAustralia2022}. Wine Australia is an Australian Government statutory authority governed by the Wine Australia Act 2013 \citep{WineAustraliaAct2019}.
