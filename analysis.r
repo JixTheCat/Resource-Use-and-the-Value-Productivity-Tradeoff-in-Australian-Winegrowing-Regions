@@ -29,7 +29,10 @@ model4 <- lm(
     ha_value ~
     area_harvested * ((scope1) + water_used) + data_year_id:giregion
     , data = df)
-
+model5 <- lm(
+    ha_value ~
+    scope1 + water_used + data_year_id:giregion
+    , data = df)
 # We review our first model
 
 # MODEL 1
@@ -176,6 +179,28 @@ ggplot(
 #  RMSE     Rsquared   MAE      
 #  0.22349  0.9500051  0.1279485
 #
+
+# MODEL 1
+anova(model5)
+summary(model5)
+model5_residuals <- residuals(model5)
+model5_fitted <- fitted(model5)
+ggplot(
+    data.frame(
+        y = model5_residuals)
+        , aes(sample = y)
+       ) +
+       stat_qq() +
+       stat_qq_line()
+
+ggplot(
+    data.frame(
+        y = model5_residuals
+        , x = model5_fitted)
+    , aes(x = x, y = y)
+    ) +
+    geom_point() +
+    geom_hline(yintercept = 0)
 
 ############################ #
 # We graph the coefficients! #
