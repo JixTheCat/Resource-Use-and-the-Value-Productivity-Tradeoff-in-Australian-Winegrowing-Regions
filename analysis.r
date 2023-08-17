@@ -3,6 +3,11 @@ library(gridExtra)
 library(viridis)
 library(sf)
 library(cowplot)
+library(stringi)
+
+mean.t <- function(x) {
+    mean(x, na.rm = TRUE)
+}
 
 # data_prep.py has to be executed in order for df.csv to exist
 set.seed(100)
@@ -370,46 +375,59 @@ dev.off()
 # Yearly variation plots
 ########################
 
+# We construct a data frame for the coefficients
+# We start with the first model
 temp_df <- data.frame(summary(model1)$coefficients)
 temp_df <- temp_df[grep("year", rownames(temp_df)), ]
 estimates <- data.frame(temp_df[, c("Estimate", "Std..Error")])
-#rownames(estimates) <- rownames(temp_df)
-#names(estimates) <- c("model_1_est", "model_1_er")
-
 estimates$model <- rep("model1", length(rownames(estimates)))
 
-#temp_df <- data.frame(summary(model2)$coefficients)
-#temp_df <- temp_df[grep("year", rownames(temp_df)), ]
-#estimates$model2  <- temp_df$Estimate
-temp_df <- data.frame(summary(model3)$coefficients)
+# The second model has coefficients averaged as there are so many per year.
+temp_df <- data.frame(summary(model2)$coefficients)
 temp_df <- temp_df[grep("year", rownames(temp_df)), ]
 temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
-for (i in rownames(estimates)[!(rownames(estimates) %in% rownames(temp_df))]) {
-    temp_df[i,] <- NA
-}
+
+temp_df$year <- stri_extract_first_regex(rownames(temp_df), "[0-9]+")
+temp_df <- aggregate(temp_df, list(temp_df$year), FUN=mean.t)
+rownames(temp_df) <- temp_df$Group.1
+temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
 temp_df$model <- rep("model2", length(rownames(temp_df)))
 
 estimates <- rbind(estimates, temp_df)
 
-library(stringi)
+# The third model is integrated somewhat the same as the first
+temp_df <- data.frame(summary(model3)$coefficients)
+temp_df <- temp_df[grep("year", rownames(temp_df)), ]
+temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
+temp_df$model <- rep("model3", length(rownames(temp_df)))
+
+estimates <- rbind(estimates, temp_df)
+
+# The fourth model is similar to the second and requires averaging
+temp_df <- data.frame(summary(model4)$coefficients)
+temp_df <- temp_df[grep("year", rownames(temp_df)), ]
+temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
+
+temp_df$year <- stri_extract_first_regex(rownames(temp_df), "[0-9]+")
+temp_df <- aggregate(temp_df, list(temp_df$year), FUN=mean.t)
+rownames(temp_df) <- temp_df$Group.1
+temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
+temp_df$model <- rep("model4", length(rownames(temp_df)))
+rownames(temp_df) <- paste0(rownames(temp_df), "a")
+
+estimates <- rbind(estimates, temp_df)
+
 estimates$year <- stri_extract_first_regex(rownames(estimates), "[0-9]+")
 estimates$year <- as.integer(estimates$year)
 
 # Default line plot
 p<- ggplot(estimates, aes(x = year, y = Estimate, group = model, color=model)) + 
-  geom_line() +
+#  geom_line() +
   geom_point()+
   geom_errorbar(aes(ymin=Estimate-Std..Error, ymax=Estimate+Std..Error), width=.2,
-                 position=position_dodge(0.05))
+                 position=position_dodge(0.05)) +
+    theme_classic()
 print(p)
-# Finished line plot
-p+labs(title="Tooth length per dose", x="Dose (mg)", y = "Length")+
-   theme_classic() +
-   scale_color_manual(values=c('#999999','#E69F00'))
-
-
-
-
 
 #######################
 # Lets make some maps #
@@ -419,10 +437,6 @@ aus <- st_read("data/STE_2021_AUST_SHP_GDA2020/STE_2021_AUST_GDA2020.shp")
 
 v$ha_tonnes_grapes_harvested <- 0
 v$ha_value <- 0
-
-mean.t <- function(x) {
-    mean(x, na.rm = TRUE)
-}
 
 aggs.ha_tonnes_grapes_harvested <- aggregate(
     nt$ha_tonnes_grapes_harvested * 10000
