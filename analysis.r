@@ -19,7 +19,7 @@ model1 <- lm(
     , data = df)
 model2 <- lm(
     ha_tonnes_grapes_harvested ~
-    area_harvested * ((scope1) + water_used) + data_year_id:giregion
+    area_harvested * ((scope1) + water_used) + data_year_id:giregion + data_year_id + giregion
     , data = df)
 model3 <- lm(
     value ~
@@ -27,11 +27,11 @@ model3 <- lm(
     , data = df)
 model4 <- lm(
     average_per_tonne ~
-    area_harvested * ((scope1) + water_used) + data_year_id:giregion
+    area_harvested * ((scope1) + water_used) + data_year_id:giregion + data_year_id + giregion
     , data = df)
 model5 <- lm(
     average_per_tonne ~
-    scope1 + water_used + data_year_id:giregion
+    scope1 + water_used + data_year_id:giregion + data_year_id + giregion
     , data = df)
 # We review our first model
 
