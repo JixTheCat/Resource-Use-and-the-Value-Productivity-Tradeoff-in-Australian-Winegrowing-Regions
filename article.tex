@@ -48,6 +48,7 @@
 \usepackage{adjustbox}
 \usepackage{tabulary, ragged2e}
 \usepackage{booktabs}
+\usepackage{multirow}
 
 \journal{Geography and Sustainability}
 %1.Full Length Article A full-length article should be a substantial and in-depth research study regarding a particular state of issue through several techniques or approaches. 
@@ -183,9 +184,9 @@ Data obtained from Wine Australia were collected via phone surveys and included:
 Average sale price was an optional field in the Sustainable Winegrowing Australia's dataset. 
 Missing values were improved using regional average prices from Wine Australia. Two subsets of data were then created for the analysis. The first subset contained all vineyards and was used for two models (Model 1 and Model 2, see Table \ref{tab:tab1}). The second subset contained vineyards which either recorded a value for average price of sale per tonne through Sustainable Winegrowing Australia, or were within a region with an average price of sale recorded by Wine Australia; this subset was used for three further models (Models 3, 4 and 5, see Table \ref{tab:tab1}. These subsets meant that the data would be limited to samples which had recorded values for the response variables (see Table \ref{tab:tab1}), where every sample had a recorded value for yield but not average price of sale per tonne.
 \par
-The first subset of data (used for Model 1 and Model 2, see Table\ref{tab:tab1}) contained 5298 samples spanning the period from 2012 to 2022, covering 55 GI Regions and 1261 separate vineyards.
+The first subset of data (used for Model 1 and Model 2, see Table \ref{tab:tab1}) contained 5298 samples spanning the period from 2012 to 2022, covering 55 GI Regions and 1261 separate vineyards.
 \par
-The second subset of data (used for Model 3, Model 4 and Model 5, see Table\ref{tab:tab1}) contained 2878 samples spanning the period from 2015 to 2022, covering 51 GI Regions and 944 separate vineyards.Average price of sale per tonne was extracted from both Wine Australia (1842 values) and Sustainable Winegrowing Australia (remaining 1036 values).
+The second subset of data (used for Model 3, Model 4 and Model 5, see Table \ref{tab:tab1}) contained 2878 samples spanning the period from 2015 to 2022, covering 51 GI Regions and 944 separate vineyards.Average price of sale per tonne was extracted from both Wine Australia (1842 values) and Sustainable Winegrowing Australia (remaining 1036 values).
 \par
 Additional variables were considered for analysis but were excluded due to being either underreported or had insignificant contributions to model accuracies. Variables explored but not used due to low reporting values included fertiliser, and scope two emissions. Variables considered but ultimately removed due to a lack of significant contributions to models, included the use of renewable energy, contractor use, and pressures such as frost, fire and disease.
 \par
@@ -292,17 +293,29 @@ Models' continuous variable's coefficient values are summarised in Table \ref{ta
 
 \begin{table}[]
   \caption{Summary of each Models coefficients for continuous variables}\label{tab:contvar}
-\resizebox{\textwidth}{!}{
-\begin{tabular}{@{}cllllll@{}}
-  \toprule
-    & \textbf{Intercept} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Water\\ Used\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}scope one\\ Emissions\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ $\ast$\\ scope one\\ Emissions\end{tabular}}} & \multicolumn{1}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Area\\ Harvested\\ $\ast$\\ Water\\ Used\end{tabular}}} \\ \midrule
-  \textbf{Model 1} & -3.318E-02 & 7.418E-01 & 8.660E-02 & 6.731E-02 &  &  \\
-  \textbf{Model 2} & -6.516E-01 & 5.774E-01 & 1.079E-02 & 8.498E-02 & -4.971E-02 & -5.346E-02 \\
-  \textbf{Model 3} & 1.808E-02 & 9.713E-01 & -2.310E-02 & -6.992E-03 &  &  \\
-  \textbf{Model 4} & 6.702E-01 & -7.354E-01 & -6.732E-03 & -5.645E-03 & 2.726E-02 & 7.515E-02 \\
-  \textbf{Model 5} & 1.2008636941 &  & -0.040359875 & -0.017057894 &  &  \\
-   \bottomrule
-\end{tabular}}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{@{}cccccccc@{}}
+      \begin{tabular}{@{}cccccccc@{}}
+        \toprule
+        \textbf{} & \textbf{} & \textbf{Intercept} & \textbf{Area Harvested} & \textbf{Water Used} & \textbf{\begin{tabular}[c]{@{}c@{}}Scope One\\ Emissions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Area Harvested \\ *\\ Scope One Emissions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Area Harvested \\ * \\ Water Used\end{tabular}} \\ \midrule
+        \multirow{2}{*}{Model 1} & Coefficient & -0.0332 & 0.7418 & 0.0866 & 0.0673 &  &  \\
+         & Std Error & 0.0196 & 0.0100 & 0.0089 & 0.0080 &  &  \\
+         &  &  &  &  &  &  &  \\
+         \multirow{2}{*}{Model 2} & Coefficient & 0.1696 & 0.5774 & 0.1079 & 0.0850 & -0.0497 & -0.0535 \\
+         & Std Error & 0.0591 & 0.0148 & 0.0131 & 0.0117 & 0.0081 & 0.0084 \\
+         &  &  &  &  &  &  &  \\
+         \multirow{2}{*}{Model 3} & Coefficient & 0.0181 & 0.9713 & -0.0231 & -0.0070 &  &  \\
+         & Std Error & 0.0130 & 0.0072 & 0.0069 & 0.0057 &  &  \\
+         &  &  &  &  &  &  &  \\
+         \multirow{2}{*}{Model 4} & Coefficient & 0.1450 & 0.0024 & -0.0466 & -0.0170 & 0.0115 & 0.0014 \\
+         & Std Error & 0.0528 & 0.0150 & 0.0143 & 0.0118 & 0.0079 & 0.0083 \\
+         &  &  &  &  &  &  &  \\
+         \multirow{2}{*}{Model 5} & Coefficient & 0.1517 &  & -0.0404 & -0.0171 &  &  \\
+         & Std Error & 0.0527 &  & 0.0113 & 0.0097 &  &  \\ \bottomrule
+        \end{tabular}
+        
+      \end{tabular}      
+  }
 \end{table}
 
 The regression coefficients for the categorical variables year and GI region, and their interaction under each of the four models are depicted in \ref{fig:yearly}. The first year for a model's data is used as the baseline. The Adelaide Hills is used as the regional baseline with the interaction between year and region using the first year and the Adelaide Hills as the baseline. Region and year contributed, in some but not all cases, more than the other variables. However, some years are not significant, as they are not statistically different from 0, given their error. Models 4 and 5 appear very similar, however this is likely due to the averaging generalising the finer differences between specific year and region combinations. No trend is apparent for any model, with only a slight drop for 2019 in Models 1 and 2, and a slight increase after 2018 for Models 3, 4 and 5.
@@ -347,12 +360,17 @@ Figure \ref{fig:yield_vs_value_area} further shows the emphasis that 'Hot' areas
     \caption{Scatter plot of vineyard yield against the product of yield and average price per tonne as ratios to area harvested. The axes are in standard deviations with points coloured by climate.}\label{fig:yield_vs_value_area}
 \end{figure}
 
-Table \ref{tab:kfold} shows the validation results of each of the models. The $R^2$ measures of fit show similar results to the original models, with a slight decrease. Indicating that the models are robust and consistent.
+Table \ref{tab:kfold} shows the validation results of each of the models. The $R^2$ measures of fit show similar results to the initial models, with a slight decrease. Indicating that the models are robust and consistent.
+%
+%
+% At least summary statistics of the baseline model.
+%
+%
 \par
 \begin{table}[]
   \label{tab:kfold}
   \caption{Model validation using k-fold cross validation, for 10 folds repeated 100 times.}
-  \resizebox{\textwidth}{!}{
+  % \resizebox{\textwidth}{!}{
   \begin{tabular}{@{}cccc@{}}
     \toprule
     \textbf{} & \textbf{\begin{tabular}[c]{@{}c@{}}Residual Mean\\ Squared Error\end{tabular}} & \textbf{R2} & \textbf{\begin{tabular}[c]{@{}c@{}}Mean Average \\ Error\end{tabular}} \\ \midrule
@@ -361,7 +379,7 @@ Table \ref{tab:kfold} shows the validation results of each of the models. The $R
     \textbf{Model 3} & 1.652E-01 & 9.723E-01 & 1.008E-01 \\
     \textbf{Model 4} & 2.235E-01 & 9.500E-01 & 1.279E-01 \\ \bottomrule
     \end{tabular}
-  }
+  % }
   \end{table}
 
 \section{Discussion}
