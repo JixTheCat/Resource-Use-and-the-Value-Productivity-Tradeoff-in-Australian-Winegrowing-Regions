@@ -407,15 +407,19 @@ temp_df <- temp_df[grep("year", rownames(temp_df)), ]
 estimates <- data.frame(temp_df[, c("Estimate", "Std..Error")])
 estimates$model <- rep("model1", length(rownames(estimates)))
 
+# R > temp_df[grep("^data_year_id[[:digit:]][[:digit:]][[:digit:]][[:digit:]]/[[:digit:]][[:digit:]][[:digit:]][[:digit:]]$", rownames(temp_df)), ]
+ 
+
+
 # The second model has coefficients averaged as there are so many per year.
 temp_df <- data.frame(summary(model2)$coefficients)
-temp_df <- temp_df[grep("year", rownames(temp_df)), ]
+temp_df <- temp_df[grep("^data_year_id[[:digit:]][[:digit:]][[:digit:]][[:digit:]]/[[:digit:]][[:digit:]][[:digit:]][[:digit:]]$", rownames(temp_df)), ]
 temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
 
-temp_df$year <- stri_extract_first_regex(rownames(temp_df), "[0-9]+")
-temp_df <- aggregate(temp_df, list(temp_df$year), FUN=mean.t)
-rownames(temp_df) <- temp_df$Group.1
-temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
+# temp_df$year <- stri_extract_first_regex(rownames(temp_df), "[0-9]+")
+# temp_df <- aggregate(temp_df, list(temp_df$year), FUN=mean.t)
+# rownames(temp_df) <- temp_df$Group.1
+# temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
 temp_df$model <- rep("model2", length(rownames(temp_df)))
 
 estimates <- rbind(estimates, temp_df)
@@ -430,29 +434,29 @@ estimates <- rbind(estimates, temp_df)
 
 # The fourth model is similar to the second and requires averaging
 temp_df <- data.frame(summary(model4)$coefficients)
-temp_df <- temp_df[grep("year", rownames(temp_df)), ]
+temp_df <- temp_df[grep("^data_year_id[[:digit:]][[:digit:]][[:digit:]][[:digit:]]/[[:digit:]][[:digit:]][[:digit:]][[:digit:]]$", rownames(temp_df)), ]
 temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
 
-temp_df$year <- stri_extract_first_regex(rownames(temp_df), "[0-9]+")
-temp_df <- aggregate(temp_df, list(temp_df$year), FUN=mean.t)
-rownames(temp_df) <- temp_df$Group.1
-temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
+# temp_df$year <- stri_extract_first_regex(rownames(temp_df), "[0-9]+")
+# temp_df <- aggregate(temp_df, list(temp_df$year), FUN=mean.t)
+# rownames(temp_df) <- temp_df$Group.1
+# temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
 temp_df$model <- rep("model4", length(rownames(temp_df)))
-rownames(temp_df) <- paste0(rownames(temp_df), "a")
+# rownames(temp_df) <- paste0(rownames(temp_df), "a")
 
 estimates <- rbind(estimates, temp_df)
 
 # The fith model is similar to the second and requires averaging
 temp_df <- data.frame(summary(model5)$coefficients)
-temp_df <- temp_df[grep("year", rownames(temp_df)), ]
+temp_df <- temp_df[grep("^data_year_id[[:digit:]][[:digit:]][[:digit:]][[:digit:]]/[[:digit:]][[:digit:]][[:digit:]][[:digit:]]$", rownames(temp_df)), ]
 temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
 
-temp_df$year <- stri_extract_first_regex(rownames(temp_df), "[0-9]+")
-temp_df <- aggregate(temp_df, list(temp_df$year), FUN=mean.t)
-rownames(temp_df) <- temp_df$Group.1
-temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
+# temp_df$year <- stri_extract_first_regex(rownames(temp_df), "[0-9]+")
+# temp_df <- aggregate(temp_df, list(temp_df$year), FUN=mean.t)
+# rownames(temp_df) <- temp_df$Group.1
+# temp_df <- data.frame(temp_df[, c("Estimate", "Std..Error")])
 temp_df$model <- rep("model5", length(rownames(temp_df)))
-rownames(temp_df) <- paste0(rownames(temp_df), "b")
+# rownames(temp_df) <- paste0(rownames(temp_df), "b")
 
 estimates <- rbind(estimates, temp_df)
 
