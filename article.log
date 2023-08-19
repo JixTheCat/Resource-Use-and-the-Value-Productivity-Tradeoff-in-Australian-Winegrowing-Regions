@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.20)  18 AUG 2023 04:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.20)  19 AUG 2023 17:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -208,35 +208,41 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count281
 \@lastruleclass=\count282
 \@thisrulewidth=\dimen183
+) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip69
+\multirow@cntb=\count283
+\multirow@dima=\skip70
+\bigstrutjot=\dimen184
 ) (./article.aux)
 \openout1 = `article.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count283
-\scratchdimen=\dimen184
+\scratchcounter=\count284
+\scratchdimen=\dimen185
 \scratchbox=\box62
-\nofMPsegments=\count284
-\nofMParguments=\count285
+\nofMPsegments=\count285
+\nofMParguments=\count286
 \everyMPshowfont=\toks24
-\MPscratchCnt=\count286
-\MPscratchDim=\dimen185
-\MPnumerator=\count287
-\makeMPintoPDFobject=\count288
+\MPscratchCnt=\count287
+\MPscratchDim=\dimen186
+\MPnumerator=\count288
+\makeMPintoPDFobject=\count289
 \everyMPtoPDFconversion=\toks25
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -246,11 +252,11 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 145.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 146.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 145.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 146.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -264,7 +270,7 @@ Overfull \hbox (2.61108pt too wide) has occurred while \output is active
 ] [2]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 158.
+               Default added (so using `tbp') on input line 159.
 
 [3] [4] [5]
 <my_map.pdf, id=31, 505.89pt x 505.89pt>
@@ -294,44 +300,44 @@ LaTeX Warning: No positions in optional float specifier.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 293.
+               Default added (so using `tbp') on input line 294.
 
 [12]
 <yearly_plots.pdf, id=64, 505.89pt x 505.89pt>
 File: yearly_plots.pdf Graphic file (type pdf)
 <use yearly_plots.pdf>
-Package pdftex.def Info: yearly_plots.pdf  used on input line 311.
+Package pdftex.def Info: yearly_plots.pdf  used on input line 324.
 (pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
 
-Overfull \hbox (115.88875pt too wide) in paragraph at lines 311--312
+Overfull \hbox (115.88875pt too wide) in paragraph at lines 324--325
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 5.33319pt on input line 313.
+LaTeX Warning: Float too large for page by 5.33319pt on input line 326.
 
 [13] [14 <./yearly_plots.pdf>]
 <starplots.pdf, id=76, 505.89pt x 505.89pt>
 File: starplots.pdf Graphic file (type pdf)
 <use starplots.pdf>
-Package pdftex.def Info: starplots.pdf  used on input line 338.
+Package pdftex.def Info: starplots.pdf  used on input line 351.
 (pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
 <yield_verse_value_by_area.pdf, id=77, 505.89pt x 505.89pt>
 File: yield_verse_value_by_area.pdf Graphic file (type pdf)
 <use yield_verse_value_by_area.pdf>
-Package pdftex.def Info: yield_verse_value_by_area.pdf  used on input line 346.
+Package pdftex.def Info: yield_verse_value_by_area.pdf  used on input line 359.
 (pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 352.
+               Default added (so using `tbp') on input line 370.
 
 [15] [16 <./starplots.pdf>] [17 <./yield_verse_value_by_area.pdf>] [18] [19] [20]
 
-LaTeX Warning: Reference `fig:yield_vs_value' on page 21 undefined on input line 417.
+LaTeX Warning: Reference `fig:yield_vs_value' on page 21 undefined on input line 435.
 
 [21]
-Overfull \hbox (0.35289pt too wide) in paragraph at lines 430--431
+Overfull \hbox (0.35289pt too wide) in paragraph at lines 448--449
 []\OT1/cmr/m/n/12 Having more data for each re-gion would also be ben-e-fi-cial, al-low-ing greater
  []
 
@@ -386,15 +392,15 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4807 strings out of 478287
- 80456 string characters out of 5849289
- 376609 words of memory out of 5000000
- 22937 multiletter control sequences out of 15000+600000
+ 4873 strings out of 478287
+ 81738 string characters out of 5849289
+ 381528 words of memory out of 5000000
+ 22999 multiletter control sequences out of 15000+600000
  476461 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,17n,76p,2389b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,21n,76p,2389b,394s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on article.pdf (30 pages, 2755475 bytes).
+Output written on article.pdf (30 pages, 2738058 bytes).
 PDF statistics:
  192 PDF objects out of 1000 (max. 8388607)
  123 compressed objects within 2 object streams
