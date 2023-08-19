@@ -39,7 +39,7 @@ value_map <- ggplot() +
     xlim(113, 154) +
     ylim(-45, -25) +
     scale_fill_gradientn(colours = rev(viridis(3))
-                         , name = ""
+                         , name = "$1m AUD"
                          , na.value = "grey100") +
     theme_void()
 
