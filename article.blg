@@ -6,6 +6,7 @@ Database file #1: references.bib
 Warning--to sort, need author or key in WineAustraliaAct2019
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty journal in wineaustraliaNationalVintageReport2019
+Warning--empty journal in wineaustraliaNationalVintageReport2020
 Warning--empty journal in wineaustraliaNationalVintageReport2021
 Warning--empty journal in wineaustraliaNationalVintageReport2022
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2013
@@ -14,45 +15,45 @@ Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport20
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2016
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2017
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2018
-You've used 43 entries,
+You've used 50 entries,
             2990 wiz_defined-function locations,
-            929 strings with 16677 characters,
-and the built_in function-call counts, 26779 in all, are:
-= -- 1961
-> -- 1156
-< -- 23
-+ -- 451
-- -- 402
-* -- 2865
-:= -- 4011
-add.period$ -- 132
-call.type$ -- 43
-change.case$ -- 347
-chr.to.int$ -- 43
-cite$ -- 55
-duplicate$ -- 2019
-empty$ -- 1914
-format.name$ -- 496
-if$ -- 4888
+            981 strings with 18861 characters,
+and the built_in function-call counts, 31835 in all, are:
+= -- 2315
+> -- 1418
+< -- 25
++ -- 551
+- -- 495
+* -- 3457
+:= -- 4763
+add.period$ -- 157
+call.type$ -- 50
+change.case$ -- 412
+chr.to.int$ -- 50
+cite$ -- 63
+duplicate$ -- 2379
+empty$ -- 2252
+format.name$ -- 606
+if$ -- 5801
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 387
-newline$ -- 233
-num.names$ -- 168
-pop$ -- 792
+missing$ -- 464
+newline$ -- 272
+num.names$ -- 196
+pop$ -- 926
 preamble$ -- 1
-purify$ -- 306
+purify$ -- 365
 quote$ -- 0
-skip$ -- 610
+skip$ -- 710
 stack$ -- 0
-substring$ -- 944
-swap$ -- 1366
+substring$ -- 1105
+swap$ -- 1643
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 384
-warning$ -- 10
-while$ -- 164
+type$ -- 444
+warning$ -- 11
+while$ -- 192
 width$ -- 0
-write$ -- 605
-(There were 10 warnings)
+write$ -- 709
+(There were 11 warnings)

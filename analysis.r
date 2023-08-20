@@ -463,14 +463,16 @@ estimates <- rbind(estimates, temp_df)
 estimates$year <- stri_extract_first_regex(rownames(estimates), "[0-9]+")
 estimates$year <- as.integer(estimates$year)
 
+scaleFUN <- function(x) sprintf("%.0f", x)
 # Default line plot
 p<- ggplot(estimates, aes(x = year, y = Estimate, group = model, color=model)) + 
 #  geom_line() +
-  geom_point()+
-  geom_line()+
-  geom_errorbar(aes(ymin=Estimate-Std..Error, ymax=Estimate+Std..Error), width=.2,
-                 position=position_dodge(0.05)) +
-    theme_classic()
+    geom_point()+
+    geom_line()+
+    geom_errorbar(aes(ymin=Estimate-Std..Error, ymax=Estimate+Std..Error), width=.2,
+        position=position_dodge(0.05)) +
+    theme_classic() +
+    scale_x_continuous(labels=scaleFUN)
 
 pdf("yearly_plots.pdf")
 print(p)

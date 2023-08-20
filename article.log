@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.20)  19 AUG 2023 17:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.6.20)  20 AUG 2023 14:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -298,12 +298,13 @@ LaTeX Warning: No positions in optional float specifier.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 272.
 
+[12]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 294.
 
-[12]
-<yearly_plots.pdf, id=64, 505.89pt x 505.89pt>
+[13]
+<yearly_plots.pdf, id=67, 505.89pt x 505.89pt>
 File: yearly_plots.pdf Graphic file (type pdf)
 <use yearly_plots.pdf>
 Package pdftex.def Info: yearly_plots.pdf  used on input line 324.
@@ -313,97 +314,92 @@ Overfull \hbox (115.88875pt too wide) in paragraph at lines 324--325
 [][] 
  []
 
-
-LaTeX Warning: Float too large for page by 5.33319pt on input line 326.
-
-[13] [14 <./yearly_plots.pdf>]
-<starplots.pdf, id=76, 505.89pt x 505.89pt>
+<starplots.pdf, id=68, 505.89pt x 505.89pt>
 File: starplots.pdf Graphic file (type pdf)
 <use starplots.pdf>
 Package pdftex.def Info: starplots.pdf  used on input line 351.
 (pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<yield_verse_value_by_area.pdf, id=77, 505.89pt x 505.89pt>
+<yield_verse_value_by_area.pdf, id=69, 505.89pt x 505.89pt>
 File: yield_verse_value_by_area.pdf Graphic file (type pdf)
 <use yield_verse_value_by_area.pdf>
 Package pdftex.def Info: yield_verse_value_by_area.pdf  used on input line 359.
 (pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
 
-
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 370.
 
-[15] [16 <./starplots.pdf>] [17 <./yield_verse_value_by_area.pdf>] [18] [19] [20]
+[14] [15 <./yearly_plots.pdf>] [16 <./starplots.pdf>] [17 <./yield_verse_value_by_area.pdf>] [18] [19] [20]
 
-LaTeX Warning: Reference `fig:yield_vs_value' on page 21 undefined on input line 435.
+LaTeX Warning: Reference `fig:yield_vs_value' on page 21 undefined on input line 439.
 
-[21]
-Overfull \hbox (0.35289pt too wide) in paragraph at lines 448--449
+[21] [22]
+Overfull \hbox (0.35289pt too wide) in paragraph at lines 452--453
 []\OT1/cmr/m/n/12 Having more data for each re-gion would also be ben-e-fi-cial, al-low-ing greater
  []
 
-[22] (./article.bbl [23] [24]
-Underfull \hbox (badness 1406) in paragraph at lines 118--130
+[23] (./article.bbl [24] [25]
+Underfull \hbox (badness 1406) in paragraph at lines 153--165
 \OT1/cmr/m/n/12 meth-ods.  Com-put-ers and Elec-tron-ics in Agri-cul-ture 195, 106812.
  []
 
 
-Underfull \hbox (badness 1097) in paragraph at lines 165--173
+Underfull \hbox (badness 1097) in paragraph at lines 200--208
 \OT1/cmr/m/n/12 tity: Asym-met-ric Tem-per-a-ture Ef-fects on Crop Yield and Qual-ity
  []
 
-[25]
-Underfull \hbox (badness 4779) in paragraph at lines 190--198
+[26]
+Underfull \hbox (badness 4779) in paragraph at lines 225--233
 []\OT1/cmr/m/n/12 Kuhn, M., 2008.  Build-ing Pre-dic-tive Mod-els in R Us-ing the
  []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 190--198
+Underfull \hbox (badness 1237) in paragraph at lines 225--233
 \OT1/cmr/m/n/12 caret Pack-age.  Jour-nal of Sta-tis-ti-cal Soft-ware, Ar-ti-cles 28, 1--26.
  []
 
 
-Underfull \hbox (badness 2608) in paragraph at lines 212--220
+Underfull \hbox (badness 2608) in paragraph at lines 247--255
 []\OT1/cmr/m/n/12 Liakos, K.G., Busato, P., Moshou, D., Pear-son, S., Bochtis, D.,
  []
 
 
-Underfull \hbox (badness 1968) in paragraph at lines 230--243
+Underfull \hbox (badness 1968) in paragraph at lines 272--285
 \OT1/cmr/m/n/12 vine-yard.  Com-put-ers and elec-tron-ics in agri-cul-ture 200, 107167.
  []
 
-[26]
-Underfull \hbox (badness 1533) in paragraph at lines 290--301
+[27] [28]
+Underfull \hbox (badness 1533) in paragraph at lines 343--354
 \OT1/cmr/m/n/12 Zarco-Tejada, P., 2021.  As-sess-ing wine grape qual-ity pa-ram-e-ters
  []
 
 
-Underfull \hbox (badness 1270) in paragraph at lines 290--301
+Underfull \hbox (badness 1270) in paragraph at lines 343--354
 \OT1/cmr/m/n/12 us-ing plant traits de-rived from phys-i-cal model in-ver-sion of hy-per-
  []
 
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 307--312
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--366
 []\OT1/cmr/m/n/12 SWA, S.W.A., 2022.  Sus-tain-able Wingrow-ing Aus-tralia.
  []
 
-[28]) [29] (./article.aux)
+[29]) [30] (./article.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4873 strings out of 478287
- 81738 string characters out of 5849289
- 381528 words of memory out of 5000000
- 22999 multiletter control sequences out of 15000+600000
+ 4894 strings out of 478287
+ 82638 string characters out of 5849289
+ 374990 words of memory out of 5000000
+ 23020 multiletter control sequences out of 15000+600000
  476461 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 70i,21n,76p,2389b,394s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,21n,76p,1674b,399s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on article.pdf (30 pages, 2738058 bytes).
+Output written on article.pdf (31 pages, 2739966 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 123 compressed objects within 2 object streams
+ 196 PDF objects out of 1000 (max. 8388607)
+ 126 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
