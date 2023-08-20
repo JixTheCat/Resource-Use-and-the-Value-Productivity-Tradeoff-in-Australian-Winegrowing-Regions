@@ -98,7 +98,10 @@ rain_colors <- c(
 )
 
 # Two example starplots
-pdf("starplots.pdf")
+png("starplotst.png")
 starplot(new_columns, df, "rain", rain_colors)
+dev.off()
+# Two example starplots
+png("starplotsr.png")
 starplot(new_columns, df, "temp", temp_colors)
 dev.off()

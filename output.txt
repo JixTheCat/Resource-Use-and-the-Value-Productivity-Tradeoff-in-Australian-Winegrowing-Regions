@@ -1,0 +1,32 @@
+Linear Regression 
+
+100 samples
+  5 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 100 times) 
+Summary of sample sizes: 88, 90, 91, 91, 90, 90, ... 
+Resampling results:
+
+  RMSE       Rsquared   MAE      
+  0.2538189  0.8941705  0.1868557
+
+Tuning parameter 'intercept' was held constant at a value of TRUE
+[1] "###### MODEL 1 ######" "0.2538189"             "0.8941705"            
+[4] "0.1868557"            
+Linear Regression 
+
+100 samples
+  5 predictor
+
+No pre-processing
+Resampling: Cross-Validated (10 fold, repeated 100 times) 
+Summary of sample sizes: 88, 90, 91, 91, 90, 90, ... 
+Resampling results:
+
+  RMSE       Rsquared   MAE      
+  0.2538189  0.8941705  0.1868557
+
+Tuning parameter 'intercept' was held constant at a value of TRUE
+[1] "###### MODEL 1 ######" "0.2538189"             "0.8941705"            
+[4] "0.1868557"            
