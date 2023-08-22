@@ -3,7 +3,6 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: article.aux
 The style file: elsarticle-harv.bst
 Database file #1: references.bib
-Warning--to sort, need author or key in WineAustraliaAct2019
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty journal in wineaustraliaNationalVintageReport2019
 Warning--empty journal in wineaustraliaNationalVintageReport2020
@@ -17,43 +16,43 @@ Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport20
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2018
 You've used 53 entries,
             2990 wiz_defined-function locations,
-            1000 strings with 19700 characters,
-and the built_in function-call counts, 33660 in all, are:
-= -- 2462
-> -- 1480
-< -- 27
-+ -- 575
-- -- 516
-* -- 3648
-:= -- 5031
+            1000 strings with 19802 characters,
+and the built_in function-call counts, 33737 in all, are:
+= -- 2465
+> -- 1490
+< -- 28
++ -- 578
+- -- 519
+* -- 3653
+:= -- 5058
 add.period$ -- 167
 call.type$ -- 53
-change.case$ -- 434
+change.case$ -- 435
 chr.to.int$ -- 53
-cite$ -- 66
-duplicate$ -- 2516
-empty$ -- 2389
-format.name$ -- 636
-if$ -- 6140
+cite$ -- 63
+duplicate$ -- 2520
+empty$ -- 2387
+format.name$ -- 640
+if$ -- 6148
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 489
+missing$ -- 491
 newline$ -- 288
-num.names$ -- 208
+num.names$ -- 212
 pop$ -- 975
 preamble$ -- 1
-purify$ -- 384
+purify$ -- 385
 quote$ -- 0
 skip$ -- 751
 stack$ -- 0
-substring$ -- 1194
-swap$ -- 1735
+substring$ -- 1192
+swap$ -- 1740
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 471
-warning$ -- 11
-while$ -- 205
+warning$ -- 10
+while$ -- 208
 width$ -- 0
-write$ -- 752
-(There were 11 warnings)
+write$ -- 753
+(There were 10 warnings)
