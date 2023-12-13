@@ -13,3 +13,4 @@
 {"rule":"ONE_PLURAL","sentence":"^\\QIt is possible that the relationship of scope one emissions between yield and sale price was closely tied to a vineyard's area due to requiring more fuel to address more issues over greater distances.\\E$"}
 {"rule":"ONE_PLURAL","sentence":"^\\QIt is difficult to discern the connection of scope one emissions directly, as fuel can be used for a broad category of activities.\\E$"}
 {"rule":"ONE_PLURAL","sentence":"^\\QVariable Water Used Yield 7.538E-01 Area 6.981E-01 Scope One Emissions 8.883E-01 \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q 6.836E-01 Average Price Per Tonne 5.600E-02 \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q 1.522E-01\\E$"}
+{"rule":"WERE_VBB","sentence":"^\\QThe response (predicted) variables in this analysis were yield, defined as the total tonnes of grapes harvested, and average sale price of grapes in Australian dollars per tonne.\\E$"}
