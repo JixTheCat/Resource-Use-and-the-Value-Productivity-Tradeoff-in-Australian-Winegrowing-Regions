@@ -14,45 +14,45 @@ Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport20
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2016
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2017
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2018
-You've used 53 entries,
+You've used 51 entries,
             2990 wiz_defined-function locations,
-            998 strings with 19475 characters,
-and the built_in function-call counts, 33312 in all, are:
-= -- 2459
-> -- 1426
+            978 strings with 18707 characters,
+and the built_in function-call counts, 31442 in all, are:
+= -- 2329
+> -- 1310
 < -- 29
-+ -- 552
-- -- 495
-* -- 3577
-:= -- 4989
-add.period$ -- 167
-call.type$ -- 53
-change.case$ -- 427
-chr.to.int$ -- 53
-cite$ -- 63
-duplicate$ -- 2504
-empty$ -- 2380
-format.name$ -- 618
-if$ -- 6084
++ -- 508
+- -- 453
+* -- 3337
+:= -- 4715
+add.period$ -- 159
+call.type$ -- 51
+change.case$ -- 403
+chr.to.int$ -- 51
+cite$ -- 61
+duplicate$ -- 2386
+empty$ -- 2270
+format.name$ -- 570
+if$ -- 5752
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 483
-newline$ -- 288
-num.names$ -- 212
-pop$ -- 967
+missing$ -- 455
+newline$ -- 276
+num.names$ -- 204
+pop$ -- 927
 preamble$ -- 1
-purify$ -- 377
+purify$ -- 355
 quote$ -- 0
-skip$ -- 751
+skip$ -- 723
 stack$ -- 0
-substring$ -- 1201
-swap$ -- 1709
+substring$ -- 1129
+swap$ -- 1601
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 471
+type$ -- 453
 warning$ -- 10
-while$ -- 210
+while$ -- 200
 width$ -- 0
-write$ -- 753
+write$ -- 721
 (There were 10 warnings)

@@ -229,26 +229,24 @@ Models were validated using K-fold cross validation. This was performed by remov
         \begin{tabular}{@{}cllll@{}}
           \toprule
           \textbf{Variable} & \textbf{Mean} & \textbf{\begin{tabular}[c]{@{}l@{}}Standard\\ Deviation\end{tabular}} & \textbf{Minimum} & \textbf{Maximum} \\ \midrule
-          {Yield (tonnes)} & 7.757E+02 & 2.179E+03 & 1.000E+00 & 7.231E+04 \\
+          {Yield (tonnes)} & 7.76E+02 & 2.18E+03 & 1.00E+00 & 7.23E+04 \\
           \multicolumn{1}{l}{} &  &  &  &  \\
-          {Area Harvested (ha)} & 6.670E+01 & 1.337E+02 & 7.000E-02 & 2.436E+03 \\
+          {Area Harvested (ha)} & 6.67E+01 & 1.34E+02 & 7.00E-02 & 2.44E+03 \\
           \multicolumn{1}{l}{} &  &  &  &  \\
-          {Water Used (ML)} & 7.471E+06 & 5.646E+08 & 1.000E+00 & 4.268E+10 \\
+          {Water Used (ML)} & 7.47E+06 & 5.65E+08 & 1.00E+00 & 4.27E+10 \\
           \multicolumn{1}{l}{} &  &  &  &  \\
-          {Scope One Emissions ($tCO_{2}e$)} & 4.173E+04 & 8.571E+04 & 6.755E+00 & 2.110E+06 \\
+          {Scope One Emissions ($tCO_{2}e$)} & 4.17E+04 & 8.57E+04 & 6.76E+00 & 2.11E+06 \\
           \multicolumn{1}{l}{} &  &  &  &  \\
-          $\mbox{Yield (tonnes)}\over \mbox{Area harvested (ha)}$ & 1.009E+01 & 8.127E+00 & 4.000E-02 & 8.634E+01 \\
+          $\mbox{Yield (tonnes)}\over \mbox{Area harvested (ha)}$ & 1.01E+01 & 8.13E+00 & 4.00E-02 & 8.63E+01 \\
           \multicolumn{1}{l}{} &  &  &  &  \\
-          {Average Sale Price (AUD/tonne)} & 1.477E+03 & 9.216E+02 & 1.600E+02 & 2.600E+04 \\
+          {Average Sale Price (AUD/tonne)} & 1.48E+03 & 9.22E+02 & 1.60E+02 & 2.60E+04 \\
           \multicolumn{1}{l}{} &  &  &  &  \\
-          $\mbox{Average Sale Price (AUD/tonne)} \over \mbox{Area Harvested (ha)}$ & 1.347E+02 & 5.711E+02 & 1.753E-01 & 2.979E+04 \\ \bottomrule
+          $\mbox{Average Sale Price (AUD/tonne)} \over \mbox{Area Harvested (ha)}$ & 1.35E+02 & 5.71E+02 & 1.75E-01 & 2.98E+04 \\ \bottomrule
           \end{tabular}
   % }
   \end{table}
 
-PPCCs values for the transformed, centred and scaled variables 
-% # TODO: CENTRED AND SCALED VARIABLES NEED TO BE DEFINED!!! 
-are shown in Table \ref{tab:pearson_correlation}. All correlations were found to be statistically significant (p $<$ 2.200E-16), and except for Average Sale Price all variables were positively correlated. With water use, area harvested and emissions being positively correlated to yield, it can be considered that more resources and area are likely to lead to greater yields. The negative correlations between Average Sale Price and Yield, Water Use, Area and Scope One Emissions each indicated that Area Harvested and Fuel Use separately were not the determining factor for average sale price. The negative correlations are associative, not causal relationships (i.e using more water does not cause lower sale prices).
+PPCCs values for the transformed, centred and scaled variables are shown in Table \ref{tab:pearson_correlation}. The process of centring and scaling variables changes them so that their mean is centred on 0 and all values are scaled to the variables standard deviation, such that 1 is equal to the variables standard deviation. All correlations were found to be statistically significant (p $<$ 2.200E-16), and except for Average Sale Price all variables were positively correlated. With water use, area harvested and emissions being positively correlated to yield, it can be considered that more resources and area are likely to lead to greater yields. The negative correlations between Average Sale Price and Yield, Water Use, Area and Scope One Emissions each indicated that Area Harvested and Fuel Use separately were not the determining factor for average sale price. The negative correlations are associative, not causal relationships (i.e using more water does not cause lower sale prices).
 \par
 \begin{table}[]
   \caption{Pairwise Pearson correlation coefficients for logarithmically transformed values.}\label{tab:pearson_correlation}
@@ -293,32 +291,32 @@ Each model had a high $R^2$ value, indicating that most of the variance within t
 
 Coefficients related to continuous variables are summarised in Table \ref{tab:contvar}. In Model 1 all coefficients except for the intercept significantly contributed to the model (p $<$ 0.05), and in Model 2 all coefficients were statistically significant (p $<$ 0.05). However, scope one emissions did not significantly contribute to models 3, 4 and 5. Model 4 only had statistically significant contributions from the intercept and water use. Although the coefficient for water use was statistically significant for each model, it did not have the highest value; instead, area harvested, being an order of magnitude greater, dominated the models. Model 5 achieved a similar $R^2$ to Model 4 without area harvested, having stronger influences from water use and scope one emissions.
 
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{multirow}
 \begin{table}[]
   \caption{Summary of each Model's coefficients for continuous variables}\label{tab:contvar}
   \resizebox{\textwidth}{!}{
-    \begin{tabular}{@{}cccccccc@{}}
-      \begin{tabular}{@{}cccccccc@{}}
-        \toprule
-        \textbf{} & \textbf{} & \textbf{Intercept} & \textbf{Area Harvested} & \textbf{Water Used} & \textbf{\begin{tabular}[c]{@{}c@{}}Scope One\\ Emissions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Area Harvested \\ ** \\ Scope One Emissions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Area Harvested \\ ** \\ Water Used\end{tabular}} \\ \midrule
-        \multirow{2}{*}{Model 1} & Coefficient & -0.0332 & 0.7418 & 0.0866 & 0.0673 &  &  \\
-         & Std Error & 0.0196 & 0.0100 & 0.0089 & 0.0080 &  &  \\
-         &  &  &  &  &  &  &  \\
-         \multirow{2}{*}{Model 2} & Coefficient & 0.1696 & 0.5774 & 0.1079 & 0.0850 & -0.0497 & -0.0535 \\
-         & Std Error & 0.0591 & 0.0148 & 0.0131 & 0.0117 & 0.0081 & 0.0084 \\
-         &  &  &  &  &  &  &  \\
-         \multirow{2}{*}{Model 3} & Coefficient & 0.0181 & 0.9713 & -0.0231 & -0.0070 &  &  \\
-         & Std Error & 0.0130 & 0.0072 & 0.0069 & 0.0057 &  &  \\
-         &  &  &  &  &  &  &  \\
-         \multirow{2}{*}{Model 4} & Coefficient & 0.1450 & 0.0024 & -0.0466 & -0.0170 & 0.0115 & 0.0014 \\
-         & Std Error & 0.0528 & 0.0150 & 0.0143 & 0.0118 & 0.0079 & 0.0083 \\
-         &  &  &  &  &  &  &  \\
-         \multirow{2}{*}{Model 5} & Coefficient & 0.1517 &  & -0.0404 & -0.0171 &  &  \\
-         & Std Error & 0.0527 &  & 0.0113 & 0.0097 &  &  \\ \bottomrule
-        \end{tabular}
-        
-      \end{tabular}      
+  \begin{tabular}{@{}cccccccc@{}}
+  \toprule
+  \textbf{} & \textbf{} & \textbf{Intercept} & \textbf{Area Harvested} & \textbf{Water Used} & \textbf{\begin{tabular}[c]{@{}c@{}}Scope One\\ Emissions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Area Harvested \\ ** \\ Scope One Emissions\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Area Harvested \\ ** \\ Water Used\end{tabular}} \\ \midrule
+  \multirow{2}{*}{Model 1} & Coefficient & -3.32E-02 & 7.42E-01 & 8.66E-02 & 6.73E-02 &  &  \\
+   & Std Error & 1.96E-02 & 1.00E-02 & 8.90E-03 & 8.00E-03 &  &  \\
+   &  &  &  &  &  &  &  \\
+  \multirow{2}{*}{Model 2} & Coefficient & 1.70E-01 & 5.77E-01 & 1.08E-01 & 8.50E-02 & -4.97E-02 & -5.35E-02 \\
+   & Std Error & 5.91E-02 & 1.48E-02 & 1.31E-02 & 1.17E-02 & 8.10E-03 & 8.40E-03 \\
+   &  &  &  &  &  &  &  \\
+  \multirow{2}{*}{Model 3} & Coefficient & 1.81E-02 & 9.71E-01 & -2.31E-02 & -7.00E-03 &  &  \\
+   & Std Error & 1.30E-02 & 7.20E-03 & 6.90E-03 & 5.70E-03 &  &  \\
+   &  &  &  &  &  &  &  \\
+  \multirow{2}{*}{Model 4} & Coefficient & 1.45E-01 & 2.40E-03 & -4.66E-02 & -1.70E-02 & 1.15E-02 & 1.40E-03 \\
+   & Std Error & 5.28E-02 & 1.50E-02 & 1.43E-02 & 1.18E-02 & 7.90E-03 & 8.30E-03 \\
+   &  &  &  &  &  &  &  \\
+  \multirow{2}{*}{Model 5} & Coefficient & 1.52E-01 &  & -4.04E-02 & -1.71E-02 &  &  \\
+   & Std Error & 5.27E-02 &  & 1.13E-02 & 9.70E-03 &  &  \\ \cmidrule(l){2-8} 
+  \end{tabular}
   }
-\end{table}
+  \end{table}
 
 The regression coefficients for the Year variable of each model is depicted in Figure \ref{fig:yearly}. For each model, the first year for a model's was used as the baseline: 2012 for Models 1 and 2, and 2015 for Models 3, 4 and 5. Adelaide Hills is used as the regional baseline with the interaction between year and region using the first year and the Adelaide Hills as the baseline. Region and year contributed, in some but not all cases, more than the other variables. However, the coefficients varied substantially over the years, and were not significantly different from zero in some years. Models 4 and 5 are very similar in Figure \ref{fig:yearly}, indicating that the exclusion of area does not greatly affect the contribution from yearly influence. Models 4 and 5 have the most prominent trends, showing an increase in yearly effects over time, with Model 3 also increasing from 2016 to 2018, but plateauing afterwards. Model 1 and 2 do not show a clear trend, but do drop during 2017 and 2018 after increasing in the first 3 years.
 \par
