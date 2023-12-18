@@ -1,0 +1,107 @@
+\documentclass{article}
+
+\usepackage{charter} 
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage[
+	a4paper,    % Paper size
+	top=1in,    % Top margin
+	bottom=1in, % Bottom margin
+	left=1in,   % Left margin
+	right=1in,  % Right margin
+	%showframe  % Uncomment to show frames around the margins for debugging purposes
+]{geometry}
+
+\setlength{\parindent}{0pt}     % Paragraph indentation 
+\setlength{\parskip}{1em}       % Vertical space between paragraphs
+
+\usepackage{graphicx}       % Required for including images
+
+\usepackage{fancyhdr}       % Required for customizing headers and footers
+
+\fancypagestyle{firstpage}{%
+	\fancyhf{} % Clear default headers/footers
+	\renewcommand{\headrulewidth}{0pt} % No header rule
+	\renewcommand{\footrulewidth}{1pt} % Footer rule thickness
+}
+
+\fancypagestyle{subsequentpages}{%
+	\fancyhf{} % Clear default headers/footers
+	\renewcommand{\headrulewidth}{1pt} % Header rule thickness
+	\renewcommand{\footrulewidth}{1pt} % Footer rule thickness
+}
+
+\AtBeginDocument{\thispagestyle{firstpage}} % Use the first page headers/footers style on the first page
+\pagestyle{subsequentpages} % Use the subsequent pages headers/footers style on subsequent pages
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	FIRST PAGE HEADER
+%----------------------------------------------------------------------------------------
+
+\includegraphics[scale=0.5]{logo.jpg} % Logo
+
+\vspace{-1em} % Pull the rule closer to the logo
+
+\rule{\linewidth}{1pt} % Horizontal rule
+
+\bigskip\bigskip % Vertical whitespace
+
+%----------------------------------------------------------------------------------------
+%	YOUR NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\hfill
+\begin{tabular}{l @{}}
+	$29^{th}$ October, 2023\\ % Date
+	\textbf{Bryce Ronald William Polley $|$ PhD Candidate}\\
+	Queensland University of Technology \\
+	School of Mathematical Sciences\\~\\
+	Address: Level 8 Y Block, 2 George Street, \\
+	Brisbane, Queensland, Australia, 4000\\
+	Phone: +61 400 310 105 \\
+	Email: bryce.polley@awri.com.au
+\end{tabular}
+
+\bigskip % Vertical whitespace
+
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE AND GREETING
+%----------------------------------------------------------------------------------------
+
+\begin{tabular}{@{} l}
+	\textbf{Professor Bojie Fu,}\\
+	Editor-in-Chief \\
+	Geography and Sustainability\\
+\end{tabular}
+
+\bigskip % Vertical whitespace
+
+Dear Professor Bojie Fu,
+\\~\\
+\parskip % Vertical whitespace
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT
+%----------------------------------------------------------------------------------------
+\centering \textbf{Submission of Manuscript for Consideration by \\Geography and Sustainability}\\
+\bigskip % Vertical whitespace
+\justifying
+\newline \noindent
+We wish to submit a new manuscript entitled "\textit{The influence of resource use on yield versus sale price trade-off in Australian vineyards}" for consideration by Geography and Sustainability.
+\newline \noindent
+In this manuscript we explore natural resource use in agricultural wine production, emphasising sustainability in the trade-off between the sale price and quantity of product. We explore the economic and environmental risks induced by producing grapes at greater yields. We find that lower grape sale price is not solely related to the overall expenditure of resources but rather to efficient management, as well as regional and seasonal variations. We use novel, extensive nationwide data from Australia, collected over a decade by Sustainable Winegrowing Australia. We construct and analyse several models of the multifaceted, multi-resource nature of vineyard management. 
+\newline \noindent
+We believe that this manuscript is appropriate for publication by Geography and Sustainability as it demonstrates the sustainability of different winegrowing production strategies across winegrowing regions in Australia. These results illustrate the relationship between human interaction and the environment as driven by agricultural management strategies and the resources required to achieve the necessary outcomes to maintain economic sustainability using environmental resources. Thank you for your consideration of this manuscript.
+\bigskip \noindent% Vertical whitespace
+
+\includegraphics[scale=0.1]{signature_block.png}
+\newline \noindent
+Bryce Polley (corresponding author) on behalf of all coauthors: Kate Helmsted, Mardi Longbottom, Madeline Mitchell, Kerrie Mengersen\\
+\newline \noindent
+\textit{Corresponding Author}, \textit{Queensland University of Technology}
+
+\end{document}
