@@ -52,7 +52,7 @@
 
 \usepackage{csvsimple}
 \usepackage{longtable}
-\journal{Geography and Sustainability}
+\journal{ Journal of Agriculture and Food Research}
 %1.Full Length Article A full-length article should be a substantial and in-depth research study regarding a particular state of issue through several techniques or approaches. 
 % The main text should be approximately 6,000 words in length, but it should not exceed 8,000 words (excluding abstract, references, tables, figures, and appendices).
 %A maximum of 250 words abstract and up to 10 displayed items (figures and tables) is allowed. A full-length article should include an Introduction,
@@ -122,7 +122,8 @@
 % \date{02/08/2023}
 \begin{abstract}
 % The word limit needs to be checked.
-When strategies for a sustainable winegrowing industry are assessed, there is a trade-off between balancing the amount of resources invested and the resultant yield and sale price of the produce. In this analysis we observe relationships between resource use, yield and sale price through the use of statistical models. The dataset used for this analysis includes data collected for the past 10 years from 1261 vineyards located over a diverse range of Australian winegrowing regions. Yield and sale price were evaluated with respect to the resource use factors water use and Green House Gas (GHG) emissions. The analysis confirmed a strong relationship between area and resource use, with the overall area of a vineyard and its access to resources greatly determining the upper limit of yield. However, area was also negatively related to the average sale price of grapes; we find that higher average sale prices were connected to high resource inputs per area, rather than to the overall expenditure of resources. Regional and temporal effects on vineyard yield and average sales price were also identified. Overall, the analysis highlighted the importance of considering a vineyard's business goal, region, external pressures and economies of scale, when considering whether to pursue higher yields or higher average sales prices.
+
+Strategies for achieving sustainability in the winegrowing industry requires balancing resource investment against the economic outcomes of resultant yields and sale price of the produce. Although there has been much research into the forecasting of outcomes and resource use, little has been done to illustrate the effects they have on one another and the consequential economic outcomes. In this analysis we observe relationships between resource use, yield and sale price through the use of statistical models. The dataset used for this analysis includes data collected for the past 10 years from 1261 vineyards located over a diverse range of Australian winegrowing regions. Yield and sale price were evaluated with respect to the resource use factors water use and Green House Gas (GHG) emissions. The analysis confirmed a strong relationship between area and resource use, with the overall area of a vineyard and its access to resources greatly determining the upper limit of yield. However, area was also negatively related to the average sale price of grapes; we find that higher average sale prices were connected to high resource inputs per area, rather than to the overall expenditure of resources. Regional and temporal effects on vineyard yield and average sales price were also identified. Overall, the analysis highlighted the importance of considering a vineyard's business goal, region, external pressures and economies of scale, when considering whether to pursue higher yields or higher average sales prices.
 \end{abstract}
 %%Graphical abstract`
 %\begin{graphicalabstract}
@@ -140,10 +141,10 @@ When strategies for a sustainable winegrowing industry are assessed, there is a 
 %\end{keyword}
 %%Research highlights
 \begin{highlights}
-  \item Comparative analysis of resource use, average sale price and quantity in Australian winegrowing.
-  \item Regional comparison of outcomes and resource use in Australian winegrowing regions.
-  \item Baseline models for comparing vineyards.
-  \item Analysis of national, decade long data source.
+\item Found that higher resource inputs per area are associated with higher sale prices, rather than overall resource expenditure.
+\item Identified significant differences in yield and sale prices across regions, highlighting the influence of localized conditions on vineyard profitability.
+\item Developed baseline models that demonstrate the critical relationship between vineyard area and both resource usage and economic outcomes.
+\item Analysis of long-term data offering a comprehensive view of industry trends highlighting resource use trends and economic outcomes.
 \end{highlights}
 \end{frontmatter}
 
@@ -208,6 +209,7 @@ where emissions was the the product of the quantity of fuel in litres, $Q$, a pr
 Differences in vineyard locations were captured through the use of Geographical Indicator Regions defined by Wine Australia \citep{hallidayAustralianWineEncyclopedia2009,oliverReviewSoilPhysical2013,soarClimateDriversRed2008}. Although vineyards generally differed in income, there were pronounced differences between regions as shown in Figure \ref{fig:map}. These differences were likely due to the site of a vineyard being important as it predetermines several physical parameters such as climate, geology and soil, making location a widely considered key determinant of grape yield and average sale price \citep{abbalDecisionSupportSystem2016,agostaRegionalClimateVariability2012,fragaMultivariateClusteringViticultural2017}. Each GI Region has its own unique mixture of climatic and geophysical properties that describes a unique winegrowing region within Australia and is a protected trademark under the Wine Australia act \citep{attorney-generalsdepartmentWineAustraliaCorporation2010}. Both Wine Australia and Sustainable Winegrowing Australia used the same GI Region categorical variable format to describe location.
 \par
  The climatic properties of each GI Region were summarised by using predefined classifications as per the \citet{sustainablewinegrowingaustraliaSustainableWinegrowingAustralia2021} user manual. The user manual describes climates by rainfall and temperature, creating supersets of Regions of similar climatic properties. The climatic groups were used to illustrate similarities and differences occurring in areas larger than GI Regions.
+These classifications were literal descriptors used by industry members to discern between different weather types within winegrowing regions. Other climatic descriptors were explored, such as the  Köppen climate classification, hoiwever this did not offer a granular enough index to highlight any trends or clustering within the data.
 \par
 \subsection{Analysis}
 Pairwise Pearson Correlation Coefficients (PPCC) were calculated to assess the potential existence of linear relationships between the input and predicted variables. To determine if a coefficient was indicative of a strong relationship, both the magnitude of the value and the associated confidence intervals were evaluated. P-values reflected the significance of a given correlation coefficient with statistical significance being declared when the corresponding P-value was lower than 0.05. PPCC analyses were undertaken for data on the original scale and for data as a logarithmic transform. Transforming data prior to calculating the coefficients changes several things. The logarithmic transform of the data alters the interpretation of the coefficients to percentage change; a coefficient will be indicative of the change in percentage of one variable compared to the other, scaling by standard deviation also changes this interpretation to be a percentage of that variables standard deviation. When considering the logarithmically transformed variables, a coefficient of 1 would indicate that the change of one variable by one percentage of its standard deviation would correlate to the other variable changing by one percent of its own standard deviation. The importance of this is the dimensionless nature of these relationships and that it can be translated directly to any vineyard's case that has a well known distribution.
@@ -220,7 +222,7 @@ A variety of alternate methods were also explored, including splines, hierarchic
 Models were validated using K-fold cross validation. This was performed by removing a subset of data from the sample used to train models and then predicting those variables to determine how sensitive the model is to changes in the sample data. For this analysis, each model was validated using 10 folds, repeated 100 times.
 \par
 \section{Results}
-\subsection{Exploratory Analysis}\label{sec:exp_anal}
+\subsection{Summary Statistics}\label{sec:exp_anal}
  Table \ref{tab:summary} shows the summary statistics of each variable in its original units. The range of these values shows the level of difference between some vineyards, with operations differing by orders of magnitude in size, yield and average price of sale (See Table \ref{tab:tab1}).
 \par
 \begin{table}[]
@@ -322,7 +324,7 @@ The regression coefficients for the Year variable of each model is depicted in F
 \par
 \begin{figure}
   \includegraphics{yearly_plots.pdf}
-  \caption{Model Coefficient values for Year, with standard error bars.}\label{fig:yearly}
+  \caption{Model Coefficient values for Year, with standard error bars. The coefficiens represent the influence that each year had on the model outcomes (see Table 1 for model outcomes and their predictors). Each years influence is comparative to the first year in the models, 2012.}t\label{fig:yearly}
   \end{figure}
 
 % Search for where you mention quality and where you mention value as this does become misleading!!!
@@ -349,7 +351,7 @@ Regional differences by temperature and rainfall are summarised in Figure \ref{f
 \begin{figure}
   \resizebox{\textwidth}{!}{
   \includegraphics{starplots.png}}
-  \caption{Radar plot of climatic profile's resource use, yield and average sale price. The left reflects vineyards in different climatic temperatures. The right reflects vineyards in different rainfall climates.}\label{fig:spider}
+  \caption{Radar plot of climatic profile's resource use, yield and average sale price. Each point shows the overal contribution of a variable to the vineyards outcomes for that climate. The left reflects vineyards in different climatic temperatures. The right reflects vineyards in different rainfall climates.}\label{fig:spider}
 \end{figure}
 
 Figure \ref{fig:yield_vs_value_area} further shows the emphasis that 'Hot' areas have on high yields, with low average sale price compared with other regions. Scaling average price and yield by area shows a strong negative trend, trading quantity for higher sales prices.
