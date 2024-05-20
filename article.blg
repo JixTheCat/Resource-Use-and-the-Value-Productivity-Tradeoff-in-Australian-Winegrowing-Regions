@@ -1,58 +1,83 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: article.aux
-The style file: elsarticle-harv.bst
+The style file: plos2015.bst
 Database file #1: references.bib
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Warning--empty journal in wineaustraliaNationalVintageReport2019
-Warning--empty journal in wineaustraliaNationalVintageReport2020
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+`journal' is a missing field, not a string, for entry wineaustraliaNationalVintageReport2021
+while executing---line 1875 of file plos2015.bst
 Warning--empty journal in wineaustraliaNationalVintageReport2021
-Warning--empty journal in wineaustraliaNationalVintageReport2022
-Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2013
-Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2014
-Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2015
-Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2016
-Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2017
+`journal' is a missing field, not a string, for entry winemakersfederationofaustraliaNationalVintageReport2018
+while executing---line 1875 of file plos2015.bst
 Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2018
-You've used 51 entries,
-            2990 wiz_defined-function locations,
-            978 strings with 18707 characters,
-and the built_in function-call counts, 31442 in all, are:
-= -- 2329
-> -- 1310
-< -- 29
-+ -- 508
-- -- 453
-* -- 3337
-:= -- 4715
-add.period$ -- 159
-call.type$ -- 51
-change.case$ -- 403
-chr.to.int$ -- 51
-cite$ -- 61
-duplicate$ -- 2386
-empty$ -- 2270
-format.name$ -- 570
-if$ -- 5752
-int.to.chr$ -- 1
-int.to.str$ -- 1
-missing$ -- 455
-newline$ -- 276
-num.names$ -- 204
-pop$ -- 927
+You can't pop an empty literal stack for entry yeggeInfluenceSensoryNonsensory2001
+while executing---line 1875 of file plos2015.bst
+`journal' is a missing field, not a string, for entry wineaustraliaNationalVintageReport2019
+while executing---line 1875 of file plos2015.bst
+Warning--empty journal in wineaustraliaNationalVintageReport2019
+`journal' is a missing field, not a string, for entry wineaustraliaNationalVintageReport2022
+while executing---line 1875 of file plos2015.bst
+Warning--empty journal in wineaustraliaNationalVintageReport2022
+`journal' is a missing field, not a string, for entry winemakersfederationofaustraliaNationalVintageReport2013
+while executing---line 1875 of file plos2015.bst
+Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2013
+`journal' is a missing field, not a string, for entry winemakersfederationofaustraliaNationalVintageReport2014
+while executing---line 1875 of file plos2015.bst
+Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2014
+`journal' is a missing field, not a string, for entry winemakersfederationofaustraliaNationalVintageReport2015
+while executing---line 1875 of file plos2015.bst
+Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2015
+`journal' is a missing field, not a string, for entry winemakersfederationofaustraliaNationalVintageReport2016
+while executing---line 1875 of file plos2015.bst
+Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2016
+`journal' is a missing field, not a string, for entry winemakersfederationofaustraliaNationalVintageReport2017
+while executing---line 1875 of file plos2015.bst
+Warning--empty journal in winemakersfederationofaustraliaNationalVintageReport2017
+`journal' is a missing field, not a string, for entry wineaustraliaNationalVintageReport2020
+while executing---line 1875 of file plos2015.bst
+Warning--empty journal in wineaustraliaNationalVintageReport2020
+You've used 59 entries,
+            3058 wiz_defined-function locations,
+            1025 strings with 20993 characters,
+and the built_in function-call counts, 102467 in all, are:
+= -- 13180
+> -- 732
+< -- 1
++ -- 442
+- -- 183
+* -- 8697
+:= -- 11168
+add.period$ -- 229
+call.type$ -- 59
+change.case$ -- 2
+chr.to.int$ -- 0
+cite$ -- 69
+duplicate$ -- 8552
+empty$ -- 9715
+format.name$ -- 219
+if$ -- 23836
+int.to.chr$ -- 0
+int.to.str$ -- 59
+missing$ -- 485
+newline$ -- 303
+num.names$ -- 59
+pop$ -- 822
 preamble$ -- 1
-purify$ -- 355
+purify$ -- 0
 quote$ -- 0
-skip$ -- 723
+skip$ -- 829
 stack$ -- 0
-substring$ -- 1129
-swap$ -- 1601
+substring$ -- 20432
+swap$ -- 1167
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 453
+type$ -- 0
 warning$ -- 10
-while$ -- 200
-width$ -- 0
-write$ -- 721
-(There were 10 warnings)
+while$ -- 504
+width$ -- 61
+write$ -- 650
+(There were 11 error messages)
