@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.16)  20 MAY 2024 10:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.16)  28 MAY 2024 12:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/bryce/repositories/Resource-Use-and-the-Value-Productivity-Tradeoff-in-Australian-Winegrowing-Regions/article.tex
-(/home/bryce/repositories/Resource-Use-and-the-Value-Productivity-Tradeoff-in-Australian-Winegrowing-Regions/article.tex
+**/home/bryce/repositories/archive/Resource-Use-and-the-Value-Productivity-Tradeoff-in-Australian-Winegrowing-Regions/article.tex
+(/home/bryce/repositories/archive/Resource-Use-and-the-Value-Productivity-Tradeoff-in-Australian-Winegrowing-Regions/article.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -641,13 +641,7 @@ Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 280.
 
-[2] [3]
-<my_map.pdf, id=104, 505.89pt x 505.89pt>
-File: my_map.pdf Graphic file (type pdf)
-<use my_map.pdf>
-Package pdftex.def Info: my_map.pdf  used on input line 307.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
- [4 <./my_map.pdf>] [5]
+[2] [3] [4]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 331.
@@ -661,7 +655,7 @@ Overfull \hbox (7.08621pt too wide) in paragraph at lines 334--352
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 356.
 
-[6]
+[5] [6]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 377.
@@ -671,114 +665,34 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 402.
 
 [7]
-<yearly_plots.pdf, id=176, 505.89pt x 505.89pt>
-File: yearly_plots.pdf Graphic file (type pdf)
-<use yearly_plots.pdf>
-Package pdftex.def Info: yearly_plots.pdf  used on input line 429.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-
-Overfull \hbox (126.47125pt too wide) in paragraph at lines 429--430
-[][] 
- []
-
-<starplots.png, id=179, 803.0pt x 356.33125pt>
-File: starplots.png Graphic file (type png)
-<use starplots.png>
-Package pdftex.def Info: starplots.png  used on input line 456.
-(pdftex.def)             Requested size: 802.99805pt x 356.33037pt.
-<yield_verse_value_by_area.pdf, id=182, 505.89pt x 505.89pt>
-File: yield_verse_value_by_area.pdf Graphic file (type pdf)
-<use yield_verse_value_by_area.pdf>
-Package pdftex.def Info: yield_verse_value_by_area.pdf  used on input line 464.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-
-Package caption Warning: \label without proper reference on input line 476.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tab:kfold' on page 8 undefined on input line 468.
-
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 475.
 
-[8] [9 <./yearly_plots.pdf>] [10 <./starplots.png> <./yield_verse_value_by_area.pdf>] [11] [12] (./article.bbl [13] [14] [15])
+[8] [9] [10] (./article.bbl [11] [12] [13] [14])
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 530.
+               Default added (so using `tbp') on input line 529.
 
-<model1_qq.pdf, id=285, 505.89pt x 505.89pt>
-File: model1_qq.pdf Graphic file (type pdf)
-<use model1_qq.pdf>
-Package pdftex.def Info: model1_qq.pdf  used on input line 546.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<model1_rvf.pdf, id=286, 505.89pt x 505.89pt>
-File: model1_rvf.pdf Graphic file (type pdf)
-<use model1_rvf.pdf>
-Package pdftex.def Info: model1_rvf.pdf  used on input line 552.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<model2_qq.pdf, id=287, 505.89pt x 505.89pt>
-File: model2_qq.pdf Graphic file (type pdf)
-<use model2_qq.pdf>
-Package pdftex.def Info: model2_qq.pdf  used on input line 558.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<model2_rvf.pdf, id=288, 505.89pt x 505.89pt>
-File: model2_rvf.pdf Graphic file (type pdf)
-<use model2_rvf.pdf>
-Package pdftex.def Info: model2_rvf.pdf  used on input line 564.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<model3_qq.pdf, id=289, 505.89pt x 505.89pt>
-File: model3_qq.pdf Graphic file (type pdf)
-<use model3_qq.pdf>
-Package pdftex.def Info: model3_qq.pdf  used on input line 570.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<model3_rvf.pdf, id=290, 505.89pt x 505.89pt>
-File: model3_rvf.pdf Graphic file (type pdf)
-<use model3_rvf.pdf>
-Package pdftex.def Info: model3_rvf.pdf  used on input line 576.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<model4_qq.pdf, id=291, 505.89pt x 505.89pt>
-File: model4_qq.pdf Graphic file (type pdf)
-<use model4_qq.pdf>
-Package pdftex.def Info: model4_qq.pdf  used on input line 582.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<model4_rvf.pdf, id=292, 505.89pt x 505.89pt>
-File: model4_rvf.pdf Graphic file (type pdf)
-<use model4_rvf.pdf>
-Package pdftex.def Info: model4_rvf.pdf  used on input line 588.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<model5_qq.pdf, id=293, 505.89pt x 505.89pt>
-File: model5_qq.pdf Graphic file (type pdf)
-<use model5_qq.pdf>
-Package pdftex.def Info: model5_qq.pdf  used on input line 593.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
-<model5_rvf.pdf, id=294, 505.89pt x 505.89pt>
-File: model5_rvf.pdf Graphic file (type pdf)
-<use model5_rvf.pdf>
-Package pdftex.def Info: model5_rvf.pdf  used on input line 599.
-(pdftex.def)             Requested size: 505.88875pt x 505.88875pt.
 
 AED: lastpage setting LastPage
-[16] [17 <./model1_qq.pdf>] [18 <./model1_rvf.pdf>] [19 <./model2_qq.pdf>] [20 <./model2_rvf.pdf>] [21 <./model3_qq.pdf>] [22 <./model3_rvf.pdf>] [23 <./model4_qq.pdf>] [24 <./model4_rvf.pdf>] [25 <./model5_qq.pdf>] [26 <./model5_rvf.pdf>] (./article.aux)
-
-LaTeX Warning: There were undefined references.
-
+[15] [16] (./article.aux)
 Package rerunfilecheck Info: File `article.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 17975 strings out of 478287
- 306705 string characters out of 5849289
- 665358 words of memory out of 5000000
- 35658 multiletter control sequences out of 15000+600000
+ 17866 strings out of 478287
+ 304488 string characters out of 5849289
+ 658385 words of memory out of 5000000
+ 35574 multiletter control sequences out of 15000+600000
  475588 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,19n,77p,2429b,483s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,19n,77p,2437b,483s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on article.pdf (26 pages, 4850397 bytes).
+Output written on article.pdf (16 pages, 172749 bytes).
 PDF statistics:
- 489 PDF objects out of 1000 (max. 8388607)
- 409 compressed objects within 5 object streams
- 121 named destinations out of 1000 (max. 500000)
- 22599 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 352 PDF objects out of 1000 (max. 8388607)
+ 312 compressed objects within 4 object streams
+ 111 named destinations out of 1000 (max. 500000)
+ 22529 words of extra memory for PDF output out of 24883 (max. 10000000)
 
