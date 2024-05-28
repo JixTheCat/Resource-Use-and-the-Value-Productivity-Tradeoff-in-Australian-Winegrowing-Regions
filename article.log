@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.16)  28 MAY 2024 12:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.16)  28 MAY 2024 12:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -633,66 +633,34 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 265.
-
-
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 280.
 
 [2] [3] [4]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 331.
-
-
 Overfull \hbox (7.08621pt too wide) in paragraph at lines 334--352
 [][] 
  []
 
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 356.
-
-[5] [6]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 377.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 402.
-
-[7]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 475.
-
-[8] [9] [10] (./article.bbl [11] [12] [13] [14])
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 529.
-
-
+[5] [6] [7] [8] [9] (./article.bbl [10] [11] [12] [13]) 
 AED: lastpage setting LastPage
-[15] [16] (./article.aux)
+[14] [15] (./article.aux)
 Package rerunfilecheck Info: File `article.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 17866 strings out of 478287
- 304488 string characters out of 5849289
- 658385 words of memory out of 5000000
+ 17865 strings out of 478287
+ 304481 string characters out of 5849289
+ 662385 words of memory out of 5000000
  35574 multiletter control sequences out of 15000+600000
  475588 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,19n,77p,2437b,483s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,19n,77p,2437b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on article.pdf (16 pages, 172749 bytes).
+Output written on article.pdf (15 pages, 172431 bytes).
 PDF statistics:
- 352 PDF objects out of 1000 (max. 8388607)
- 312 compressed objects within 4 object streams
- 111 named destinations out of 1000 (max. 500000)
+ 347 PDF objects out of 1000 (max. 8388607)
+ 308 compressed objects within 4 object streams
+ 110 named destinations out of 1000 (max. 500000)
  22529 words of extra memory for PDF output out of 24883 (max. 10000000)
 

@@ -262,7 +262,7 @@ There is an extensive amount of research into the varied effects of factors on g
 \section*{Methods}
 \subsection*{Data}
 
-\begin{table}[]
+\begin{table}[htb]
 \caption{Summary of models; their predictors, covariates and variable interactions.}\label{tab:tab1}
   \resizebox{\textwidth}{!}{\begin{tabular}{@{}ccccc@{}}
     \toprule
@@ -302,7 +302,7 @@ We converted multiple emission sources into scope one emissions using the equati
 \end{equation}
 where emissions was the the product of the quantity of fuel in litres, $Q$, a prescribed Energy Content, $EC$, and emission factors (as given by the Australian National Greenhouse Accounts factors) of scope one, $EF1$, and scope three, $EF3$, to tonnes of Carbon Dioxide Emission equivalent, $tCO2e$~\cite{departmentofclimatechangeenergytheenvironmentandwaterAustralianNationalGreenhouse2022}.
 \par
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{fig1.pdf}}
   \caption{Map of each GI Regions' (outlined by Wine Australia) average income for a vineyard of that region (average grape sale price per tonne $\times$ total tonnes yielded).}\label{fig:map}
@@ -328,7 +328,7 @@ Models were validated using K-fold cross validation. This was performed by remov
 \subsection*{Summary Statistics}\label{sec:exp_anal}
  Table~\ref{tab:summary} shows the summary statistics of each variable in its original units. The range of these values shows the level of difference between some vineyards, with operations differing by orders of magnitude in size, yield and average price of sale (See Table~\ref{tab:tab1}).
 \par
-\begin{table}[]
+\begin{table}[htb]
   \caption{Summary statistics of each continuous variable.}\label{tab:summary}
       % \resizebox{\textwidth}{!}{
         \begin{tabular}{@{}cllll@{}}
@@ -353,7 +353,7 @@ Models were validated using K-fold cross validation. This was performed by remov
 
 PPCCs values for the transformed, centred and scaled variables are shown in Table~\ref{tab:pearson_correlation}. The process of centring and scaling variables changes them so that their mean is centred on 0 and all values are scaled to the variables standard deviation, such that 1 is equal to the variables standard deviation. All correlations were found to be statistically significant (p $<$ 2.200E-16), and except for Average Sale Price all variables were positively correlated. With water use, area harvested and emissions being positively correlated to yield, it can be considered that more resources and area are likely to lead to greater yields. The negative correlations between Average Sale Price and Yield, Water Use, Area and Scope One Emissions each indicated that Area Harvested and Fuel Use separately were not the determining factor for average sale price. The negative correlations are associative, not causal relationships (i.e using more water does not cause lower sale prices).
 \par
-\begin{table}[]
+\begin{table}[htb]
   \caption{Pairwise Pearson correlation coefficients for logarithmically transformed values.}\label{tab:pearson_correlation}
       \resizebox{\textwidth}{!}{
       \begin{tabular}{@{}cccccccc@{}}
@@ -374,7 +374,7 @@ PPCCs values for the transformed, centred and scaled variables are shown in Tabl
 Each model had a high $R^2$ value, indicating that most of the variance within the data was described by the models (see Table~\ref{tab:modelsummary}) and statistical significance of F-tests (p $<$ 2.200E-16). Aside from 3 variables, all regression parameters were also statistically significant from zero, F-tests across each model's variables were (p $<$ 0.05). The three exceptions were: scope one emissions in Model 3 (p=0.22) and Model 4 (p=0.0.39), and the interaction between area harvested and water used in model 2 (p=0.22). Note that scope one emissions was included in all models to directly compare the response variables as ratios of vineyard size to raw values and because it was strongly correlated to the response variable in every model (except model 5) especially for Models 1 and 4 (Table~\ref{tab:pearson_correlation}). 
 %A full list of regression coefficients 95\% CIs and p-values for each of the four models is provided in the appendix. % You gotta add these to the appendix in a more readable fashion
 \par
-\begin{table}[]
+\begin{table}[htb]
   \caption{Summary of models; their performance, F-statistics and Residual error.}\label{tab:modelsummary}
       \resizebox{\textwidth}{!}{
         \begin{tabular}{@{}cccccccc@{}}
@@ -399,7 +399,7 @@ Coefficients related to continuous variables are summarised in Table~\ref{tab:co
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
 % \usepackage{multirow}
-\begin{table}[]
+\begin{table}[htb]
   \caption{Summary of each Model's coefficients for continuous variables}\label{tab:contvar}
   \resizebox{\textwidth}{!}{
   \begin{tabular}{@{}cccccccc@{}}
@@ -425,7 +425,7 @@ Coefficients related to continuous variables are summarised in Table~\ref{tab:co
 
 The regression coefficients for the Year variable of each model is depicted in Figure~\ref{fig:yearly}. For each model, the first year for a model's was used as the baseline: 2012 for Models 1 and 2, and 2015 for Models 3, 4 and 5. Adelaide Hills is used as the regional baseline with the interaction between year and region using the first year and the Adelaide Hills as the baseline. Region and year contributed, in some but not all cases, more than the other variables. However, the coefficients varied substantially over the years, and were not significantly different from zero in some years. Models 4 and 5 are very similar in Figure~\ref{fig:yearly}, indicating that the exclusion of area does not greatly affect the contribution from yearly influence. Models 4 and 5 have the most prominent trends, showing an increase in yearly effects over time, with Model 3 also increasing from 2016 to 2018, but plateauing afterwards. Model 1 and 2 do not show a clear trend, but do drop during 2017 and 2018 after increasing in the first 3 years.
 \par
-\begin{figure}
+\begin{figure}[htb]
   % \includegraphics{fig2.pdf}
   \caption{Model Coefficient values for Year, with standard error bars. The coefficiens represent the influence that each year had on the model outcomes (see Table 1 for model outcomes and their predictors). Each years influence is comparative to the first year in the models, 2012.}t\label{fig:yearly}
   \end{figure}
@@ -451,7 +451,7 @@ The regression coefficients for the Year variable of each model is depicted in F
 
 Regional differences by temperature and rainfall are summarised in Figure~\ref{fig:spider}. The most notable difference is between vineyards within 'Hot' and 'Very Dry' regions (warm inland regions), where high average sale prices are historically low, and yield is high. Water Use changes dramatically between these regions as well, with water being a driving force for yield but not necessarily average sale price. The warmer and drier regions tend to also have larger vineyards. These regional differences are further shown in Figure~\ref{fig:yield_vs_value_area}, as a ratio of vineyard; where there is a pronounced difference in 'Hot' and 'Very Dry' regions producing more per area with lower average sale prices per area than other regions.
 \par
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{fig3.pdf}}
   \caption{Radar plot of climatic profile's resource use, yield and average sale price. Each point shows the overal contribution of a variable to the vineyards outcomes for that climate. The left reflects vineyards in different climatic temperatures. The right reflects vineyards in different rainfall climates.}\label{fig:spider}
@@ -459,7 +459,7 @@ Regional differences by temperature and rainfall are summarised in Figure~\ref{f
 
 Figure~\ref{fig:yield_vs_value_area} further shows the emphasis that 'Hot' areas have on high yields, with low average sale price compared with other regions. Scaling average price and yield by area shows a strong negative trend, trading quantity for higher sales prices.
 \par
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{fig4.pdf}}
     \caption{Scatter plot of vineyard yield against the average sale price as ratios to area harvested. The axes are in standard deviations with points coloured by climate.}\label{fig:yield_vs_value_area}
@@ -472,7 +472,7 @@ Table~\ref{tab:kfold} shows the validation results of each of the models. The $R
 %
 %
 \par
-\begin{table}[]
+\begin{table}[htb]
   \caption{Model validation using k-fold cross validation, for 10 folds repeated 100 times.}\label{tab:kfold}
   % \resizebox{\textwidth}{!}{
   \begin{tabular}{@{}cccc@{}}
@@ -526,7 +526,7 @@ This study delved into the relationships between resource use, grape sales price
 \section*{Appendix}
 \par
 
-\begin{table}[]
+\begin{table}[htb]
       \caption{P-values for the non-transformed water used variable's Pearson correlation coefficients.}
       \begin{tabular}{cl}
       Variable                                           & Water Used \\
@@ -540,60 +540,60 @@ This study delved into the relationships between resource use, grape sales price
 \end{table}
 
 
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{s1.pdf}}
   \caption{QQ-plot of Model 1.}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{s2.pdf}}
   \caption{Residuals vs fitted values for Model 1.}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{s3.pdf}}
   \caption{QQ-plot of Model 2.}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{s4.pdf}}
   \caption{Residuals vs fitted values for Model 2.}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{s5.pdf}}
   \caption{QQ-plot of Model 3.}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{s6.pdf}}
   \caption{Residuals vs fitted values for Model 3.}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{s7.pdf}}
   \caption{QQ-plot of Model 4.}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{s8.pdf}}
   \caption{Residuals vs fitted values for Model 4.}
 \end{figure}
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{s9.pdf}}
   \caption{QQ-plot of Model 5.}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[htb]
   % \resizebox{\textwidth}{!}{
   % \includegraphics{s10.pdf}}
   \caption{Residuals vs fitted values for Model 5.}
